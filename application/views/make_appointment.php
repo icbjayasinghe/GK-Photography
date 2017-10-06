@@ -49,6 +49,18 @@
 
                 <br>
                 <br>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label><h4>Description</h4></label>
+                    </div>
+                    <div class="col-md-4">
+                        <textarea type="text" name="description" id="description" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <br>
+                <br>
                 <br>
 
 
@@ -73,11 +85,13 @@
         var date = document.getElementById('appointment_date').value;
         var stime = document.getElementById('appointment_stime').value;
         var etime = document.getElementById('appointment_etime').value;
+        var description = document.getElementById('description').value;
+        var cust_id = "REG0000001";
         if ((date.length==10) && (stime.length==5) && (etime.length==5) && (stime!=etime)){
             $.ajax({
                 url:'<?php echo site_url('ajax/checkAvailability'); ?>',
                 method: "post",
-                data: {date:date,stime:stime,etime:etime},
+                data: {date:date,stime:stime,etime:etime,description:description,cust_id:cust_id},
                 success: function( data ) {
                     alert(data);
                     //$('#time_slots').html(data);

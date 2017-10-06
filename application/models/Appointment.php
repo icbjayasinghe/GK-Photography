@@ -16,8 +16,21 @@ class Appointment extends CI_Model
     /*
     book an appointment
     */
-    public function bookSlot($date,$startTime,$endTime){
-
+    public function bookSlot($appId,$date,$startTime,$endTime,$description,$custId){
+        $data = array(
+            'appointment_id' => $appId,
+            'appointment_date' => $date,
+            'start_time' => $startTime,
+            'end_time' => $endTime,
+            'description' => $description,
+            'cust_id' => $custId,
+        );
+        try{
+            $result=$this->db->insert('appointment',$data);
+        }
+        catch (Exception $e){
+            echo $e;
+        }
     }
 }
 

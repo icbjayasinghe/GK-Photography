@@ -4,6 +4,9 @@
 class Appointments extends CI_Controller
 {
 
+    /*
+     * loads appointment booking view
+     */
     public function makeAppointment()
     {
         $this->load->view('header');

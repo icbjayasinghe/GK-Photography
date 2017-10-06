@@ -10,16 +10,20 @@ class Ajax extends CI_Controller
     */
     public function checkAvailability()
     {
-        $appDate = $this->input->post['date'];
-        $appStartTime = $this->input->post['stime'];
-        $appEndTime = $this->input->post['etime'];
+        $appDate = $this->input->post('date');
+        $appStartTime = $this->input->post('stime');
+        $appEndTime = $this->input->post('etime');
+        $description = $this->input->post('description');
+        $custId = $this->input->post('cust_id');
         $this->load->model('appointment');
         $result = $this->appointment->getUnavailableSlots($appDate);
         $numRows = $result->num_rows();
-        if ($numRows==0){
-            $result = $this->appointment->bookSlot($appDate,$appStartTime,$appEndTime);
+        if ($numRows==0){ // if there aren't any appointment for that day
+            $this->load->model('database_model');
+            $newId = $this->database_model->generateId('appointment_id','appointment','APP');
+            $result = $this->appointment->bookSlot($newId,$appDate,$appStartTime,$appEndTime,$description,$custId);
+            echo "success";
         }
-        echo $numRows;
     }
 }
 
