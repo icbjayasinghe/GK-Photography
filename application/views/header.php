@@ -31,6 +31,7 @@
 </head>
 
 <body>
+
 <div class="bar">
     <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
         <span class="icon-bar"></span>
@@ -38,6 +39,7 @@
         <span class="icon-bar"></span>
     </button>
 </div>
+
 <div class="navmenu navmenu-default navmenu-fixed-left">
 
     <ul class="nav navmenu-nav">
@@ -58,3 +60,18 @@
     </div>
     <div class="copyright-text">©Copyright <a href="https://themewagon.com/"> GK Photography</a> 2017 </div>
 </div>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class= "collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <ul class="nav navbar-nav navbar-right my-primary-menu">
+                <li id="contact_menu" class="link-1">
+                    <a href="#contact">Log In</a>
+                </li>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
