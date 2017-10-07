@@ -83,13 +83,22 @@
 <script type="text/javascript">
     function makeAppointment() {
         var date = document.getElementById('appointment_date').value;
-        var stime = document.getElementById('appointment_stime').value;
-        var etime = document.getElementById('appointment_etime').value;
+
+        // extracting hours and minutes separately from start time and concatenate them
+        var hoursSTime = document.getElementById('appointment_stime').value.substring(0,2);
+        var minutesSTime = document.getElementById('appointment_stime').value.substring(3,5);
+        var stime = hoursSTime.concat(minutesSTime);
+
+        // extracting hours and minutes separately from end time and concatenate them
+        var hoursETime = document.getElementById('appointment_etime').value.substring(0,2);
+        var minutesETime = document.getElementById('appointment_etime').value.substring(3,5);
+        var etime = hoursETime.concat(minutesETime);
+
         var description = document.getElementById('description').value;
         var cust_id = "REG0000001";
-        if ((date.length==10) && (stime.length==5) && (etime.length==5) && (stime!=etime)){
+        if ((date.length==10) && (stime.length==4) && (etime.length==4) && (stime<etime)){
             $.ajax({
-                url:'<?php echo site_url('ajax/checkAvailability'); ?>',
+                url:'<?php echo site_url('appointments/checkAvailability'); ?>',
                 method: "post",
                 data: {date:date,stime:stime,etime:etime,description:description,cust_id:cust_id},
                 success: function( data ) {

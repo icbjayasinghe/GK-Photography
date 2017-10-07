@@ -11,7 +11,6 @@ class Database_model extends CI_Model
     public function getLastId($field,$table){
         try
         {
-            //$query = "SELECT ".$field." FROM ".$table." ORDER BY ".$field." DESC LIMIT 1";
             $result = $this->db->query("SELECT ".$field." FROM ".$table." ORDER BY ".$field." DESC LIMIT 1");
             $number_of_rows = $result->num_rows();
 
@@ -20,9 +19,6 @@ class Database_model extends CI_Model
                 return $last_id;
             }
             else{
-                //echo $number_of_rows;
-                //$result_set->data_seek($number_of_rows-1);
-                //$last_id_row = $query->row($number_of_rows);
                 $last_id_row = $result->last_row('array');
                 $last_id = $last_id_row[$field];
                 $last_id_no = substr($last_id,3,strlen($last_id)-1);
