@@ -9,7 +9,9 @@ class Appointment extends CI_Model
     */
     public function getUnavailableSlots($date)
     {
-        $query = $this->db->get_where('appointment', array('appointment_date' => $date));
+        $this->db->order_by('start_time', "ASC");
+        $this->db->where('appointment_date',$date)->where("(status='pending' OR status='accepted')");
+        $query = $this->db->get('appointment');
         return $query;
     }
 

@@ -102,15 +102,17 @@
                 method: "post",
                 data: {date:date,stime:stime,etime:etime,description:description,cust_id:cust_id},
                 success: function( data ) {
-                    alert(data);
+                    $('#msg_Modal').modal('show');
+                    $('#msg_result').html(data);
                     //$('#time_slots').html(data);
                    // document.getElementById("time_slots").disabled=false;
                 }
             });
         }
         else{
-            alert("failure");
+            $('#msg_Modal').modal('show');
+            $('#msg_result').html("Please check all the fields!");
         }
-
     }
+
 </script>
