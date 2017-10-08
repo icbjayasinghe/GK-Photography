@@ -12,7 +12,7 @@
         <!-- Wrapper for Slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <!-- Set the first background image using inline CSS below. -->
+                <!-- Set the first backgrou-nd image using inline CSS below. -->
                 <!-- <div class="fill" style="background-image:url('img/bg.jpg');"></div> -->
                 <img src="<?php echo base_url();?>img/bg.jpg" alt="First slide">
                 <div class="carousel-caption">
