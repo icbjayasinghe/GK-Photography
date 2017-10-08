@@ -40,3 +40,12 @@
 	color: white;
 	background : linear-gradient(#000,#00251a);
 }
+
+.background-theme{
+	background-image: url('../img/main-background.jfif');
+	color: white;
+}
+
+.background-theme h2{
+	color: white;
+}

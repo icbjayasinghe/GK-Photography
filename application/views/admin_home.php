@@ -1,8 +1,9 @@
 <link href="<?php echo base_url(); ?>css/admin-home.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<div class="canvas col-md-12">
 
+<div class="canvas col-md-12 background-theme">
 
+    <br><br>
     <!-- Page Content -->
     <div class="container">
 
