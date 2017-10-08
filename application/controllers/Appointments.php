@@ -122,6 +122,14 @@ class Appointments extends CI_Controller
         }
     }
 
+
+    function appointmentRequestCount(){
+        $this->load->model('appointment');
+        $result = $this->appointment->fetchAppointmentRequestCount();
+        echo $result;
+    }
+
+
     function test(){
         $appDate = $this->input->post('date');
         $this->load->model('database_model'); // to invoke the generateId() method later
