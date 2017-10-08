@@ -11,8 +11,8 @@ class Appointment extends CI_Model
     {
         $this->db->order_by('start_time', "ASC");
         $this->db->where('appointment_date',$date)->where("(status='pending' OR status='accepted')");
-        $query = $this->db->get('appointment');
-        return $query;
+        $result = $this->db->get('appointment');
+        return $result;
     }
 
     /*
@@ -31,6 +31,19 @@ class Appointment extends CI_Model
             $result=$this->db->insert('appointment',$data);
         }
         catch (Exception $e){
+            echo $e;
+        }
+    }
+
+
+    function fetchAppointmentRequestCount(){
+        try {
+            $this->db->where('status','pending');
+            $this->db->from("appointment");
+            echo $this->db->count_all_results();
+
+
+        } catch (Exception $e) {
             echo $e;
         }
     }
