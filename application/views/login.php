@@ -11,13 +11,22 @@
 <link href="<?php echo base_url(); ?>css/homestyle.css" rel="stylesheet">
 <div class="container">
     <hr>
+
 <ul class="nav nav-tabs">
     <li role="presentation" class="active"><a href="#">Sign in</a></li>
     <li role="presentation"><a href="<?php echo base_url('index.php/Welcome/register') ?>">Sign up</a></li>
 
 </ul>
 
+<!--    session for just registered customer-->
+    <?php if ($this->session->flashdata('msg')){
+        echo "<h3>".$this->session->flashdata('msg')."</h3>";
+    }
+
+    ?>
+
 <form class="form-horizontal">
+
     <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
         <div class="col-sm-10">

@@ -18,8 +18,8 @@ class Model_user extends CI_Model{
             'delete_or_not' => "no"
         );
 
-//        save data to db
-        $this->db->insert('user',$data);
+//        save data to db(return true or false to Register model)
+        return $this->db->insert('user',$data);
     }
 
 

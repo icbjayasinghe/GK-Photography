@@ -22,7 +22,15 @@ class Register extends CI_Controller{
         else {
 //          load Model_user for inserting user data to db
             $this->load->model('Model_user');
-            $this->Model_user->insertUser();
+            $response = $this->Model_user->insertUser();
+
+//            last step of registration
+            if($response){
+                $this->session->set_flashdata('msg','Registered successfully... Please login');
+
+//                $this->session->set_flashdata('msg','Registered successfully... Please login');
+                redirect('Welcome/login');
+            }
         }
 
     }
