@@ -13,15 +13,16 @@ class Register extends CI_Controller{
 //        validation rules for register form
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]|max_length[30]');
-        $this->form_validation->set_rules('cpassword', 'Confirm Password', 'required| matches[password]');
+        $this->form_validation->set_rules('password', 'Password', 'required|min_length[4]|max_length[30]');
+        $this->form_validation->set_rules('cpassword', 'Confirm Password', 'required|matches[password]');
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('register');
         }
         else {
-            echo "validation true";
-
+//          load Model_user for inserting user data to db
+            $this->load->model('Model_user');
+            $this->Model_user->insertUser();
         }
 
     }
