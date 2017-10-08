@@ -18,33 +18,41 @@
 
 </ul>
 
-    <form class="form-horizontal">
+<!--for checking validation errors-->
+    <?php echo validation_errors(); ?>
+
+<!--    use CI form helper for putting customer registration data to db -->
+    <?php echo form_open('Register/RegisterUser'); ?>
+
 
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" placeholder="Name">
+                <input type="text" class="form-control" id="name" placeholder="Name" name="name">
             </div>
         </div>
 
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
             <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                <input type="email" class="form-control" id="email" placeholder="Email" name="email">
             </div>
         </div>
+
         <div class="form-group">
             <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password">
             </div>
         </div>
+
         <div class="form-group">
             <label for="inputPassword3" class="col-sm-2 control-label">Confirm Password</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password" name="cpassword">
             </div>
         </div>
+
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <div class="checkbox">
@@ -59,7 +67,8 @@
                 <button type="submit" class="btn btn-default">Sign up</button>
             </div>
         </div>
-    </form>
+
+    <?php echo form_close();?>
 
 <div>
 
