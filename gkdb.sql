@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2017 at 10:59 AM
+-- Generation Time: Oct 07, 2017 at 02:16 PM
 -- Server version: 5.7.9
 -- PHP Version: 5.6.16
 
@@ -30,13 +30,25 @@ DROP TABLE IF EXISTS `appointment`;
 CREATE TABLE IF NOT EXISTS `appointment` (
   `appointment_id` varchar(20) NOT NULL,
   `appointment_date` date NOT NULL,
-  `start_time` int(11) NOT NULL,
-  `end_time` int(11) NOT NULL,
-  `description` int(11) NOT NULL,
+  `start_time` varchar(11) NOT NULL,
+  `end_time` varchar(11) NOT NULL,
+  `description` varchar(1000) NOT NULL,
   `cust_id` varchar(20) NOT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'pending',
   PRIMARY KEY (`appointment_id`,`cust_id`),
   KEY `fk_Appointment_Customer1` (`cust_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `appointment`
+--
+
+INSERT INTO `appointment` (`appointment_id`, `appointment_date`, `start_time`, `end_time`, `description`, `cust_id`, `status`) VALUES
+('APP0000001', '2017-10-07', '1500', '1600', 'Wedding', 'REG0000001', 'pending'),
+('APP0000002', '2017-10-07', '1700', '1800', 'Wedding', 'REG0000001', 'pending'),
+('APP0000003', '2017-10-07', '1400', '1430', 'Wedding', 'REG0000001', 'pending'),
+('APP0000004', '2017-10-07', '1900', '2030', 'Wedding', 'REG0000001', 'pending'),
+('APP0000005', '2017-10-07', '0100', '0200', 'Birthday', 'REG0000001', 'pending');
 
 -- --------------------------------------------------------
 
@@ -48,9 +60,9 @@ DROP TABLE IF EXISTS `appointment_request`;
 CREATE TABLE IF NOT EXISTS `appointment_request` (
   `request_id` varchar(20) NOT NULL,
   `appointment_date` date NOT NULL,
-  `start_time` int(11) NOT NULL,
-  `end_time` int(11) NOT NULL,
-  `description` int(11) NOT NULL,
+  `start_time` varchar(11) NOT NULL,
+  `end_time` varchar(11) NOT NULL,
+  `description` varchar(1000) NOT NULL,
   `cust_id` varchar(20) NOT NULL,
   PRIMARY KEY (`request_id`,`cust_id`),
   KEY `fk_Appointment_Customer1` (`cust_id`)

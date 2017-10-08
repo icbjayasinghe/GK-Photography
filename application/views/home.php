@@ -1,7 +1,6 @@
 
     <div id="myCarousel" class="canvas carousel slide" data-ride="carousel">
-    <!-- Full Page Image Background Carousel Header -->
-    
+        <!-- Full Page Image Background Carousel Header -->
         <!-- Indicators -->
         <ol class="carousel-indicators xtra-border">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
