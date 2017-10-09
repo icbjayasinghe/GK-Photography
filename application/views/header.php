@@ -67,7 +67,7 @@
         <div class= "collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav navbar-right my-primary-menu">
                 <li id="contact_menu" class="link-1">
-                    <a href="#contact">Log In</a>
+                    <a href='index.php/Welcome/login'>Log In</a>
                 </li>
         </div>
         <!-- /.navbar-collapse -->

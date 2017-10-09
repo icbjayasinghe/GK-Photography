@@ -50,4 +50,15 @@ class Welcome extends CI_Controller {
         $this->load->view('works');
         $this->load->view('footer');
     }
+
+    public function login(){
+	    $this->load->view('login');
+        $this->load->view('footer');
+    }
+
+    public function register(){
+        $this->load->view('register');
+        $this->load->view('footer');
+    }
+
 }
