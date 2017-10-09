@@ -1,5 +1,5 @@
 
-<div class="canvas col-md-12 my-background">
+<div class="canvas col-md-12 background-theme">
     <!-- Page Content -->
     <div class="container">
 
