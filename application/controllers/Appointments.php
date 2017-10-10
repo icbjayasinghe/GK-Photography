@@ -11,14 +11,45 @@ class Appointments extends CI_Controller
     {
         $this->load->view('header');
         $this->load->view('make_appointment');
-        $this->load->view('message_model');
+        $this->load->view('message_modal');
         $this->load->view('footer');
     }
 
     /*
-   check the availability of
-   customer defined time slot
-   */
+     * loads appointment booking view
+     */
+    public function appointmentRequests(){
+        $this->load->model('appointment');
+        $result['appointmentRequests']= $this->appointment->getAppointmentRequests();
+        $this->load->view('admin/appointment_requests',$result);
+
+    }
+
+    /*
+     * update appointment status
+     */
+    public function updateAppointmentStatus(){
+        $newStatus = $this->input->post('status');
+        $appointmentId = $this->input->post('appointmentId');
+        $this->load->model('appointment');
+        $result = $this->appointment->updateAppointment('status',$newStatus,$appointmentId);
+        if ($result){
+            if($newStatus == "rejected"){
+                echo "Appointment Rejected";
+            }
+            if($newStatus == "accepted"){
+                echo "Appointment Accepted";
+            }
+        }
+        else{
+            echo "Unsuccessful";
+        }
+    }
+
+    /*
+     * check the availability of
+     * customer defined time slot
+     */
     public function checkAvailability()
     {
         $appDate = $this->input->post('date');
@@ -78,10 +109,10 @@ class Appointments extends CI_Controller
     }
 
     /*
-   display the unavailable slots
-    as a message
-   */
-    function displayUnavailableSlotsMessage($appDate){
+     * display the unavailable slots
+     * as a message
+     */
+    public function displayUnavailableSlotsMessage($appDate){
         echo "<h4>Below time slots are allocated for ".$appDate."</h4><br>";
         $this->load->model('appointment');
         $result = $this->appointment->getUnavailableSlots($appDate);
@@ -106,9 +137,9 @@ class Appointments extends CI_Controller
     }
 
     /*
-   convert 24 hour format to 12 hour
-   */
-    function hours24Convert($hour){
+     * convert 24 hour format to 12 hour
+     */
+    public function hours24Convert($hour){
         $dataArray=array();
         if ($hour<=12){
             array_push($dataArray,$hour);
@@ -122,15 +153,17 @@ class Appointments extends CI_Controller
         }
     }
 
-
-    function appointmentRequestCount(){
+    /*
+     * count number of appointment requests
+     */
+    public function appointmentRequestCount(){
         $this->load->model('appointment');
         $result = $this->appointment->fetchAppointmentRequestCount();
         echo $result;
     }
 
 
-    function test(){
+    public function test(){
         $appDate = $this->input->post('date');
         $this->load->model('database_model'); // to invoke the generateId() method later
         $this->load->model('appointment');
@@ -144,8 +177,9 @@ class Appointments extends CI_Controller
             echo "<br>";
 
         }
-
     }
+
+
 }
 
 ?>

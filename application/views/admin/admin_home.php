@@ -79,9 +79,9 @@
         });
     },3000);
 
-    // load register requests
+    // load appointment requests view
     function displayRegisterRequests() {
-        $('#content').load("../view/manage-register-requests.php");
+        $('#content').load("<?php echo base_url();?>index.php/appointments/appointmentRequests");
     }
 
 </script>

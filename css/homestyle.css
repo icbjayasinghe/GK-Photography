@@ -49,3 +49,17 @@
 .background-theme h2{
 	color: white;
 }
+
+table{
+	background : linear-gradient(#bdbdbd,#e0e0e0);
+	color: #000;
+}
+
+.modal-content{
+	color: white;
+	background : linear-gradient(#00251a,#004d40);
+}
+
+.modal-content small{
+	color: white;
+}
