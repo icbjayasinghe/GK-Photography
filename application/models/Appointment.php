@@ -54,6 +54,35 @@ class Appointment extends CI_Model
     }
 
     /*
+     * get all appointments or for a particular date
+     */
+    public function getAppointments($date){
+        try{
+            if ($date == "*"){
+                $this->db->select('*');
+                $this->db->from('appointment');
+                $this->db->join('customer', 'customer.cust_id = appointment.cust_id');
+                $this->db->where('appointment.status', 'accepted');
+                $result = $this->db->get();
+                return $result->result();
+            }
+            else{
+                $this->db->select('*');
+                $this->db->from('appointment');
+                $this->db->join('customer', 'customer.cust_id = appointment.cust_id');
+                $this->db->where('appointment.status', 'accepted');
+                $this->db->where('appointment.appointment_date', $date);
+                $result = $this->db->get();
+                return $result->result();
+            }
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
+
+
+    /*
      * book an appointment
      */
     public function bookSlot($appId,$date,$startTime,$endTime,$description,$custId){

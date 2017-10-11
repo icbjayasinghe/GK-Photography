@@ -26,6 +26,43 @@ class Appointments extends CI_Controller
     }
 
     /*
+     * view appointments
+     */
+    public function viewAppointments(){
+        $this->load->model('appointment');
+        $date = $this->input->post('date');
+        $appointmentRequests = $this->appointment->getAppointments($date);
+        $appointmentList = "<table class=\"table table-hover col-md-12\">
+                <thead>
+                <tr>
+                    <th>Appointment ID</th>
+                    <th>Appointment Date</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Description</th>
+                    <th>Customer Name</th>
+                </tr>
+                </thead>
+                <tbody>";
+        foreach ($appointmentRequests as $row){
+            $customerDetals = [$row->cust_id,$row->first_name,$row->last_name,$row->cust_phone,$row->cust_address,$row->cust_email,$row->date_joined];
+            $rowString = implode(",", $customerDetals);
+            $appointmentList.= "<tr>";
+            $appointmentList.= "<td>{$row->appointment_id}</td>";
+            $appointmentList.= "<td>{$row->appointment_date}</td>";
+            $appointmentList.= "<td>{$row->start_time}h</td>";
+            $appointmentList.= "<td>{$row->end_time}h</td>";
+            $appointmentList.= "<td>{$row->description}</td>";
+            $appointmentList.= "<td><a class=\"customer_check\" onclick=\"loadCustomerModal('$rowString')\" id={$row->cust_id}><b>{$row->first_name} {$row->last_name}</b></a></td>";
+            //$appointmentList.= "<td><a class=\"btn btn-success btn-sm\" onclick=\"statusChange('accepted',this.id)\" name=\"accept\" value=\"Accept\" id=\"{$row->appointment_id}\"><span class=\"glyphicon glyphicon-edit\"></span>  Accept</a></td>";
+            //$appointmentList.= "<td><a class=\"btn btn-danger btn-sm\" onclick=\"statusChange('rejected',this.id)\" name=\"reject\" value=\"Reject\" id=\"{$row->appointment_id}\"><span class=\"glyphicon glyphicon-edit\"></span>  Reject</a></td>";
+            $appointmentList.= "</tr>";
+        }
+        $appointmentList .="</tbody></table>";
+        echo $appointmentList;
+    }
+
+    /*
      * update appointment status
      */
     public function updateAppointmentStatus(){
