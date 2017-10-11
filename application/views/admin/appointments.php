@@ -1,7 +1,11 @@
 
 <h2>Appointments<span> <small>
-            <input id="date_picker" type="date" name="appointment_date" onchange="getAppointmentDetails()" value="<?php echo date("Y-m-d");?>">
-        </small></span></h2>
+            <input id="date_picker" type="date" name="appointment_date" onchange="getAppointmentDetails('')" value="<?php echo date("Y-m-d");?>">
+        </small>
+    <div class="request-icon" onclick="getAppointmentDetails('*')">
+                <a class="btn view-all">View All   <i class="fa fa-table" aria-hidden="true"></i></a>
+            </div>
+    </span></h2>
 <br>
 
 <div class="row">

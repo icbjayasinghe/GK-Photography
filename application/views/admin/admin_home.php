@@ -111,8 +111,14 @@
     }
 
     // load appointment details when date picker is changed
-    function getAppointmentDetails() {
-        var date = document.getElementById("date_picker").value;
+    function getAppointmentDetails(value) {
+        if (value == '*'){
+            var date = '*';
+            $('#date_picker').val("");
+        }
+        else{
+            var date = document.getElementById("date_picker").value;
+        }
         $.ajax({
             url:'<?php echo site_url('appointments/viewAppointments'); ?>',
             method: "post",
