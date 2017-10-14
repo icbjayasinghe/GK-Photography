@@ -25,18 +25,29 @@
 
     ?>
 
-<form class="form-horizontal">
+    <!--    session for enter wrong pw or username-->
+    <?php if ($this->session->flashdata('errmsg')){
+        echo "<h3>".$this->session->flashdata('errmsg')."</h3>";
+    }
+
+    ?>
+
+    <!--for checking validation errors-->
+    <?php echo validation_errors(); ?>
+
+    <!--    use CI form helper for gettting customer data from db -->
+    <?php echo form_open('Login/LoginUser'); ?>
 
     <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
         <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email">
         </div>
     </div>
     <div class="form-group">
         <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
         <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password">
         </div>
     </div>
     <div class="form-group">
@@ -53,5 +64,5 @@
             <button type="submit" class="btn btn-default">Sign in</button>
         </div>
     </div>
-</form>
+<?php echo form_close(); ?>
 </div>

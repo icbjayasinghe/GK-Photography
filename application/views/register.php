@@ -27,9 +27,16 @@
 
 
         <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+            <label for="inputEmail3" class="col-sm-2 control-label">First name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+                <input type="text" class="form-control" id="name" placeholder="First name" name="fname">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Last name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" placeholder="Last name" name="lname">
             </div>
         </div>
 
@@ -37,6 +44,20 @@
             <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
             <div class="col-sm-10">
                 <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Phone No.</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="email" placeholder="Phone number" name="phone">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Address</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" placeholder="Address" name="address">
             </div>
         </div>
 
