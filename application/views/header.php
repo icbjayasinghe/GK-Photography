@@ -68,6 +68,11 @@
             <ul class="nav navbar-nav navbar-right my-primary-menu">
                 <li id="contact_menu" class="link-1">
                     <a href='index.php/Welcome/login'>Log In</a>
+                    <?php if ($this->session->flashdata('welcomemsg')){
+                        echo "<a><h3>".$this->session->flashdata('welcomemsg')."</h3></a>";
+                    }
+
+                    ?>
                 </li>
         </div>
         <!-- /.navbar-collapse -->

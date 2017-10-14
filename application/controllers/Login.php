@@ -19,7 +19,8 @@ class Login extends CI_Controller{
 //            database result of user from Model_user
             $result= $this->Model_user->LoginUser();
             if($result!=FALSE){
-                echo "weda";
+                $this->session->set_flashdata('welcomemsg','Hi ....');
+                redirect('Welcome');
 
             }
             else{
