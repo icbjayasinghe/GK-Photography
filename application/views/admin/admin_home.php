@@ -24,7 +24,7 @@
             <div class="col-lg-3 mb-4">
                 <div class="list-group">
                     <a href="<?php echo base_url();?>index.php/administrator/adminHome" class="list-group-item ref">Home</a>
-                    <a href="about.html" class="list-group-item">About</a>
+                    <a href="<?php echo base_url();?>index.php/administrator/appointments" class="list-group-item ref">Appointments</a>
                     <a href="services.html" class="list-group-item">Services</a>
                     <a href="contact.html" class="list-group-item">Contact</a>
                     <a href="portfolio-1-col.html" class="list-group-item">1 Column Portfolio</a>
@@ -79,9 +79,54 @@
         });
     },3000);
 
-    // load register requests
+    // load appointment requests view
     function displayRegisterRequests() {
-        $('#content').load("../view/manage-register-requests.php");
+        $('#content').load("<?php echo base_url();?>index.php/appointments/appointmentRequests");
+    }
+
+    // load modal to view customer details
+    function loadCustomerModal(customerDetails){
+        customerDetails = customerDetails.split(",");
+        $('#cust_id').html(customerDetails[0]);
+        $('#first_name').val(customerDetails[1]);
+        $('#last_name').val(customerDetails[2]);
+        $('#cust_phone').val(customerDetails[3]);
+        $('#cust_address').val(customerDetails[4]);
+        $('#cust_email').val(customerDetails[5]);
+        $('#customer_Modal').modal('show');
+    }
+
+    // to change the appointment status to 'accepted' or 'rejected'
+    function statusChange(status,appointmentId) {
+        $.ajax({
+            url:'<?php echo site_url('appointments/updateAppointmentStatus'); ?>',
+            method: "post",
+            data: {status:status,appointmentId:appointmentId},
+            success: function( data ) {
+                $('#msg_Modal').modal('show');
+                $('#msg_result').html(data);
+                $('#content').load("<?php echo base_url();?>index.php/appointments/appointmentRequests");
+            }
+        });
+    }
+
+    // load appointment details when date picker is changed
+    function getAppointmentDetails(value) {
+        if (value == '*'){
+            var date = '*';
+            $('#date_picker').val("");
+        }
+        else{
+            var date = document.getElementById("date_picker").value;
+        }
+        $.ajax({
+            url:'<?php echo site_url('appointments/viewAppointments'); ?>',
+            method: "post",
+            data: {date:date},
+            success: function( data ) {
+                $('#table_results').html(data);
+            }
+        });
     }
 
 </script>

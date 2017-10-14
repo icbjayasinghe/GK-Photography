@@ -13,3 +13,8 @@
 .badge:hover{
     background-color: #4cae4c;
 }
+
+.view-all{
+    font-size: 70%;
+    font-weight: bold;
+}
