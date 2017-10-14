@@ -25,9 +25,21 @@ class Model_user extends CI_Model{
 //            'type' => "customer"
 
         );
+
+        $userdata=array(
+            'user_id' =>$cus_id,
+            'first_name' => $this->input->post('fname',TRUE),
+            'last_name' => $this->input->post('lname',TRUE),
+            'email' => $this->input->post('email',TRUE),
+            'password' => sha1($this->input->post('password',TRUE)),
+            'is_deleted' => 0,
+            'type' => "Customer"
+        );
         try{
-            //        save data to db(return true or false to Register model)
+            //        save data to db
+            $this->db->insert('user',$userdata);
             return $this->db->insert('customer',$data);
+
 
         }
         catch (Exception $e){
