@@ -67,19 +67,18 @@
         <div class= "collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav navbar-right my-primary-menu">
                 <li id="contact_menu" class="link-1">
-                    <a href='index.php/Welcome/login'>Login</a>
-<!--                    --><?php //if ($this->session->flashdata('welcome')) {
-//                        echo "<a href='index.php/Login/LogoutUser'>Log Out</a>";
-//                        echo "<a><h3>" . $this->session->flashdata('welcome') . "</h3></a>";
-//                    }
-//                    echo "<a><h3>" . $this->session->userdata('$f_name') . "</h3></a>";
-////                        echo "<a><h3>".$this->session->flashdata('welcomemsg')."</h3></a>";
-//
-////                    else{
-////                        echo "<a href='index.php/Welcome/login'>Log In</a>";
-////                    }
-//
-//                    ?>
+                    <a href='index.php/Welcome/login'>Logout</a>
+                    <?php if ($this->session->flashdata('welcome')) {
+                        echo "<a><h3>" . $this->session->flashdata('welcome') . "</h3></a>";
+                    }
+                    echo "<a><h3>" . $this->session->userdata('$f_name') . "</h3></a>";
+                    //                        echo "<a><h3>".$this->session->flashdata('welcomemsg')."</h3></a>";
+
+                    //                    else{
+                    //                        echo "<a href='index.php/Welcome/login'>Log In</a>";
+                    //                    }
+
+                    ?>
                 </li>
         </div>
         <!-- /.navbar-collapse -->

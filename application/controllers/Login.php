@@ -44,8 +44,10 @@ class Login extends CI_Controller{
     }
 
     public function LogoutUser(){
-        unset($_SESSION['$f_name']);
-        unset($_SESSION['$l_name']);
+        $this->session->unset_userdata('f_name');
+        $this->session->unset_userdata('l_name');
+        $this->session->unset_userdata('type');
+        $this->session->unset_userdata('loggedin');
         redirect('Welcome');
 
     }
