@@ -28,8 +28,15 @@ class Login extends CI_Controller{
                 );
                 $this->session->set_userdata($user_data);
 //                $this->session->set_flashdata('welcomemsg','Hi ....');
-                redirect('Appointments/makeAppointment');
-                $this->session->set_flashdata('welcome','Welcome back');
+                if($this->session->userdata('$type')=='Customer'){
+                    redirect('Appointments/makeAppointment');
+                    $this->session->set_flashdata('welcome','Welcome back');
+                }
+                elseif($this->session->userdata('$type')=='Admin'){
+                    redirect('Administrator/adminHome');
+
+                }
+
 
 
             }
