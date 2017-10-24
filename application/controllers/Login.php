@@ -19,8 +19,18 @@ class Login extends CI_Controller{
 //            database result of user from Model_user
             $result= $this->Model_user->LoginUser();
             if($result!=FALSE){
-                $this->session->set_flashdata('welcomemsg','Hi ....');
-                redirect('Welcome');
+                $user_data = array(
+
+                    '$f_name'=>$result->first_name,
+                    '$l_name'=>$result->last_name,
+                    '$type'=>$result->type,
+                    'loggedin'=>TRUE
+                );
+                $this->session->set_userdata($user_data);
+//                $this->session->set_flashdata('welcomemsg','Hi ....');
+                redirect('Appointments/makeAppointment');
+                $this->session->set_flashdata('welcome','Welcome back');
+
 
             }
             else{
@@ -31,6 +41,13 @@ class Login extends CI_Controller{
 
 
         }
+    }
+
+    public function LogoutUser(){
+        unset($_SESSION['$f_name']);
+        unset($_SESSION['$l_name']);
+        redirect('Welcome');
+
     }
 
 
