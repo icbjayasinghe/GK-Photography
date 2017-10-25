@@ -67,8 +67,33 @@
         <div class= "collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav navbar-right my-primary-menu">
                 <li id="contact_menu" class="link-1">
-                    <a href='index.php/Welcome/login'>Login</a>
 
+
+                    <!--                    restrict url login-->
+                    <!--                    --><?php //if(!($this->session->userdata('loggedin'))){
+                    //                        redirect('Welcome/login');
+                    //                    }?>
+
+                    <?php
+                    $loginner = $this->session->userdata('$f_name');
+                    if($loginner != ""){
+                        ?> <a href="<?php echo base_url('index.php/Login/LogoutUser')?>">Logout</a>
+
+                        <?php
+
+                        if($this->session->flashdata('welcome')) {
+                            echo "<a><h3>" . $this->session->flashdata('welcome') . "</h3></a>";
+                        }
+                        echo "<a><h3>" . $this->session->userdata('$f_name')." " .$this->session->userdata('$l_name')."</h3></a>";
+
+
+
+                    }else{
+                        ?><a href="<?php echo base_url('index.php/Login/LoginUser')?>">Login</a>
+
+                        <?php
+
+                    }?>
                 </li>
         </div>
         <!-- /.navbar-collapse -->

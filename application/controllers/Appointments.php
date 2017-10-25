@@ -9,7 +9,7 @@ class Appointments extends CI_Controller
      */
     public function makeAppointment()
     {
-        $this->load->view('headerLogedCustomer');
+        $this->load->view('header');
         $this->load->view('make_appointment');
         $this->load->view('message_modal');
         $this->load->view('footer');
