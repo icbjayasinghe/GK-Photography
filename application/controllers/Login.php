@@ -32,7 +32,7 @@ class Login extends CI_Controller{
                     redirect('Appointments/makeAppointment');
                     $this->session->set_flashdata('welcome','Welcome back');
                 }
-                elseif($this->session->userdata('$type')=='Admin'){
+                elseif($this->session->userdata('$type')=='Administrator'){
                     redirect('Administrator/adminHome');
 
                 }
