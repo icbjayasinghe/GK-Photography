@@ -20,7 +20,7 @@ class Login extends CI_Controller{
             $result= $this->Model_user->LoginUser();
             if($result!=FALSE){
                 $user_data = array(
-
+                    '$id'=>$result->user_id,//wasura use this- call like----> like $this->session->set_userdata($id)
                     '$f_name'=>$result->first_name,
                     '$l_name'=>$result->last_name,
                     '$type'=>$result->type,
