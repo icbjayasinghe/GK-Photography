@@ -4,12 +4,12 @@
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-        <div class="row">
+        <div class="row class="mt-4 mb-3"">
             <div class="col-lg-12">
-                <h1 class="page-header">Book an Appointment
-
+                <h1 class="page-header">Book an Appointment  <small><?php echo $this->session->userdata('$f_name')." " .$this->session->userdata('$l_name');?></small>
                 </h1>
 
+                <input type="hidden" name="cust_id" id="cust_id" value="<?php echo $this->session->userdata('$id');?>">
             </div>
         </div>
         <!-- /.row -->
@@ -95,7 +95,8 @@
         var etime = hoursETime.concat(minutesETime);
 
         var description = document.getElementById('description').value;
-        var cust_id = "REG0000001";
+        //var cust_id = "REG0000001";
+        var cust_id = document.getElementById('cust_id').value;
         if ((date.length==10) && (stime.length==4) && (etime.length==4) && (stime<etime)){
             $.ajax({
                 url:'<?php echo site_url('appointments/checkAvailability'); ?>',

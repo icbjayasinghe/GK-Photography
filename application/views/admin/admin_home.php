@@ -9,7 +9,7 @@
 
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">Admin Home
-            <small>Subheading</small>
+            <small><?php echo $this->session->userdata('$f_name')." " .$this->session->userdata('$l_name');?></small>
             <div class="request-icon">
                 <span class="badge badge-pill badge-info" id="request_count" onclick="displayRegisterRequests()"></span>
                 <i class="fa fa-envelope-o envelop" aria-hidden="true" onclick="displayRegisterRequests()"></i>
