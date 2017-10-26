@@ -25,6 +25,7 @@
                     <div class="col-md-4">
                             <input type="date" name="appointment_date" id="appointment_date" class="form-control">
                     </div>
+                    <p id="check_date"></p>
                 </div>
                 <br>
                 <br>
@@ -36,6 +37,7 @@
                     <div class="col-md-4">
                             <input type="time" name="appointment_time" id="appointment_stime" class="form-control">
                     </div>
+                    <p id="check_start_time"></p>
                 </div>
 
                 <div class="row">
@@ -43,8 +45,9 @@
                         <label><h4>Select a End Time</h4></label>
                     </div>
                     <div class="col-md-4">
-                        <input type="time" name="appointment_time" id="appointment_etime" class="form-control" >
+                        <input type="time" name="appointment_time" id="appointment_etime" class="form-control" onchange="onChangeEndTime()">
                     </div>
+                    <p id="check_end_time"></p>
                 </div>
 
                 <br>
@@ -57,6 +60,7 @@
                     <div class="col-md-4">
                         <textarea type="text" name="description" id="description" class="form-control"></textarea>
                     </div>
+                    <p id="check_description"></p>
                 </div>
 
                 <br>
@@ -81,6 +85,29 @@
 </div>
 
 <script type="text/javascript">
+
+    function onChangeEndTime(){
+        // extracting hours and minutes separately from start time and concatenate them
+        var hoursSTime = document.getElementById('appointment_stime').value.substring(0,2);
+        var minutesSTime = document.getElementById('appointment_stime').value.substring(3,5);
+        var stime = hoursSTime.concat(minutesSTime);
+
+        // extracting hours and minutes separately from end time and concatenate them
+        var hoursETime = document.getElementById('appointment_etime').value.substring(0,2);
+        var minutesETime = document.getElementById('appointment_etime').value.substring(3,5);
+        var etime = hoursETime.concat(minutesETime);
+
+
+
+        if (stime>=etime){
+            $('#check_end_time').html("Please check end time");
+        }
+        else if (etime!=""){
+            $('#check_end_time').html("");
+        }
+    }
+
+    // function to execute when make appointment button is clicked
     function makeAppointment() {
         var date = document.getElementById('appointment_date').value;
 
@@ -95,8 +122,26 @@
         var etime = hoursETime.concat(minutesETime);
 
         var description = document.getElementById('description').value;
-        //var cust_id = "REG0000001";
         var cust_id = document.getElementById('this_cust_id').value;
+
+        if (date==""){
+            $('#check_date').html("Please fill this field");
+            return;
+        }
+        if (stime==""){
+            $('#check_start_time').html("Please fill this field");
+            return;
+        }
+        if (etime==""){
+            $('#check_end_time').html("Please fill this field");
+            return;
+        }
+        if (description==""){
+            $('#check_description').html("Please fill this field");
+            return;
+        }
+
+
         if ((date.length==10) && (stime.length==4) && (etime.length==4) && (stime<etime)){
             $.ajax({
                 url:'<?php echo site_url('appointments/checkAvailability'); ?>',
