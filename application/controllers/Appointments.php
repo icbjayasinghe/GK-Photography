@@ -13,6 +13,7 @@ class Appointments extends CI_Controller
         $this->load->view('make_appointment');
         $this->load->view('message_modal');
         $this->load->view('footer');
+
     }
 
     /*
@@ -45,8 +46,8 @@ class Appointments extends CI_Controller
                 </thead>
                 <tbody>";
         foreach ($appointmentRequests as $row){
-            $customerDetals = [$row->cust_id,$row->first_name,$row->last_name,$row->cust_phone,$row->cust_address,$row->cust_email,$row->date_joined];
-            $rowString = implode(",", $customerDetals);
+            $customerDetails = [$row->cust_id,$row->first_name,$row->last_name,$row->cust_phone,$row->cust_address,$row->cust_email,$row->date_joined];
+            $rowString = implode(",", $customerDetails);
             $appointmentList.= "<tr>";
             $appointmentList.= "<td>{$row->appointment_id}</td>";
             $appointmentList.= "<td>{$row->appointment_date}</td>";

@@ -42,3 +42,18 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+    // load modal to view customer details
+    function loadCustomerModal(customerDetails){
+        customerDetails = customerDetails.split(",");
+        $('#cust_id').html(customerDetails[0]);
+        $('#first_name').val(customerDetails[1]);
+        $('#last_name').val(customerDetails[2]);
+        $('#cust_phone').val(customerDetails[3]);
+        $('#cust_address').val(customerDetails[4]);
+        $('#cust_email').val(customerDetails[5]);
+        $('#customer_Modal').modal('show');
+    }
+</script>

@@ -33,7 +33,7 @@ class Login extends CI_Controller{
                     $this->session->set_flashdata('welcome','Welcome back');
                 }
                 elseif($this->session->userdata('$type')=='Administrator'){
-                    redirect('Administrator/adminHome');
+                    redirect('Users/adminHome');
 
                 }
 

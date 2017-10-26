@@ -55,7 +55,7 @@
     <!-- /.container -->
 </div>
 
-<script>
+<script type="text/javascript">
     // load content dynamically to content div from sidebar
     $("a").filter(".ref").click(function(){
         var page = $(this).attr('href');
@@ -87,7 +87,8 @@
     // load modal to view customer details
     function loadCustomerModal(customerDetails){
         customerDetails = customerDetails.split(",");
-        $('#cust_id').html(customerDetails[0]);
+        alert(customerDetails);
+        $('#cust_id').val(customerDetails[0]);
         $('#first_name').val(customerDetails[1]);
         $('#last_name').val(customerDetails[2]);
         $('#cust_phone').val(customerDetails[3]);
@@ -130,3 +131,4 @@
     }
 
 </script>
+

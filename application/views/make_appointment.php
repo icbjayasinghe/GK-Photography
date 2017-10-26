@@ -9,7 +9,7 @@
                 <h1 class="page-header">Book an Appointment  <small><?php echo $this->session->userdata('$f_name')." " .$this->session->userdata('$l_name');?></small>
                 </h1>
 
-                <input type="hidden" name="cust_id" id="cust_id" value="<?php echo $this->session->userdata('$id');?>">
+                <input type="hidden" name="this_cust_id" id="this_cust_id" value="<?php echo $this->session->userdata('$id');?>">
             </div>
         </div>
         <!-- /.row -->
@@ -96,7 +96,7 @@
 
         var description = document.getElementById('description').value;
         //var cust_id = "REG0000001";
-        var cust_id = document.getElementById('cust_id').value;
+        var cust_id = document.getElementById('this_cust_id').value;
         if ((date.length==10) && (stime.length==4) && (etime.length==4) && (stime<etime)){
             $.ajax({
                 url:'<?php echo site_url('appointments/checkAvailability'); ?>',
