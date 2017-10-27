@@ -52,11 +52,13 @@ class Welcome extends CI_Controller {
     }
 
     public function login(){
+	    $this->load->view('login_header');
 	    $this->load->view('login');
         $this->load->view('footer');
     }
 
     public function register(){
+        $this->load->view('login_header');
         $this->load->view('register');
         $this->load->view('footer');
     }

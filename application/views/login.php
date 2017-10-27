@@ -9,7 +9,10 @@
 <link href="<?php echo base_url(); ?>css/navmenu-reveal.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>css/homestyle.css" rel="stylesheet">
-<div class="container">
+<div id="myCarousel" class="canvas carousel slide background-theme" data-ride="carousel">
+
+
+<div class="container col-md-6 my-signup">
     <hr>
 
 <ul class="nav nav-tabs">
@@ -25,7 +28,7 @@
 
     ?>
 
-    <!--    session for enter wrong pw or username-->
+    <!--    session for enter wrong email-->
     <?php if ($this->session->flashdata('errmsg')){
         echo "<h3>".$this->session->flashdata('errmsg')."</h3>";
     }
@@ -44,6 +47,7 @@
             <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email">
         </div>
     </div>
+    <br> <br>
     <div class="form-group">
         <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
         <div class="col-sm-10">
@@ -65,4 +69,5 @@
         </div>
     </div>
 <?php echo form_close(); ?>
+</div>
 </div>

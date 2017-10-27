@@ -12,8 +12,9 @@ class Login extends CI_Controller{
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[4]|max_length[30]');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('header');
+            $this->load->view('login_header');
             $this->load->view('login');
+            $this->load->view('footer');
         }
         else {
             $this->load->model('Model_user');
