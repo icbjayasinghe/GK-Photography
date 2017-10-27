@@ -47,9 +47,9 @@
 <div class="navmenu navmenu-default navmenu-fixed-left">
     <ul class="nav navmenu-nav">
         <li><a href="<?php echo base_url();?>index.php/welcome/index">Home</a></li>
-        <li><a href="<?php echo base_url();?>index.php/welcome/works">Works</a></li>
+        <!-- <li><a href="<?php echo base_url();?>index.php/welcome/works">Works</a></li> -->
         <li><a href="<?php echo base_url();?>index.php/welcome/gallery">Gallery</a></li>
-        <li><a href="<?php echo base_url();?>index.php/welcome/blog">Blog</a></li>
+        <!-- <li><a href="<?php echo base_url();?>index.php/welcome/blog">Blog</a></li> -->
         <li><a href="<?php echo base_url();?>index.php/welcome/contact">Contact</a></li>
     </ul>
     <a class="navmenu-brand" href="#"><img src="<?php echo base_url();?>img/logo-original.png" width="160"></a>

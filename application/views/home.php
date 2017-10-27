@@ -13,28 +13,28 @@
             <div class="item active">
                 <!-- Set the first backgrou-nd image using inline CSS below. -->
                 <!-- <div class="fill" style="background-image:url('img/bg.jpg');"></div> -->
-                <img src="<?php echo base_url();?>img/bg.jpg" alt="First slide">
+                <img src="<?php echo base_url();?>img/home1.jpg" alt="First slide">
                 <div class="carousel-caption">
-                  <h2 class="sub-title-home">We Don't Take Photograph</h2>
-                  <h1 class="title-home">We Make It</h1>
+                  <h2 class="sub-title-home">Photography is a way</h2>
+                  <h1 class="title-home">of Feeling<br>of Touching<br>of Loving</h1>
                 </div>
             </div>
             <div class="item">
                 <!-- Set the second background image using inline CSS below. -->
                 <!-- <div class="fill" style="background-image:url('img/bg1.jpg');"></div> -->
-                <img src="<?php echo base_url();?>img/bg1.jpg" alt="Second slide">
+                <img src="<?php echo base_url();?>img/home2.jpg" alt="Second slide">
                 <div class="carousel-caption">
-                  <h2 class="sub-title-home">We Don't Take Photograph</h2>
-                  <h1 class="title-home">We Make It</h1>
+                  <h2 class="sub-title-home">Let Your Sunset Sun Shine</h2>
+                  <h1 class="title-home">and All will align</h1>
                 </div>
             </div>
             <div class="item">
                 <!-- Set the third background image using inline CSS below. -->
                 <!-- <div class="fill" style="background-image:url('img/bg3.jpg');"></div> -->
-                <img src="<?php echo base_url();?>img/bg3.jpg" alt="Third slide">
+                <img src="<?php echo base_url();?>img/home3.jpg" alt="Third slide">
                 <div class="carousel-caption">
-                  <h2 class="sub-title-home">We Don't Take Photograph</h2>
-                  <h1 class="title-home">We Make It</h1>
+                  <h2 class="sub-title-home">Smile</h2>
+                  <h1 class="title-home">the only fashion<br>that lasts forever</h1>
                 </div>
             </div>
         </div>
