@@ -8,8 +8,8 @@
 
 class Model_user extends CI_Model{
     public function insertUser(){
-        $this->load->model(Database_model);
-        $cus_id = $this->Database_model->generateId('cust_id','customer','CUS');
+        $this->load->model('database_model');
+        $cus_id = $this->database_model->generateId('cust_id','customer','CUS');
 //        date_default_timezone_set('Australia/Melbourne');
         $data=array(
 //            second TRUE parameter for xss_filtering

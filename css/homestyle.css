@@ -63,15 +63,3 @@ table{
 .modal-content small{
 	color: white;
 }
-
-.warning_msg{
-	color: #FF0E0E;
-	font-weight: bold;
-	font-size: medium;
-}
-
-.warning_msg:hover{
-	color: #FF0E0E;
-	font-weight: bold;
-	font-size: large;
-}

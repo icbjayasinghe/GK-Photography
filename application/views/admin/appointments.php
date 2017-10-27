@@ -60,5 +60,4 @@
         $('#cust_email').val(customerDetails[5]);
         $('#customer_Modal').modal('show');
     }
-
 </script>
