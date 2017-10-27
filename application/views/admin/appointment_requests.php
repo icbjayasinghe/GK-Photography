@@ -56,4 +56,18 @@
         $('#cust_email').val(customerDetails[5]);
         $('#customer_Modal').modal('show');
     }
+
+    // to change the appointment status to 'accepted' or 'rejected'
+    function statusChange(status,appointmentId) {
+        $.ajax({
+            url:'<?php echo site_url('appointments/updateAppointmentStatus'); ?>',
+            method: "post",
+            data: {status:status,appointmentId:appointmentId},
+            success: function( data ) {
+                $('#msg_Modal').modal('show');
+                $('#msg_result').html(data);
+                $('#content').load("<?php echo base_url();?>index.php/appointments/appointmentRequests");
+            }
+        });
+    }
 </script>
