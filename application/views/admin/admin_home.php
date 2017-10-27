@@ -25,6 +25,7 @@
                 <div class="list-group">
                     <a href="<?php echo base_url();?>index.php/administrator/adminHome" class="list-group-item ref">Home</a>
                     <a href="<?php echo base_url();?>index.php/administrator/appointments" class="list-group-item ref">Appointments</a>
+                    <a href="<?php echo base_url();?>index.php/administrator/customer_manage" class="list-group-item ref">Customer Management</a>
                     <a href="services.html" class="list-group-item">Services</a>
                     <a href="contact.html" class="list-group-item">Contact</a>
                     <a href="portfolio-1-col.html" class="list-group-item">1 Column Portfolio</a>
@@ -126,6 +127,16 @@
             data: {date:date},
             success: function( data ) {
                 $('#table_results').html(data);
+            }
+        });
+    }
+
+    function getCustomerDetails() {
+        $.ajax({
+            url:'<?php echo site_url('customer_manage/viewCustomers'); ?>',
+            method: "post",
+            success: function() {
+                $('#table_results').html();
             }
         });
     }

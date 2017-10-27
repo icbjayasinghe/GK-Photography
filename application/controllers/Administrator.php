@@ -20,4 +20,12 @@ class Administrator extends CI_Controller
         $result['appointments'] = $this->appointment->getAppointments($date);
         $this->load->view('admin/appointments',$result);
     }
+
+    public function customer_manage()
+    {
+        
+        $this->load->model('customer_manage');
+        $result['customer'] = $this->customer_manage->getCustomers();
+        $this->load->view('admin/customer_manage',$result);
+    }
 }
