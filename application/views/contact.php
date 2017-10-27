@@ -10,8 +10,8 @@
         <h3 class="interest-text text-center"> Thanks for your Interest </h3>
         
         <div class="col-md-6 add-text">
-        Contact languages :<br>* English<br> * Tamil<br> * Sinhala  
-                    
+        Contact languages :<br>* English<br> * Tamil<br> * Sinhala
+
         </div>
         <div class="col-md-6 add-text">
         98-1, Potpathy Road, Kokuvil East, Kokuvil,
@@ -19,9 +19,6 @@
         (0)771180383
         </div>
         <br>
-        <!-- <div class="col-sm-12 col-md-12"> -->
-            <!-- <form method="post" action="contact2.php"> -->
-            <!--    session for just registered customer-->
         <?php if ($this->session->flashdata('msg')){
             echo "<h3>".$this->session->flashdata('msg')."</h3>";
         }
@@ -30,9 +27,8 @@
 
         <!--    session for enter wrong pw or username-->
         <?php if ($this->session->flashdata('errmsg')){
-            echo "<h3>".$this->session->flashdata('errmsg')."</h3>";
+            echo "<h3>".$this->session->flashdata('errmsg')."</h3>" ;
         }
-
         ?>
 
         <!--for checking validation errors-->

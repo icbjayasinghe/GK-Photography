@@ -11,20 +11,22 @@ class Ctrl_suggestion extends CI_Controller{
 	public function ctrl_suggestions(){
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 		if ($this->form_validation->run() == FALSE) {
-            $this->load->view('contact');
+            $this->session->set_flashdata('errmsg','Wrong Email! \nTry again');
+            redirect('Welcome/contact');
         }
         else {
             $this->load->model('Model_suggestion');
             $result= $this->Model_suggestion->insertSuggestions();
-            if($result!=FALSE){
-                $suggesions = array(
+            //if($result!=FALSE){
+                $suggestions = array(
                     '$id'=>$result->suggestion_id,
                     '$name'=>$result->name,
                     '$email'=>$result->email,
                     '$message'=>$result->idea,
                 );
-                $this->session->set_userdata($suggesions);
-                $this->session->set_flashdata('welcomemsg','Hi ....');
+
+//                $this->session->set_userdata($suggesions);
+//                $this->session->set_flashdata('welcomemsg','Hi ....');
                 /*if($this->session->userdata('$type')=='Customer'){
                     redirect('Appointments/makeAppointment');
                     $this->session->set_flashdata('welcome','Welcome back');
@@ -33,14 +35,12 @@ class Ctrl_suggestion extends CI_Controller{
                     redirect('Administrator/adminHome');
 
                 }*/
-                redirect('Welcome/index');
-
-
-            }
-            else{
-                $this->session->set_flashdata('errmsg','Wrong Email and Password..');
                 redirect('Welcome/contact');
-            }
+            //}
+            //else{
+//                $this->session->set_flashdata('errmsg','Wrong Email');
+//                redirect('Welcome/contact');
+            //}
 
 
 

@@ -7,6 +7,7 @@
  */
 class Model_suggestion extends CI_Model{
 	public function insertSuggestions(){
+
 		$this->load->model('database_model');
 		$sug_id = $this->database_model->generateId('suggestion_id','suggestions','SUG');
 

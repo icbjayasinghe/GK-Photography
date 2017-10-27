@@ -25,7 +25,7 @@
 
     ?>
 
-    <!--    session for enter wrong pw or username-->
+    <!--    session for enter wrong email-->
     <?php if ($this->session->flashdata('errmsg')){
         echo "<h3>".$this->session->flashdata('errmsg')."</h3>";
     }
