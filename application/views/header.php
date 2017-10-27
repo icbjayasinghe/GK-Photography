@@ -84,7 +84,7 @@
                         if($this->session->flashdata('welcome')) {
                             echo "<a><h3>" . $this->session->flashdata('welcome') . "</h3></a>";
                         }
-                        echo "<a><h3>" . $this->session->userdata('$f_name')." " .$this->session->userdata('$l_name')."</h3></a>";
+                        echo "<a><h4>" . $this->session->userdata('$f_name')." " .$this->session->userdata('$l_name')."</h4></a>";
 
 
 

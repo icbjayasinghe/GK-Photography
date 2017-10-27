@@ -23,8 +23,9 @@
             <!-- Sidebar Column -->
             <div class="col-lg-3 mb-4">
                 <div class="list-group">
-                    <a href="<?php echo base_url();?>index.php/administrator/adminHome" class="list-group-item ref">Home</a>
+                    <a href="." onclick="reloadAdminHome()" class="list-group-item ref">Home</a>
                     <a href="<?php echo base_url();?>index.php/administrator/appointments" class="list-group-item ref">Appointments</a>
+                    <a href="<?php echo base_url();?>index.php/administrator/customer_manage" class="list-group-item ref">Customer Management</a>
                     <a href="services.html" class="list-group-item">Services</a>
                     <a href="contact.html" class="list-group-item">Contact</a>
                     <a href="portfolio-1-col.html" class="list-group-item">Suggestions</a>
@@ -45,8 +46,8 @@
             <!-- Content Column -->
             <div id="content" class="col-lg-9 mb-4">
 
-                <h2>Section Heading</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, et temporibus, facere perferendis veniam beatae non debitis, numquam blanditiis necessitatibus vel mollitia dolorum laudantium, voluptate dolores iure maxime ducimus fugit.</p>
+                <h2>Welcome</h2>
+                <p>This is the Admin Panel</p>
             </div>
         </div>
         <!-- /.row -->
@@ -55,7 +56,7 @@
     <!-- /.container -->
 </div>
 
-<script>
+<script type="text/javascript">
     // load content dynamically to content div from sidebar
     $("a").filter(".ref").click(function(){
         var page = $(this).attr('href');
@@ -87,7 +88,8 @@
     // load modal to view customer details
     function loadCustomerModal(customerDetails){
         customerDetails = customerDetails.split(",");
-        $('#cust_id').html(customerDetails[0]);
+        alert(customerDetails);
+        $('#cust_id').val(customerDetails[0]);
         $('#first_name').val(customerDetails[1]);
         $('#last_name').val(customerDetails[2]);
         $('#cust_phone').val(customerDetails[3]);
@@ -96,19 +98,6 @@
         $('#customer_Modal').modal('show');
     }
 
-    // to change the appointment status to 'accepted' or 'rejected'
-    function statusChange(status,appointmentId) {
-        $.ajax({
-            url:'<?php echo site_url('appointments/updateAppointmentStatus'); ?>',
-            method: "post",
-            data: {status:status,appointmentId:appointmentId},
-            success: function( data ) {
-                $('#msg_Modal').modal('show');
-                $('#msg_result').html(data);
-                $('#content').load("<?php echo base_url();?>index.php/appointments/appointmentRequests");
-            }
-        });
-    }
 
     // load appointment details when date picker is changed
     function getAppointmentDetails(value) {
@@ -128,5 +117,20 @@
             }
         });
     }
+    
+    function reloadAdminHome() {
+        location.reload();
+    }
+
+    function getCustomerDetails() {
+        $.ajax({
+            url:'<?php echo site_url('customer_manage/viewCustomers'); ?>',
+            method: "post",
+            success: function() {
+                $('#table_results').html();
+            }
+        });
+    }
 
 </script>
+
