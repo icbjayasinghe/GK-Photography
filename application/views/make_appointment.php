@@ -1,4 +1,5 @@
 
+
 <div class="canvas col-md-12 background-theme">
     <!-- Page Content -->
     <div class="container">
@@ -198,8 +199,6 @@
                 success: function( data ) {
                     $('#msg_Modal').modal('show');
                     $('#msg_result').html(data);
-                    //$('#time_slots').html(data);
-                   // document.getElementById("time_slots").disabled=false;
                 }
             });
         }
