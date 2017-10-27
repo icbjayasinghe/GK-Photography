@@ -75,3 +75,20 @@ table{
 	font-weight: bold;
 	font-size: large;
 }
+.my-signup {
+	position: absolute;
+	z-index: 15;
+	top:25%;
+	left: 35%;
+	margin: -100px 0 0 -150px;
+}
+
+.my-login-letters{
+	font-size: large;
+	font-weight: bold;
+}
+
+.my-login-letters:hover{
+	font-size: x-large;
+	font-weight: bold;
+}

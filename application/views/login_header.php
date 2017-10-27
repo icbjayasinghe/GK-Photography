@@ -68,32 +68,6 @@
             <ul class="nav navbar-nav navbar-right my-primary-menu">
                 <li id="contact_menu" class="link-1">
 
-
-                    <!--                    restrict url login-->
-                    <!--                    --><?php //if(!($this->session->userdata('loggedin'))){
-                    //                        redirect('Welcome/login');
-                    //                    }?>
-
-                    <?php
-                    $loginner = $this->session->userdata('$f_name');
-                    if($loginner != ""){
-                        ?><a class="my-login-letters" href="<?php echo base_url('index.php/Login/LogoutUser')?>">Logout</a>
-
-                        <?php
-
-                        if($this->session->flashdata('welcome')) {
-                            echo "<a><h3>" . $this->session->flashdata('welcome') . "</h3></a>";
-                        }
-//                        echo "<a><h4>" . $this->session->userdata('$f_name')." " .$this->session->userdata('$l_name')."</h4></a>";
-
-
-
-                    }else{
-                        ?><a class="my-login-letters" href="<?php echo base_url('index.php/Login/LoginUser')?>">Login</a>
-
-                        <?php
-
-                    }?>
                 </li>
         </div>
         <!-- /.navbar-collapse -->

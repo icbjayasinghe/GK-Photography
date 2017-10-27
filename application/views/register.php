@@ -10,7 +10,9 @@
 <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>css/homestyle.css" rel="stylesheet">
 
-<div class="container">
+<div id="myCarousel" class="canvas carousel slide background-theme" data-ride="carousel">
+
+<div class="container col-md-6 my-signup">
     <hr>
 <ul class="nav nav-tabs">
     <li role="presentation" ><a href="<?php echo base_url('index.php/Welcome/login') ?>">Sign in</a></li>
@@ -75,7 +77,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <div class="checkbox">
                     <label>
@@ -83,7 +85,8 @@
                     </label>
                 </div>
             </div>
-        </div>
+        </div>-->
+
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-default">Sign up</button>
@@ -92,5 +95,7 @@
 
     <?php echo form_close();?>
 
-<div>
+</div>
+</div>
+
 
