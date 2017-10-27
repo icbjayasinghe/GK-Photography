@@ -132,5 +132,18 @@
         });
     }
 
+    // load modal to edit customer details
+    function edit_customer(customerDetails){
+        customerDetails = customerDetails.split(",");
+        // alert(customerDetails);
+        $('#edit_cust_id').val(customerDetails[0]);
+        $('#edit_first_name').val(customerDetails[1]);
+        $('#edit_last_name').val(customerDetails[2]);
+        $('#edit_cust_phone').val(customerDetails[3]);
+        $('#edit_cust_address').val(customerDetails[4]);
+        $('#edit_cust_email').val(customerDetails[5]);
+        $('#edit_customer_Modal').modal('show');
+    }
+
 </script>
 
