@@ -7,7 +7,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
-                <h3 class="modal-title">Customer<small>(<span id="edit_cust_id"></span>)</small></h3>
+                <h3 class="modal-title">Customer<small><!-- (<span id="edit_cust_id"></span>) --></small></h3>
             </div>
             <div class="modal-body">
                 <form method="post" id="insert_form">
