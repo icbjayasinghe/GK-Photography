@@ -39,7 +39,9 @@ class Welcome extends CI_Controller {
 
     public function mywork()
     {
-        $this->load->view('my-work');
+        $this->load->model('gallery_model');
+        $result['images'] = $this->gallery_model->getImagesMyWork();
+        $this->load->view('my-work',$result);
     }
 
     public function blog()

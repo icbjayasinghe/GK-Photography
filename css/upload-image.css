@@ -1,0 +1,65 @@
+.main {
+    margin: 2%;
+    width: 450px;
+    border: 2px solid white;
+}
+
+.main h4{
+    text-align: center;
+}
+
+.main label{
+    position: absolute;
+    color: white;
+}
+
+#image_preview{
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+    color: #C0C0C0;
+}
+
+#selectImage{
+    margin: 5%;
+    padding: auto;
+    bottom: 0px;
+}
+
+
+#file {
+    color: red;
+    margin: 2%;
+    margin-bottom: 5%;
+}
+
+
+#success
+{
+    color:green;
+}
+
+#invalid
+{
+    color:red;
+}
+
+#error
+{
+    color:red;
+}
+#error_message
+{
+    color:lightskyblue;
+}
+
+#message{
+    margin: 2%;
+}
+
+#loading
+{
+    display:none;
+    color: white;
+    font-size:25px;
+}

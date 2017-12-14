@@ -1,5 +1,6 @@
 <link href="<?php echo base_url(); ?>css/admin-home.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="<?php echo base_url(); ?>css/upload-image.css" rel="stylesheet">
+
 
 <div class="canvas col-md-12 background-theme">
 
@@ -11,8 +12,8 @@
         <h1 class="mt-4 mb-3">Admin Home
             <small><?php echo $this->session->userdata('$f_name')." " .$this->session->userdata('$l_name');?></small>
             <div class="request-icon">
-                <span role="button" class="badge badge-pill badge-info" id="request_count" onclick="displayRegisterRequests()"></span>
-                <i role="button" class="fa fa-envelope-o envelop" aria-hidden="true" onclick="displayRegisterRequests()"></i>
+                <span role="button" class="badge badge-pill badge-info" id="request_count" onclick="displayAppointmentRequests()"></span>
+                <i role="button" class="fa fa-envelope-o envelop" aria-hidden="true" onclick="displayAppointmentRequests()"></i>
             </div>
         </h1>
 
@@ -57,94 +58,4 @@
     <!-- /.container -->
 </div>
 
-<script>
-
-    // load content dynamically to content div from sidebar
-    $("a").filter(".ref").click(function(){
-        var page = $(this).attr('href');
-        $("#content").load(page,false);
-
-        // to disable the default functionality of href in html, which ignores the href and  let jquery to do its thing
-        return false;
-    });
-
-    // load appointment request count
-    setInterval(function(){
-        $.ajax({
-            url:'<?php echo site_url('appointments/appointmentRequestCount'); ?>',
-            type: "POST",
-            data : "",
-            success: function(data)
-            {
-                $('#request_count').html(data+" NEW");
-                //alert(data);
-            }
-        });
-    },3000);
-
-    // load appointment requests view
-    function displayRegisterRequests() {
-        $('#content').load("<?php echo base_url();?>index.php/appointments/appointmentRequests");
-    }
-
-    // load modal to view customer details
-    function loadCustomerModal(customerDetails){
-        customerDetails = customerDetails.split(",");
-        alert(customerDetails);
-        $('#cust_id').val(customerDetails[0]);
-        $('#first_name').val(customerDetails[1]);
-        $('#last_name').val(customerDetails[2]);
-        $('#cust_phone').val(customerDetails[3]);
-        $('#cust_address').val(customerDetails[4]);
-        $('#cust_email').val(customerDetails[5]);
-        $('#customer_Modal').modal('show');
-    }
-
-
-    // load appointment details when date picker is changed
-    function getAppointmentDetails(value) {
-        if (value == '*'){
-            var date = '*';
-            $('#date_picker').val("");
-        }
-        else{
-            var date = document.getElementById("date_picker").value;
-        }
-        $.ajax({
-            url:'<?php echo site_url('appointments/viewAppointments'); ?>',
-            method: "post",
-            data: {date:date},
-            success: function( data ) {
-                $('#table_results').html(data);
-            }
-        });
-    }
-
-    function reloadAdminHome() {
-        location.reload();
-    }
-
-    function getCustomerDetails() {
-        $.ajax({
-            url:'<?php echo site_url('customer_manage/viewCustomers'); ?>',
-            method: "post",
-            success: function() {
-                $('#table_results').html();
-            }
-        });
-    }
-
-    // load modal to edit customer details
-    function edit_customer(customerDetails){
-        customerDetails = customerDetails.split(",");
-        // alert(customerDetails);
-        $('#edit_cust_id').val(customerDetails[0]);
-        $('#edit_first_name').val(customerDetails[1]);
-        $('#edit_last_name').val(customerDetails[2]);
-        $('#edit_cust_phone').val(customerDetails[3]);
-        $('#edit_cust_address').val(customerDetails[4]);
-        $('#edit_cust_email').val(customerDetails[5]);
-        $('#edit_customer_Modal').modal('show');
-    }
-</script>
 

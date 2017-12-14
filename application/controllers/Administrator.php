@@ -10,7 +10,7 @@ class Administrator extends CI_Controller
     {
         $this->load->view('header');
         $this->load->view('admin/admin_home');
-        $this->load->view('footer');
+        $this->load->view('admin/admin_footer');
     }
 
     public function appointments()

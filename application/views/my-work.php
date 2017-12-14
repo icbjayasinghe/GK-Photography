@@ -66,42 +66,25 @@
     <h1 class="blog-post-title text-center">My Work</h1>
     <span class="title-divider"></span>
 
+
     <div class="container gallery-container">
 
         <div class="tz-gallery">
 
             <div class="row">
 
-                <div class="col-sm-12 col-md-4">
-                    <a class="lightbox" href=http://nabeel.co.in/files/bootsnipp/gallery/1.jpg>
-                        <img src="http://nabeel.co.in/files/bootsnipp/gallery/1.jpg" alt="Bridge">
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="http://nabeel.co.in/files/bootsnipp/gallery/2.jpg">
-                        <img src="http://nabeel.co.in/files/bootsnipp/gallery/2.jpg" alt="Park">
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="http://nabeel.co.in/files/bootsnipp/gallery/3.jpg">
-                        <img src="http://nabeel.co.in/files/bootsnipp/gallery/3.jpg" alt="Tunnel">
-                    </a>
-                </div>
-                <div class="col-sm-12 col-md-8">
-                    <a class="lightbox" href="http://nabeel.co.in/files/bootsnipp/gallery/4.jpg">
-                        <img src="http://nabeel.co.in/files/bootsnipp/gallery/4.jpg" alt="Traffic">
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="http://nabeel.co.in/files/bootsnipp/gallery/5.jpg">
-                        <img src="http://nabeel.co.in/files/bootsnipp/gallery/5.jpg" alt="Coast">
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="http://nabeel.co.in/files/bootsnipp/gallery/6.jpg">
-                        <img src="http://nabeel.co.in/files/bootsnipp/gallery/6.jpg" alt="Rails">
-                    </a>
-                </div>
+                <?php
+
+                $image_list ="";
+                foreach ($images as $row) {
+                    $image_list.="<div class=\"col-sm-12 col-md-4\">
+                                        <a class=\"lightbox\" href=\"".base_url()."img/uploads/".$row->path."\">
+                                            <img class=\"img-responsive img-portfolio img-hover\" src=\"".base_url()."img/uploads/".$row->path."\" alt=\"Bridge\">
+                                        </a>
+                                   </div>";
+                    }
+                echo $image_list;
+                ?>
 
             </div>
 
