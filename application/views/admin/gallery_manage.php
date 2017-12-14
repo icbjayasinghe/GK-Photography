@@ -12,7 +12,7 @@
     </ul>
 
     <div class="tab-content">
-        <div class="tab-pane fade active" id="upload_image" role="tabpanel">
+        <div class="tab-pane fade" id="upload_image" role="tabpanel">
             <div class="row">
                 <div class="main col-md-4">
                     <form id="uploadimage" action="" method="post" enctype="multipart/form-data">
@@ -31,8 +31,8 @@
             </div>
         </div>
 
-        <div class="tab-pane fade" id="edit_gallery" role="tabpanel">
-            <div>
+        <div class="tab-pane fade active" id="edit_gallery" role="tabpanel">
+            <div class="row">
                 <h4 class="top-buffer">High Priority - Gallery Page</h4>
                 <hr>
 
@@ -116,12 +116,7 @@
         $('#previewing').attr('width', '350px');
         $('#previewing').attr('height', '263px');
     };
-
-    // function to activate the first tab
-    $(function () {
-        $('#myTab a:first').tab('show');
-    });
-
+    
     // upload image on form submit
     $('#uploadimage').on('submit',(function(e){
         e.preventDefault();
@@ -160,9 +155,20 @@
             success:function(result){
                 $('#msg_Modal').modal('show');
                 $('#msg_result').html(result);
+                $('#myTab').tabs({ active: 2 });
             }
         });
     }
+
+    $(document).ready(function(){
+        $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+            localStorage.setItem('activeTab', $(e.target).attr('href'));
+        });
+        var activeTab = localStorage.getItem('activeTab');
+        if(activeTab){
+            $('#myTab a[href="' + activeTab + '"]').tab('show');
+        }
+    });
 
     $('#msg_Modal').on('hidden.bs.modal', function () {
         $('#content').load("<?php echo base_url();?>index.php/administrator/manageGallery");
