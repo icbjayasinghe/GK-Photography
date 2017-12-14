@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2017 at 08:47 AM
+-- Generation Time: Dec 14, 2017 at 01:31 PM
 -- Server version: 5.7.9
 -- PHP Version: 5.6.16
 
@@ -53,7 +53,15 @@ INSERT INTO `appointment` (`appointment_id`, `appointment_date`, `start_time`, `
 ('APP0000007', '2017-10-26', '1500', '1600', 'Birthday', 'CUS0000004', 'rejected'),
 ('APP0000008', '2017-10-26', '1100', '1130', 'Wedding', 'CUS0000004', 'rejected'),
 ('APP0000009', '2017-10-27', '0100', '0200', 'Wedding', 'CUS0000005', 'accepted'),
-('APP0000010', '2017-11-24', '1300', '1400', 'Birthday', 'CUS0000004', 'pending');
+('APP0000010', '2017-11-24', '1300', '1400', 'Birthday', 'CUS0000004', 'accepted'),
+('APP0000011', '2017-12-13', '0100', '0200', 'Wedding', 'CUS0000001', 'rejected'),
+('APP0000012', '2017-12-14', '1300', '1401', 'Wedding', 'CUS0000001', 'pending'),
+('APP0000013', '2017-12-14', '1500', '1600', 'Convocation', 'CUS0000006', 'rejected'),
+('APP0000014', '2017-12-14', '1500', '1600', 'Convocation', 'CUS0000006', 'rejected'),
+('APP0000015', '2017-12-13', '1400', '1500', 'Convocation', 'CUS0000006', 'accepted'),
+('APP0000016', '2017-12-14', '0100', '0200', 'Birthday', 'CUS0000006', 'pending'),
+('APP0000017', '2017-12-13', '0100', '0200', 'kajg', 'CUS0000006', 'pending'),
+('APP0000018', '2017-12-15', '0100', '0200', 'ajhl\n', 'CUS0000006', 'pending');
 
 -- --------------------------------------------------------
 
@@ -103,7 +111,8 @@ INSERT INTO `customer` (`cust_id`, `first_name`, `last_name`, `cust_phone`, `cus
 ('CUS0000002', 'Lachini', 'Roshika', '0714898565', 'Colombo', 'lachini@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
 ('CUS0000003', 'Nesarasa', 'Angathan', '0714589657', 'Jaffna', 'anga@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
 ('CUS0000004', 'Peter', 'Pan', '0771589654', 'Ratnapura', 'peter@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-('CUS0000005', 'Harry ', 'Potter', '0772080786', 'abc', 'harry@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+('CUS0000005', 'Harry ', 'Potter', '0772080786', 'abc', 'harry@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
+('CUS0000006', 'Ama', 'Gamage', '0775748965', 'Moratuwa', 'wasurawattearachchi@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 
 -- --------------------------------------------------------
 
@@ -143,6 +152,34 @@ INSERT INTO `employee` (`emp_id`, `first_name`, `last_name`, `emp_email`, `emp_p
 ('EMP0000006', 'Sachini', 'Fernando', 'sachini@gmail.com', '0714589652', 'Rajagiriya', NULL, NULL, 'Beautician', 'Female', 0),
 ('EMP0000007', 'Surangi', 'De Silva', 'surangi@gmail.com', '0778965412', 'Moratuwa', NULL, NULL, 'Beautician', 'Female', 0),
 ('EMP0000008', 'Mohammed', 'Imdad', 'imdad@gmail.com', '0789655412', 'Jaffna', NULL, NULL, 'Beautician', 'Male', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gallery`
+--
+
+DROP TABLE IF EXISTS `gallery`;
+CREATE TABLE IF NOT EXISTS `gallery` (
+  `image_id` int(11) NOT NULL AUTO_INCREMENT,
+  `path` varchar(100) NOT NULL,
+  `date_added` datetime(6) NOT NULL,
+  PRIMARY KEY (`image_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `gallery`
+--
+
+INSERT INTO `gallery` (`image_id`, `path`, `date_added`) VALUES
+(4, '5a3276c9dc6a50.24062410.jpg', '2017-12-14 13:04:09.000000'),
+(3, '5a3276c4f299b0.60262367.jpg', '2017-12-14 13:04:04.000000'),
+(5, '5a3276cecabbb8.33715495.jpg', '2017-12-14 13:04:14.000000'),
+(6, '5a3276d42dc9a1.80739268.jpg', '2017-12-14 13:04:20.000000'),
+(7, '5a3276d8bed4c1.16443449.jpg', '2017-12-14 13:04:24.000000'),
+(8, '5a3276de0565c0.79991337.jpg', '2017-12-14 13:04:30.000000'),
+(9, '5a3276e37a7ea6.66232632.jpg', '2017-12-14 13:04:35.000000'),
+(10, '5a3276e7deac84.68757071.jpg', '2017-12-14 13:04:39.000000');
 
 -- --------------------------------------------------------
 
@@ -197,7 +234,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `type` varchar(15) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
@@ -209,7 +246,8 @@ INSERT INTO `user` (`id`, `user_id`, `first_name`, `last_name`, `email`, `passwo
 (29, 'CUS0000002', 'Lachini', 'Roshika', 'lachini@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, 0, 'Customer'),
 (30, 'CUS0000003', 'Nesarasa', 'Angathan', 'anga@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, 0, 'Customer'),
 (31, 'CUS0000004', 'Peter', 'Pan', 'peter@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, 0, 'Customer'),
-(32, 'CUS0000005', 'Harry ', 'Potter', 'harry@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, 0, 'Customer');
+(32, 'CUS0000005', 'Harry ', 'Potter', 'harry@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, 0, 'Customer'),
+(33, 'CUS0000006', 'Ama', 'Gamage', 'wasurawattearachchi@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, 0, 'Customer');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
