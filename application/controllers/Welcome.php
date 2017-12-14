@@ -44,6 +44,12 @@ class Welcome extends CI_Controller {
         $this->load->view('footer');
     }
 
+    public function joinus(){
+        $this->load->view('header');
+	    $this->load->view('joinus');
+        $this->load->view('footer');
+    }
+
     public function works()
     {
         $this->load->view('header');
