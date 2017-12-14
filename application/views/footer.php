@@ -13,5 +13,9 @@
         interval: 5000 //changes the speed
     })
 </script>
+
+
+<script src="<?php echo base_url(); ?>js/ninja-slider.js" type="text/javascript" "></script>
+
 </body>
 </html>

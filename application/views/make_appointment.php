@@ -37,7 +37,7 @@
                         <label><h4>Select a Start Time</h4></label>
                     </div>
                     <div class="col-md-4">
-                            <input type="time" name="appointment_time" id="appointment_stime" class="form-control" onchange="onChangeStartTime()">
+                            <input type="time" name="appointment_stime" id="appointment_stime" class="form-control" onchange="onChangeStartTime()">
                     </div>
                     <p id="check_start_time" class="warning_msg"></p>
                 </div>
@@ -47,7 +47,7 @@
                         <label><h4>Select a End Time</h4></label>
                     </div>
                     <div class="col-md-4">
-                        <input type="time" name="appointment_time" id="appointment_etime" class="form-control" onchange="onChangeEndTime()">
+                        <input type="time" name="appointment_etime" id="appointment_etime" class="form-control" onchange="onChangeEndTime()">
                     </div>
                     <p id="check_end_time" class="warning_msg"></p>
                 </div>
@@ -197,8 +197,19 @@
                 method: "post",
                 data: {date:date,stime:stime,etime:etime,description:description,cust_id:cust_id},
                 success: function( data ) {
-                    $('#msg_Modal').modal('show');
-                    $('#msg_result').html(data);
+                    if (data=="<h4>Appointment Request Successful</h4>"){
+                        $('#appointment_date').val("");
+                        $('#appointment_stime').val("");
+                        $('#appointment_etime').val("");
+                        $('#description').val("");
+                        $('#msg_Modal').modal('show');
+                        $('#msg_result').html(data);
+                    }
+                    else{
+                        $('#msg_Modal').modal('show');
+                        $('#msg_result').html(data);
+                    }
+
                 }
             });
         }

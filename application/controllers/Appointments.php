@@ -70,18 +70,43 @@ class Appointments extends CI_Controller
         $newStatus = $this->input->post('status');
         $appointmentId = $this->input->post('appointmentId');
         $this->load->model('appointment');
-        $result = $this->appointment->updateAppointment('status',$newStatus,$appointmentId);
-        if ($result){
+
+        // update the appointment status as reject or accept
+        $result_update = $this->appointment->updateAppointment('status',$newStatus,$appointmentId);
+
+        if ($result_update){
             if($newStatus == "rejected"){
-                echo "Appointment Rejected";
+                echo "Appointment Rejected<br>";
             }
             if($newStatus == "accepted"){
-                echo "Appointment Accepted";
+                echo "Appointment Accepted<br>";
             }
         }
         else{
-            echo "Unsuccessful";
+            echo "Error in updating<br>";
         }
+
+        // get all data for a particular appointment
+        $result_data = $this->appointment->getAppointmentData($appointmentId);
+        if ($result_data){
+            $appointment_date = $result_data['appointment_date'];
+            $description = $result_data['description'];
+            $start_time = $result_data['start_time'];
+            $end_time = $result_data['end_time'];
+            $cust_email = $result_data['cust_email'];
+
+            /* send email confirmation */
+            $this->load->library('email');
+            $this->load->model('email_model');
+            $result_email = $this->email_model->sendAppointmentConfirmationMail($newStatus,$cust_email,$appointment_date,$start_time,$end_time,$description);
+            if ($result_email){
+                echo "Mail has been sent successfully";
+            }
+            else{
+                echo "Mail NOT Sent";
+            }
+        }
+
     }
 
     /*

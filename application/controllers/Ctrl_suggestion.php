@@ -24,25 +24,8 @@ class Ctrl_suggestion extends CI_Controller{
                     '$email'=>$result->email,
                     '$message'=>$result->idea,
                 );
-
-//                $this->session->set_userdata($suggesions);
-//                $this->session->set_flashdata('welcomemsg','Hi ....');
-                /*if($this->session->userdata('$type')=='Customer'){
-                    redirect('Appointments/makeAppointment');
-                    $this->session->set_flashdata('welcome','Welcome back');
-                }
-                elseif($this->session->userdata('$type')=='Administrator'){
-                    redirect('Administrator/adminHome');
-
-                }*/
-                redirect('Welcome/contact');
-            //}
-            //else{
-//                $this->session->set_flashdata('errmsg','Wrong Email');
-//                redirect('Welcome/contact');
-            //}
-
-
+            $this->session->set_flashdata('errmsg','Thanks for your Interest!');
+            redirect('Welcome/contact');
 
         }	
 	}
