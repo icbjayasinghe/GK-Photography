@@ -49,7 +49,9 @@
         <li><a href="<?php echo base_url();?>index.php/welcome/gallery">Gallery</a></li>
         <li><a href="<?php echo base_url();?>index.php/welcome/mywork">My Work</a></li>
         <!-- <li><a href="<?php echo base_url();?>index.php/welcome/blog">Blog</a></li> -->
+        <li><a href="<?php echo base_url();?>index.php/welcome/joinus">Join us</a></li>
         <li><a href="<?php echo base_url();?>index.php/welcome/contact">Contact</a></li>
+
     </ul>
     <a class="navmenu-brand" href="#"><img src="<?php echo base_url();?>img/logo-original.png" width="160"></a>
     <div class="social">
