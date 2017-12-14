@@ -1,7 +1,6 @@
 body {
     background-color: #434c50;
     min-height: 100vh;
-    font: normal 16px sans-serif;
 }
 
 .container.gallery-container {
@@ -81,3 +80,4 @@ body {
         padding: 0;
     }
 }
+

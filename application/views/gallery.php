@@ -16,6 +16,7 @@
     <link href="<?php echo base_url();?>dist/css/jasny-bootstrap.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
     <link href="<?php echo base_url();?>css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url();?>css/navmenu-reveal.css" rel="stylesheet">
     <link href="<?php echo base_url();?>css/style.css" rel="stylesheet">
@@ -71,120 +72,36 @@
     </section>
     <section id="photostack-3" class="photostack">
         <div>
-            <figure>
-                <a href="<?php echo base_url();?>img/a.jpg"  data-lightbox="studio2" class="photostack-img"><img src="<?php echo base_url();?>img/a1.jpg" alt="img05"/></a>
-                <figcaption>
-                    <h2 class="photostack-title">Speed Racer</h2>
-                    <div class="photostack-back">
-                        <p>Here he comes Here comes Speed Racer. He's a demon on wheels. Wouldn't you like to get away? Sometimes you want to go where everybody knows <span>the</span> your name. And they're always glad you came! </p>
-                    </div>
-                </figcaption>
-            </figure>
-            <figure>
-                <a href="<?php echo base_url();?>img/b.jpg"  data-lightbox="studio2" class="photostack-img"><img src="<?php echo base_url();?>img/b1.jpg" alt="img02"/></a>
-                <figcaption>
-                    <h2 class="photostack-title">Happy Days</h2>
-                    <div class="photostack-back">
-                        <p>These Happy Days are yours and mine Happy Days. It's a beautiful day in this neighborhood a beautiful day for a neighbor. Would you be mine?</p>
-                    </div>
-                </figcaption>
-            </figure>
-            <figure>
-                <a href="<?php echo base_url();?>img/c.jpg"  data-lightbox="studio2" class="photostack-img"><img src="<?php echo base_url();?>img/c1.jpg" alt="img03"/></a>
-                <figcaption>
-                    <h2 class="photostack-title">Beautywood</h2>
-                    <div class="photostack-back">
-                        <p>It's a neighborly day in this beautywood a neighborly day for a beauty. Would you be mine? Could you be mine. Now the world don't move to the beat of just one drum.</p>
-                    </div>
-                </figcaption>
-            </figure>
-            <figure>
-                <a href="<?php echo base_url();?>img/d.jpg"  data-lightbox="studio2" class="photostack-img"><img src="<?php echo base_url();?>img/d1.jpg" alt="img01"/></a>
-                <figcaption>
-                    <h2 class="photostack-title">Serenity Beach</h2>
-                    <div class="photostack-back">
-                        <p>I have never been to a place so serene in my entire life before. Swimming in clear waters opened my mind to nature and reminded me of my and <span>eveybody</span> everybody else's mortality.</p>
-                    </div>
-                </figcaption>
-            </figure>
-            <figure>
-                <a href="<?php echo base_url();?>img/e.jpg"  data-lightbox="studio2" class="photostack-img"><img src="<?php echo base_url();?>img/e1.jpg" alt="img04"/></a>
-                <figcaption>
-                    <h2 class="photostack-title">Heaven of time</h2>
-                    <div class="photostack-back">
-                        <p>What might be right for you may not be right for some. And we know Flipper lives in a world full of wonder flying there-under under the sea.</p>
-                    </div>
-                </figcaption>
-            </figure>
-            <figure>
-                <a href="<?php echo base_url();?>img/f.jpg"  data-lightbox="studio2" class="photostack-img"><img src="<?php echo base_url();?>img/f1.jpg" alt="img06"/></a>
-                <figcaption>
-                    <h2 class="photostack-title">Forever this</h2>
-                    <div class="photostack-back">
-                        <p>Fish don't fry in the kitchen and beans don't burn on the grill. Took a whole lotta tryin' just to get up that hill. Baby if you've ever wondered - wondered whatever became of me. </p>
-                    </div>
-                </figcaption>
-            </figure>
-            <figure data-dummy>
-                <a href="#" class="photostack-img"><img src="<?php echo base_url();?>img/7.jpg" alt="img07"/></a>
-                <figcaption>
-                    <h2 class="photostack-title">Lovely Green</h2>
-                </figcaption>
-            </figure>
-            <figure data-dummy>
-                <a href="#" class="photostack-img"><img src="<?php echo base_url();?>img/8.jpg" alt="img08"/></a>
-                <figcaption>
-                    <h2 class="photostack-title">Wonderful</h2>
-                </figcaption>
-            </figure>
-            <figure data-dummy>
-                <a href="#" class="photostack-img"><img src="<?php echo base_url();?>img/9.jpg" alt="img09"/></a>
-                <figcaption>
-                    <h2 class="photostack-title">Love Addict</h2>
-                </figcaption>
-            </figure>
-            <figure data-dummy>
-                <a href="#" class="photostack-img"><img src="<?php echo base_url();?>img/10.jpg" alt="img10"/></a>
-                <figcaption>
-                    <h2 class="photostack-title">Friendship</h2>
-                </figcaption>
-            </figure>
-            <figure data-dummy>
-                <a href="#" class="photostack-img"><img src="<?php echo base_url();?>img/11.jpg" alt="img11"/></a>
-                <figcaption>
-                    <h2 class="photostack-title">White Nights</h2>
-                </figcaption>
-            </figure>
-            <figure data-dummy>
-                <a href="#" class="photostack-img"><img src="<?php echo base_url();?>img/12.jpg" alt="img12"/></a>
-                <figcaption>
-                    <h2 class="photostack-title">Serendipity</h2>
-                </figcaption>
-            </figure>
-            <figure data-dummy>
-                <a href="#" class="photostack-img"><img src="<?php echo base_url();?>img/13.jpg" alt="img13"/></a>
-                <figcaption>
-                    <h2 class="photostack-title">Pure Soul</h2>
-                </figcaption>
-            </figure>
-            <figure data-dummy>
-                <a href="#" class="photostack-img"><img src="<?php echo base_url();?>img/14.jpg" alt="img14"/></a>
-                <figcaption>
-                    <h2 class="photostack-title">Winds of Peace</h2>
-                </figcaption>
-            </figure>
-            <figure data-dummy>
-                <a href="#" class="photostack-img"><img src="<?php echo base_url();?>img/15.jpg" alt="img15"/></a>
-                <figcaption>
-                    <h2 class="photostack-title">Shades of blue</h2>
-                </figcaption>
-            </figure>
-            <figure data-dummy>
-                <a href="#" class="photostack-img"><img src="<?php echo base_url();?>img/16.jpg" alt="img16"/></a>
-                <figcaption>
-                    <h2 class="photostack-title">Lightness</h2>
-                </figcaption>
-            </figure>
+
+            <?php
+
+            $image_list ="";
+            $count=0;
+            foreach ($images as $row){
+                if ($count==6){
+                    break;
+                }
+                $image_list.="<figure>
+                                <a href=\"".base_url()."img/uploads/".$row->path."\"  data-lightbox=\"studio2\" class=\"photostack-img\"><img class=\"img-responsive img-portfolio img-hover\" src=\"".base_url()."img/uploads/".$row->path."\" alt=\"gallery image\"/></a>
+                                <figcaption>
+                                    <h2 class=\"photostack-title\">Speed Racer</h2>
+                                    <div class=\"photostack-back\">
+                                        <p>Here he comes Here comes Speed Racer. He's a demon on wheels. Wouldn't you like to get away? Sometimes you want to go where everybody knows <span>the</span> your name. And they're always glad you came! </p>
+                                    </div>
+                                </figcaption>
+                                </figure>";
+                $count+=1;
+            }
+            /*foreach ($images as $row) {
+                $image_list.="<div class=\"col-sm-12 col-md-4\">
+                                        <a class=\"lightbox\" href=\"".base_url()."img/uploads/".$row->path."\">
+                                            <img class=\"img-responsive img-portfolio img-hover\" src=\"".base_url()."img/uploads/".$row->path."\" alt=\"Bridge\">
+                                        </a>
+                                   </div>";
+            }*/
+            echo $image_list;
+            ?>
+
         </div>
     </section>
 </div>

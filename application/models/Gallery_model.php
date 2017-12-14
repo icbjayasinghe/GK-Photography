@@ -38,6 +38,18 @@ class Gallery_model extends CI_Model
     }
 
 
+    /*
+     * delete image details from database
+     */
+    public function deleteImage($path){
+        try{
+            $result = $this->db->delete('gallery', array('path' => $path));
+            return $result;
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
    
 
 }

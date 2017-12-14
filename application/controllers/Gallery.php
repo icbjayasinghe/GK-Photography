@@ -58,7 +58,22 @@ class Gallery extends CI_Controller
         }
     }
    
-
+    // delete and image from the gallery
+    public function removeImage(){
+        $image = $this->input->post('image_id');
+        $this->load->model('gallery_model');
+        $result = $this->gallery_model->deleteImage($image);
+        if ($result){
+            $full_path = "img/uploads/".$image;
+            $result_next = unlink($full_path);
+            if($result_next){
+                echo "<h4>Image Successfully Deleted</h4>";
+            }
+            else{
+                echo "<h4>Failed to delete the Image</h4>";
+            }
+        }
+    }
 
 }
 

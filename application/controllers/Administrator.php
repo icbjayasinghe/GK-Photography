@@ -33,7 +33,8 @@ class Administrator extends CI_Controller
     {
 
         $this->load->model('gallery_model');
-        $this->load->view('admin/gallery_manage');
+        $result['images'] = $this->gallery_model->getImagesMyWork();
+        $this->load->view('admin/gallery_manage',$result);
     }
 }
 

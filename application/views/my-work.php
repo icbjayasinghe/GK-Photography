@@ -13,6 +13,7 @@
     <!-- Bootstrap core CSS -->
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
     <link href="<?php echo base_url();?>dist/css/jasny-bootstrap.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
     <link href="<?php echo base_url();?>css/bootstrap.min.css" rel="stylesheet">

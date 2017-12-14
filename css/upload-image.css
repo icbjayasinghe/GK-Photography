@@ -63,3 +63,13 @@
     color: white;
     font-size:25px;
 }
+
+.my-upload-button{
+    background-color: #05342c;
+    border: solid;
+    border-color: white;
+}
+
+.my-upload-button:hover{
+    background-color: #0f4a85;
+}

@@ -7,7 +7,7 @@
             <a class="nav-link active" data-toggle="tab" href="#upload_image" role="tab" aria-controls="upload_image">Upload Photo</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#daily_purchases" role="tab" aria-controls="add-admin">Edit Gallery</a>
+            <a class="nav-link" data-toggle="tab" href="#edit_gallery" role="tab" aria-controls="edit_gallery">Edit Gallery</a>
         </li>
     </ul>
 
@@ -22,7 +22,7 @@
                         <div id="selectImage">
                             <label>Select Your Image</label><br/>
                             <input type="file" name="file" id="file" required />
-                            <input type="submit" value="Upload" class="btn btn-primary btn-lg btn-block my-lg-button" />
+                            <input type="submit" value="Upload" class="btn btn-primary btn-lg btn-block my-upload-button" />
                         </div>
                     </form>
                 </div>
@@ -30,7 +30,56 @@
                 <div id="message" class="col-md-4"></div>
             </div>
         </div>
+
+        <div class="tab-pane fade" id="edit_gallery" role="tabpanel">
+            <div>
+                <h4 class="top-buffer">High Priority - Gallery Page</h4>
+                <hr>
+
+                <?php
+                $image_list ="";
+                $count = 0;
+                foreach ($images as $row) {
+                    if ($count==6){
+                        break;
+                    }
+                    $image_list.="<div class=\"col-sm-12 col-md-4\">
+                                        <a class=\"lightbox\" href=\"#\" onclick='loadEditImageModal(this.id)' id='$row->path'>
+                                            <img class=\"img-responsive img-portfolio img-hover top-buffer\" src=\"".base_url()."img/uploads/".$row->path."\" alt=\"Bridge\">
+                                        </a>
+                                   </div>";
+                    $count+=1;
+                }
+                echo $image_list;
+                ?>
+            </div>
+
+            <div class="row">
+                <h4 class="top-buffer">Other - My Work Page</h4>
+                <hr>
+
+                <?php
+                $image_list ="";
+                $count = 0;
+                foreach ($images as $row) {
+                    if ($count>=6){
+                        $image_list.="<div class=\"col-sm-12 col-md-4\">
+                                        <a class=\"lightbox\" href=\"#\" onclick='loadEditImageModal(this.id)' id='$row->path'>
+                                            <img class=\"img-responsive img-portfolio img-hover\" src=\"".base_url()."img/uploads/".$row->path."\" alt=\"Bridge\">
+                                        </a>
+                                   </div>";
+                    }
+                    $count+=1;
+                }
+                echo $image_list;
+                ?>
+            </div>
+
+        </div>
+
+
     </div>
+
 </div>
 
 
@@ -68,6 +117,12 @@
         $('#previewing').attr('height', '263px');
     };
 
+    // function to activate the first tab
+    $(function () {
+        $('#myTab a:first').tab('show');
+    });
+
+    // upload image on form submit
     $('#uploadimage').on('submit',(function(e){
         e.preventDefault();
         $("#message").empty();
@@ -87,10 +142,29 @@
         });
     }));
 
-    // function to activate the first tab
-    $(function () {
-        $('#myTab a:first').tab('show');
+    // load a modal to delete or edit images
+    function loadEditImageModal(imageId) {
+        $('#edit_image_Modal').modal('show');
+        $('#image_id').val(imageId);
+    }
+
+    // function to delete an image from gallery
+    function deleteImage(){
+        var imageId = document.getElementById('image_id').value;
+        $('#edit_image_Modal').modal('hide');
+        $.ajax({
+            url:'<?php echo site_url('gallery/removeImage'); ?>',
+            type: "POST", //request type
+            data: {image_id : imageId},
+            cache: false,
+            success:function(result){
+                $('#msg_Modal').modal('show');
+                $('#msg_result').html(result);
+            }
+        });
+    }
+
+    $('#msg_Modal').on('hidden.bs.modal', function () {
+        $('#content').load("<?php echo base_url();?>index.php/administrator/manageGallery");
     });
-
-
 </script>
