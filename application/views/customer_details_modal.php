@@ -11,6 +11,7 @@
             </div>
             <div class="modal-body">
                 <form method="post" id="insert_form">
+
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-4 col-form-label clearfix">First Name</label>
                         <div class="col-md-8">

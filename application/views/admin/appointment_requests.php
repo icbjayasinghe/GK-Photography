@@ -59,6 +59,7 @@
 
     // to change the appointment status to 'accepted' or 'rejected'
     function statusChange(status,appointmentId) {
+        $(".btn-sm").attr("disabled", true);
         $.ajax({
             url:'<?php echo site_url('appointments/updateAppointmentStatus'); ?>',
             method: "post",

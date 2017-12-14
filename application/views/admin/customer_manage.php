@@ -34,7 +34,7 @@
                             $customerList.= "<td>{$row->last_name}h</td>";
                             $customerList.= "<td>{$row->cust_email}h</td>";
                             $customerList.= "<td>{$row->cust_phone}</td>";
-                            $customerList.= "<td><a class=\"customer_check btn-success btn-sm\"\" onclick=\"edit_customer('$rowString')\" id={$row->cust_id}><b><span class=\"glyphicon glyphicon-edit\"></span> Edit</b></a></td>";
+                            $customerList.= "<td><a class=\"customer_check btn-success btn-sm\" onclick=\"edit_customer('$rowString')\" id={$row->cust_id}><b><span class=\"glyphicon glyphicon-edit\"></span> Edit</b></a></td>";
                             $customerList.= "</tr>";
                     }
                     echo $customerList;

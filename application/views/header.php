@@ -20,6 +20,7 @@
     <link href="<?php echo base_url(); ?>css/navmenu-reveal.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>css/homestyle.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>css/ninja-slider.css" rel="stylesheet">
     <!-- <link href="css/full-slider.css" rel="stylesheet"> -->
 
 

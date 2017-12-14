@@ -4,6 +4,24 @@
 class Appointment extends CI_Model
 {
 
+
+    /*
+     * get all appointment and customer data for a particular appointment id
+     */
+    public function getAppointmentData($appointment_id){
+        try{
+            $this->db->select('*');
+            $this->db->from('appointment');
+            $this->db->join('customer', 'customer.cust_id = appointment.cust_id');
+            $this->db->where('appointment.appointment_id', $appointment_id);
+            $result = $this->db->get();
+            return $result->row_array();
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
+
     /*
      * get unavailable slots
      */
