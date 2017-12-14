@@ -47,6 +47,7 @@
         <li><a href="<?php echo base_url();?>index.php/welcome/index">Home</a></li>
         <!-- <li><a href="<?php echo base_url();?>index.php/welcome/works">Works</a></li> -->
         <li><a href="<?php echo base_url();?>index.php/welcome/gallery">Gallery</a></li>
+        <li><a href="<?php echo base_url();?>index.php/welcome/mywork">My Work</a></li>
         <!-- <li><a href="<?php echo base_url();?>index.php/welcome/blog">Blog</a></li> -->
         <li><a href="<?php echo base_url();?>index.php/welcome/contact">Contact</a></li>
     </ul>

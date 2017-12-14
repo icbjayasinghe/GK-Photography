@@ -1,5 +1,5 @@
 
-<h2>Customer Management<span>
+<h2>Manage Customers<span>
         <small>
             <input id="search" type="text" name="search_customer" onchange="getCustomerDetails('')" value="search">
         </small>
