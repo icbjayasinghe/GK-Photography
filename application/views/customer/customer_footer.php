@@ -31,7 +31,7 @@
     });
 
     $( document ).ready(function() {
-        $('#content').load("<?php echo base_url();?>index.php/appointments/makeAppointment");
+        $('#content').load("<?php echo base_url();?>index.php/appointments/makeAppointmentCustomer");
         $('#make_appointment').addClass('active');
     });
 

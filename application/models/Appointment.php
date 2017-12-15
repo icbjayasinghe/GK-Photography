@@ -148,7 +148,7 @@ class Appointment extends CI_Model
     /*
      * book an appointment
      */
-    public function bookSlot($appId,$date,$startTime,$endTime,$description,$custId){
+    public function addAppointment($appId,$date,$startTime,$endTime,$description,$custId){
         $data = array(
             'appointment_id' => $appId,
             'appointment_date' => $date,
@@ -164,6 +164,7 @@ class Appointment extends CI_Model
             echo $e;
         }
     }
+
 
     /*
      * get latest appointment request count

@@ -6,6 +6,7 @@
 <script src="<?php echo base_url(); ?>js/jquery.js"></script>
 <script src="<?php echo base_url(); ?>dist/js/jasny-bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
+
 <!--<script>
     $('.carousel').carousel({
         interval: 5000 //changes the speed
@@ -13,6 +14,12 @@
 </script>-->
 
 <script>
+    // activate appointments menu item on pahe load
+    $( document ).ready(function() {
+        $('#content').load("<?php echo base_url();?>index.php/administrator/appointments");
+        $('#admin_appointment').addClass('active');
+    });
+
     // load content dynamically to content div from sidebar
     $("a").filter(".ref").click(function(){
         var page = $(this).attr('href');
@@ -52,8 +59,10 @@
             $(this).toggleClass('active');
         });
     });
-
 </script>
 
+
 </body>
+
+
 </html>

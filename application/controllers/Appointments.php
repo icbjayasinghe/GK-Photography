@@ -5,11 +5,20 @@ class Appointments extends CI_Controller
 {
 
     /*
-     * loads appointment booking view
+     * loads appointment booking view for customer
      */
-    public function makeAppointment()
+    public function makeAppointmentCustomer()
     {
-        $this->load->view('make_appointment');
+        $this->load->view('customer/make_appointment');
+    }
+
+    /*
+     * loads appointment booking view for customer
+     */
+    public function makeAppointmentAdmin($cust_id)
+    {
+        $customer['cust_id']=$cust_id;
+        $this->load->view('admin/make_appointment',$customer);
     }
 
     /*
@@ -116,14 +125,13 @@ class Appointments extends CI_Controller
         $appEndTime = $this->input->post('etime');
         $description = $this->input->post('description');
         $custId = $this->input->post('cust_id');
-
         $this->load->model('database_model'); // to invoke the generateId() method later
         $this->load->model('appointment');
         $result = $this->appointment->getUnavailableSlots($appDate);
         $numRows = $result->num_rows();
         if ($numRows==0){ // if there aren't any appointment for that day
             $newId = $this->database_model->generateId('appointment_id','appointment','APP');
-            $result = $this->appointment->bookSlot($newId,$appDate,$appStartTime,$appEndTime,$description,$custId);
+            $result = $this->appointment->addAppointment($newId,$appDate,$appStartTime,$appEndTime,$description,$custId);
             echo "<h4>Appointment Request Successful</h4><br>";
             return;
         }
@@ -135,7 +143,7 @@ class Appointments extends CI_Controller
                 if ($appStartTime<$startTimeDb){
                     if ($appEndTime<$startTimeDb){
                         $newId = $this->database_model->generateId('appointment_id','appointment','APP');
-                        $result = $this->appointment->bookSlot($newId,$appDate,$appStartTime,$appEndTime,$description,$custId);
+                        $result = $this->appointment->addAppointment($newId,$appDate,$appStartTime,$appEndTime,$description,$custId);
                         echo "<h4>Appointment Request Successful</h4><br>";
                         return;
                     }
@@ -153,14 +161,13 @@ class Appointments extends CI_Controller
                     }
                 }
             }
-
             // scheduling an appointment after all the appointments for a paticular day
             $lastRow = $result->last_row();
             $startTimeDb = $lastRow->start_time;
             $endTimeDb = $lastRow->end_time;
             if ($appStartTime>$endTimeDb){
                 $newId = $this->database_model->generateId('appointment_id','appointment','APP');
-                $result = $this->appointment->bookSlot($newId,$appDate,$appStartTime,$appEndTime,$description,$custId);
+                $result = $this->appointment->addAppointment($newId,$appDate,$appStartTime,$appEndTime,$description,$custId);
                 echo "<h4>Appointment Request Successful</h4><br>";
                 return;
             }
@@ -241,12 +248,14 @@ class Appointments extends CI_Controller
         $this->load->view('customer/appointment_history',$result);
     }
 
+    /*
+     * get the number of upcoming appointments
+     */
     public function countNewAppointments(){
         $cust_id = $this->session->userdata('$id');
         $this->load->model('appointment');
         $result = $this->appointment->countAppointments($cust_id);
         echo $result;
-
     }
 
     public function test(){
