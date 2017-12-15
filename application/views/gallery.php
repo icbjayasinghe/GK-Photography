@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/component.css" />
     <link href="<?php echo base_url();?>css/lightbox.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url();?>css/homestyle.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>css/gallery-style.css" rel="stylesheet">
     <script type="text/javaScript" src="<?php echo base_url();?>js/modernizr.min.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -82,7 +83,7 @@
                     break;
                 }
                 $image_list.="<figure>
-                                <a href=\"".base_url()."img/uploads/".$row->path."\"  data-lightbox=\"studio2\" class=\"photostack-img\"><img class=\"img-responsive img-portfolio img-hover\" src=\"".base_url()."img/uploads/".$row->path."\" alt=\"gallery image\"/></a>
+                                <a href=\"".base_url()."img/uploads/".$row->path."\"  data-lightbox=\"studio2\" class=\"photostack-img\"><img class=\"img-responsive img-portfolio img-hover my-image\" src=\"".base_url()."img/uploads/".$row->path."\" alt=\"gallery image\"/></a>
                                 <figcaption>
                                     <h2 class=\"photostack-title\">Speed Racer</h2>
                                     <div class=\"photostack-back\">

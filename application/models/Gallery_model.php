@@ -29,6 +29,7 @@ class Gallery_model extends CI_Model
         try{
             $this->db->select('*');
             $this->db->from('gallery');
+            $this->db->order_by('date_added', 'DESC');
             $result = $this->db->get();
             return $result->result();
         }
@@ -50,7 +51,25 @@ class Gallery_model extends CI_Model
             echo $e;
         }
     }
-   
+
+
+    /*
+     * update the date of the image
+     */
+    public function updateDate($image){
+        $date = date("Y-m-d H:i:s");
+        $data = array(
+            'date_added' => $date
+        );
+        try{
+            $this->db->where('path',$image);
+            $result = $this->db->update('gallery',$data);
+            return $result;
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
 
 }
 

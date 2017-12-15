@@ -80,7 +80,7 @@
                 foreach ($images as $row) {
                     $image_list.="<div class=\"col-sm-12 col-md-4\">
                                         <a class=\"lightbox\" href=\"".base_url()."img/uploads/".$row->path."\">
-                                            <img class=\"img-responsive img-portfolio img-hover\" src=\"".base_url()."img/uploads/".$row->path."\" alt=\"Bridge\">
+                                            <img class=\"img-responsive img-portfolio img-hover my-image\" src=\"".base_url()."img/uploads/".$row->path."\" alt=\"Bridge\">
                                         </a>
                                    </div>";
                     }

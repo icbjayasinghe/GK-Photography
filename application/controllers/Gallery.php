@@ -43,7 +43,7 @@ class Gallery extends CI_Controller
                         // insert image path to database
                         $result = $this->gallery_model->addImage($file_name_new);
 
-                        echo "<span id='success'>Image Uploaded Successfully...!!'$result'</span><br/>";
+                        echo "<span id=''>Image Uploaded Successfully...!!</span><br/>";
                         echo "<br/><b>New File Name:</b> " . $file_name_new . "<br>";
                         echo "<b>Type:</b> " . $_FILES["file"]["type"] . "<br>";
                         echo "<b>Size:</b> " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
@@ -75,6 +75,20 @@ class Gallery extends CI_Controller
         }
     }
 
+
+    // set the priority of the image
+    public function setPriority(){
+        $image = $this->input->post('image_id');
+        $this->load->model('gallery_model');
+        $result = $this->gallery_model->updateDate($image);
+        if ($result){
+            echo "<h4>Image Successfully Updated</h4>";
+        }
+        else{
+            echo "<h4>Failed to update the Image</h4>";
+        }
+
+    }
 }
 
 ?>
