@@ -19,10 +19,9 @@
         <div class="row">
             <!-- Sidebar Column -->
             <div class="col-lg-3 mb-4">
-                <div id="side-bar-list" class="list-group my-sidebar-item">
-                    <a href="." onclick="reloadAdminHome()" class="list-group-item ref">Home</a>
-                    <a href="<?php echo base_url();?>index.php/appointments/makeAppointment" class="list-group-item ref">Make Appointment</a>
-                    <a href="<?php echo base_url();?>index.php/appointments/upcomingAppointments" class="list-group-item ref">Upcoming Appointments</a>
+                <div id="side-bar-list" class="list-group my-sidebar-item top-buffer">
+                    <a id="make_appointment" href="<?php echo base_url();?>index.php/appointments/makeAppointment" class="list-group-item ref">Make Appointment</a>
+                    <a href="<?php echo base_url();?>index.php/appointments/upcomingAppointments" class="list-group-item ref">Upcoming Appointments  <span class="badge badge-pill badge-info" id="appointment_count"></span></a>
                     <a href="<?php echo base_url();?>index.php/appointments/appointmentHistory" class="list-group-item ref">Appointment History</a>
                 </div>
             </div>
@@ -38,5 +37,4 @@
     </div>
     <!-- /.container -->
 </div>
-
 

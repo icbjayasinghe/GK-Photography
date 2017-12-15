@@ -1,5 +1,5 @@
 
-<h2>Upcoming Appointments</h2>
+<h2>Appointment History</h2>
 <br>
 
 <div class="row">
@@ -13,7 +13,6 @@
                     <th>Start Time</th>
                     <th>End Time</th>
                     <th>Description</th>
-                    <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -26,7 +25,6 @@
                         $appointment_list.= "<td>{$row->start_time}h</td>";
                         $appointment_list.= "<td>{$row->end_time}h</td>";
                         $appointment_list.= "<td>{$row->description}</td>";
-                        $appointment_list.= "<td>{$row->status}</td>";
                         $appointment_list.= "</tr>";
                     }
                     echo $appointment_list;

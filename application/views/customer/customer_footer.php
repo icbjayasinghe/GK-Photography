@@ -30,6 +30,26 @@
         });
     });
 
+    $( document ).ready(function() {
+        $('#content').load("<?php echo base_url();?>index.php/appointments/makeAppointment");
+        $('#make_appointment').addClass('active');
+    });
+
+    // load new appointments count
+    setInterval(function(){
+        $.ajax({
+            url:'<?php echo site_url('appointments/countNewAppointments'); ?>',
+            type: "POST",
+            success: function(data)
+            {
+                if(data!=0){
+                    $('#appointment_count').html(data+" NEW");
+                }
+            }
+        });
+    },3000);
+
+
 </script>
 
 </body>

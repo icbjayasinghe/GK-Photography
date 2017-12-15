@@ -31,7 +31,7 @@
 
         <div class="row">
             <div class="col-md-4">
-                <label><h4>Select a End Time</h4></label>
+                <label><h4>Select an End Time</h4></label>
             </div>
             <div class="col-md-4">
                 <input type="time" name="appointment_etime" id="appointment_etime" class="form-control" onchange="onChangeEndTime()">

@@ -231,6 +231,24 @@ class Appointments extends CI_Controller
         $this->load->view('customer/upcoming_appointments',$result);
     }
 
+    /*
+     * get previous appointments for a particular customer
+     */
+    public function appointmentHistory(){
+        $cust_id = $this->session->userdata('$id');
+        $this->load->model('appointment');
+        $result['appointments'] = $this->appointment->getAppointmentHistory($cust_id);
+        $this->load->view('customer/appointment_history',$result);
+    }
+
+    public function countNewAppointments(){
+        $cust_id = $this->session->userdata('$id');
+        $this->load->model('appointment');
+        $result = $this->appointment->countAppointments($cust_id);
+        echo $result;
+
+    }
+
     public function test(){
         $appDate = $this->input->post('date');
         $this->load->model('database_model'); // to invoke the generateId() method later
