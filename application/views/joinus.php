@@ -40,7 +40,7 @@
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label for="inputEmail4">Contact no.</label>
-                <input type="text" class="form-control" name="phone" id="phone" placeholder="Contact no." max="1000000000">
+                <input type="number" class="form-control" name="phone" id="phone" placeholder="Contact no.">
             </div>
         </div>
 
