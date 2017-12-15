@@ -4,8 +4,8 @@
 class Customer_manage extends CI_Controller
 {
     public function viewCustomers(){
-        $this->load->model('customer_manage');
-        $customer=$this->customer_manage->getCustomers();
+        $this->load->model('customer_model');
+        $customer=$this->customer_model->getCustomers();
         $customerList = "<table class=\"table table-hover col-md-12\">
 
                 <thead>

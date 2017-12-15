@@ -1,5 +1,5 @@
 
-<h2>Customer Management<span>
+<h2>Manage Customers<span>
         <small>
             <input id="search" type="text" name="search_customer" onchange="getCustomerDetails('')" value="search">
         </small>
@@ -45,3 +45,40 @@
     </div>
 </div>
 
+<script>
+    function getCustomerDetails() {
+        $.ajax({
+            url:'<?php echo site_url('customer_manage/viewCustomers'); ?>',
+            method: "post",
+            success: function() {
+                $('#table_results').html();
+            }
+        });
+    }
+
+    // load modal to edit customer details
+    function edit_customer(customerDetails){
+        customerDetails = customerDetails.split(",");
+        // alert(customerDetails);
+        $('#edit_cust_id').val(customerDetails[0]);
+        $('#edit_first_name').val(customerDetails[1]);
+        $('#edit_last_name').val(customerDetails[2]);
+        $('#edit_cust_phone').val(customerDetails[3]);
+        $('#edit_cust_address').val(customerDetails[4]);
+        $('#edit_cust_email').val(customerDetails[5]);
+        $('#edit_customer_Modal').modal('show');
+    }
+
+    // load modal to view customer details
+    function loadCustomerModal(customerDetails){
+        customerDetails = customerDetails.split(",");
+        alert(customerDetails);
+        $('#cust_id').val(customerDetails[0]);
+        $('#first_name').val(customerDetails[1]);
+        $('#last_name').val(customerDetails[2]);
+        $('#cust_phone').val(customerDetails[3]);
+        $('#cust_address').val(customerDetails[4]);
+        $('#cust_email').val(customerDetails[5]);
+        $('#customer_Modal').modal('show');
+    }
+</script>

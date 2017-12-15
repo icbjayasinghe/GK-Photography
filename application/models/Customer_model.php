@@ -1,7 +1,7 @@
 <?php
 //defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Customer_manage extends CI_Model
+class Customer_model extends CI_Model
 {
 
     /*

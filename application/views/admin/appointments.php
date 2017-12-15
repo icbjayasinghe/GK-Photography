@@ -61,4 +61,23 @@
         $('#customer_Modal').modal('show');
     }
 
+
+    // load appointment details when date picker is changed
+    function getAppointmentDetails(value) {
+        if (value == '*'){
+            var date = '*';
+            $('#date_picker').val("");
+        }
+        else{
+            var date = document.getElementById("date_picker").value;
+        }
+        $.ajax({
+            url:'<?php echo site_url('appointments/viewAppointments'); ?>',
+            method: "post",
+            data: {date:date},
+            success: function( data ) {
+                $('#table_results').html(data);
+            }
+        });
+    }
 </script>
