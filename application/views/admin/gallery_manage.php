@@ -65,7 +65,7 @@
                     if ($count>=6){
                         $image_list.="<div class=\"col-sm-12 col-md-4\">
                                         <a class=\"lightbox\" href=\"#\" onclick='loadEditImageModal(this.id)' id='$row->path'>
-                                            <img class=\"img-responsive img-portfolio img-hover\" src=\"".base_url()."img/uploads/".$row->path."\" alt=\"Bridge\">
+                                            <img class=\"img-responsive img-portfolio img-hover top-buffer\" src=\"".base_url()."img/uploads/".$row->path."\" alt=\"Bridge\">
                                         </a>
                                    </div>";
                     }
@@ -131,8 +131,8 @@
             processData:false,        // To send DOMDocument or non processed data file it is set to false
             success: function(data)   // A function to be called if request succeeds
             {
-                $('#loading').hide();
-                $("#message").html(data);
+                $('#msg_Modal').modal('show');
+                $('#msg_result').html(data);
             }
         });
     }));
@@ -155,11 +155,27 @@
             success:function(result){
                 $('#msg_Modal').modal('show');
                 $('#msg_result').html(result);
-                $('#myTab').tabs({ active: 2 });
             }
         });
     }
 
+    // function to set the priority of the image to high
+    function setPriority(){
+        var imageId = document.getElementById('image_id').value;
+        $('#edit_image_Modal').modal('hide');
+        $.ajax({
+            url:'<?php echo site_url('gallery/setPriority'); ?>',
+            type: "POST", //request type
+            data: {image_id : imageId},
+            cache: false,
+            success:function(result){
+                $('#msg_Modal').modal('show');
+                $('#msg_result').html(result);
+            }
+        });
+    }
+
+    // active recently activated tab using local storage
     $(document).ready(function(){
         $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
             localStorage.setItem('activeTab', $(e.target).attr('href'));

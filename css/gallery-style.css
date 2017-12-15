@@ -81,3 +81,7 @@ body {
     }
 }
 
+.my-image{
+    height: 80%;
+    align-items: center;
+}
