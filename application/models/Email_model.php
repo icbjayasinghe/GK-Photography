@@ -10,7 +10,7 @@ class Email_model extends CI_Model
     public function sendAppointmentConfirmationMail($status,$cust_email,$appointment_date,$start_time,$end_time,$description){
 
         $message_body="Appointment Date : ".$appointment_date."<br>
-            Appointment Time: ".$start_time."h to".$end_time."h<br>
+            Appointment Time: ".$start_time."h to ".$end_time."h<br>
             Description : ".$description."<br>";
 
         if ($status=="rejected"){
