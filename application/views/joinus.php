@@ -18,8 +18,8 @@
 <link href="<?php echo base_url(); ?>css/homestyle.css" rel="stylesheet">
 <div id="myCarousel" class="canvas carousel slide background-theme" data-ride="carousel">
     <div class="container col-md-6 my-signup">
-        <hr>
         <h2><b>Join Us</b></h2>
+        <hr>
     <form>
         <div class="form-row">
             <div class="form-group col-md-12">
@@ -39,43 +39,42 @@
             <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
         </div>
         <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                </select>
-            </div>
-            <div class="form-group col-md-2">
-                <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
-            </div>
+
+
+
+
+
+            <div class="form-row">
+                <div class="form-group col-md-12>
+                <label for="inputEmail4">Good at</label>
+                <div class="checkbox">
+
+                    <label><input type="checkbox" value="">Photographing</label>
+
+                    <label><input type="checkbox" value="">Videographing</label>
+
+                    <label><input type="checkbox" value="">Photo editing</label>
+
+                    <label><input type="checkbox" value="">Video editing</label>
+
+                    <label><input type="checkbox" value="">Other</label>
+
+
+                </div>
+                </div>
             <div class="form-group col-md-12">
-                <label for="telephone">Phone number</label>
-                <input type="number" class="form-control" id="inputZip">
+                <label for="comment">Short discription about your works:</label>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
             </div>
-            <div class="checkbox">
-                <label><input type="checkbox" value="">Option 1</label>
             </div>
-            <div class="checkbox">
-                <label><input type="checkbox" value="">Option 2</label>
-            </div>
-            <div class="checkbox disabled">
-                <label><input type="checkbox" value="" disabled>Option 3</label>
-            </div>
+        <div class="form-group col-md-12">
+            <label class="btn btn-default btn-file">
+                Attach your cv <input type="file" style="display: none;">
+            </label>
         </div>
-        <div class="form-group">
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox"> Check me out
-                </label>
-            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
+
+        <button type="submit" class="btn btn-primary col-md-12">Submit</button>
     </form>
     </div>
 </div>
