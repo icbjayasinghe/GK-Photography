@@ -9,12 +9,8 @@
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">Admin Home
+        <h1 class="mt-4 mb-3">Customer Home
             <small><?php echo $this->session->userdata('$f_name')." " .$this->session->userdata('$l_name');?></small>
-            <div class="request-icon">
-                <span role="button" class="badge badge-pill badge-info" id="request_count" onclick="displayAppointmentRequests()"></span>
-                <i role="button" class="fa fa-envelope-o envelop" aria-hidden="true" onclick="displayAppointmentRequests()"></i>
-            </div>
         </h1>
 
         <br>
@@ -25,10 +21,9 @@
             <div class="col-lg-3 mb-4">
                 <div id="side-bar-list" class="list-group my-sidebar-item">
                     <a href="." onclick="reloadAdminHome()" class="list-group-item ref">Home</a>
-                    <a href="<?php echo base_url();?>index.php/administrator/appointments" class="list-group-item ref">Appointments</a>
-                    <a href="<?php echo base_url();?>index.php/administrator/manageCustomers" class="list-group-item ref">Manage Customers</a>
-                    <a href="<?php echo base_url();?>index.php/administrator/manageGallery" class="list-group-item ref">Manage Gallery</a>
-                    <a href="portfolio-1-col.html" class="list-group-item">Manage Suggestions</a>
+                    <a href="<?php echo base_url();?>index.php/appointments/makeAppointment" class="list-group-item ref">Make Appointment</a>
+                    <a href="<?php echo base_url();?>index.php/appointments/upcomingAppointments" class="list-group-item ref">Upcoming Appointments</a>
+                    <a href="<?php echo base_url();?>index.php/appointments/appointmentHistory" class="list-group-item ref">Appointment History</a>
                 </div>
             </div>
             <!-- Content Column -->

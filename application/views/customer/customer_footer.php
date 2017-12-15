@@ -22,29 +22,6 @@
         return false;
     });
 
-    // load appointment request count
-    setInterval(function(){
-        $.ajax({
-            url:'<?php echo site_url('appointments/appointmentRequestCount'); ?>',
-            type: "POST",
-            data : "",
-            success: function(data)
-            {
-                $('#request_count').html(data+" NEW");
-                //alert(data);
-            }
-        });
-    },3000);
-
-    // load appointment requests view
-    function displayAppointmentRequests() {
-        $('#content').load("<?php echo base_url();?>index.php/appointments/appointmentRequests");
-    }
-
-    function reloadAdminHome() {
-        location.reload();
-    }
-
     $(document).ready(function(){
         $('#side-bar-list a').click(function(e) {
             e.preventDefault();

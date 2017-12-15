@@ -33,6 +33,25 @@ class Email_model extends CI_Model
 
         return $result;
     }
+
+    /*
+     * send registration confirmation mail
+     */
+    public function sendRegistrationConfirmationMail($cust_email,$first_name,$last_name){
+        $subject = 'Registration Confirmed';
+        $message_body="<h1>Thank you for registering with us! ".$first_name." ".$last_name."</h1><br> You can now make your appoinments online, with GK Photography. ".
+            "Contact us for more information.<br>98-1,<br> Potpathy Road,<br> Kokuvil East, Kokuvil,<br> Jaffna,<br> Sri Lanka.<br> (0)771180383";
+
+        $result = $this->email
+            ->from('gkphotography00@gmail.com')
+            ->reply_to('gkphotography00@gmail.com')    // Optional, an account where a human being reads.
+            ->to($cust_email)
+            ->subject($subject)
+            ->message($message_body)
+            ->send();
+
+        return $result;
+    }
 }
 
 ?>

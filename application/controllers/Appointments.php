@@ -9,11 +9,7 @@ class Appointments extends CI_Controller
      */
     public function makeAppointment()
     {
-        $this->load->view('header');
         $this->load->view('make_appointment');
-        $this->load->view('message_modal');
-        $this->load->view('footer');
-
     }
 
     /*
@@ -225,6 +221,15 @@ class Appointments extends CI_Controller
         echo $result;
     }
 
+    /*
+     * get upcoming appointments for a particular customer
+     */
+    public function upcomingAppointments(){
+        $cust_id = $this->session->userdata('$id');
+        $this->load->model('appointment');
+        $result['appointments'] = $this->appointment->getUpcomingAppointments($cust_id);
+        $this->load->view('customer/upcoming_appointments',$result);
+    }
 
     public function test(){
         $appDate = $this->input->post('date');

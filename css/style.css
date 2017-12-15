@@ -442,3 +442,14 @@ h3.blog-post-title {
 .top-buffer{
     margin-top: 5%;
 }
+
+.my-sidebar-item a:hover{
+    color: white;
+    background-color: #00363a;
+}
+
+#side-bar-list a.active{
+    border-color: white;
+    color: white;
+    background-color:#00363a ;
+}

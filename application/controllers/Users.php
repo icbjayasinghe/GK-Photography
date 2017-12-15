@@ -17,4 +17,12 @@ class Users extends CI_Controller
         $this->load->view('admin/admin_footer');
     }
 
+    public function customerHome()
+    {
+        $this->load->view('header');
+        $this->load->view('customer/customer_home');
+        $this->load->view('message_modal');
+        $this->load->view('customer/customer_footer');
+    }
+
 }

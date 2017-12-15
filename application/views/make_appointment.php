@@ -1,90 +1,70 @@
 
+<input type="hidden" name="this_cust_id" id="this_cust_id" value="<?php echo $this->session->userdata('$id');?>">
 
-<div class="canvas col-md-12 background-theme">
-    <!-- Page Content -->
-    <div class="container">
-
-        <!-- Page Heading/Breadcrumbs -->
-        <div class="row class="mt-4 mb-3"">
-            <div class="col-lg-12">
-                <h1 class="page-header">Book an Appointment  <small><?php echo $this->session->userdata('$f_name')." " .$this->session->userdata('$l_name');?></small>
-                </h1>
-
-                <input type="hidden" name="this_cust_id" id="this_cust_id" value="<?php echo $this->session->userdata('$id');?>">
-            </div>
-        </div>
-        <!-- /.row -->
-        <br>
-        <br>
-        <!-- Content Row -->
+<h2>Make an Appointment</h2>
+<br>
+<!-- Content Row -->
+<div class="row">
+    <div class="col-lg-12">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="row">
-                    <div class="col-md-4">
-                        <label><h4>Select a Date</h4></label>
-                    </div>
-                    <div class="col-md-4">
-                            <input type="date" name="appointment_date" id="appointment_date" class="form-control" onchange="onChangeDate()">
-                            <input type="hidden" name="today" id="today" value="<?php echo date("Y-m-d");?>">
-                    </div>
-                    <p id="check_date" class="warning_msg"></p>
-                </div>
-                <br>
-                <br>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <label><h4>Select a Start Time</h4></label>
-                    </div>
-                    <div class="col-md-4">
-                            <input type="time" name="appointment_stime" id="appointment_stime" class="form-control" onchange="onChangeStartTime()">
-                    </div>
-                    <p id="check_start_time" class="warning_msg"></p>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <label><h4>Select a End Time</h4></label>
-                    </div>
-                    <div class="col-md-4">
-                        <input type="time" name="appointment_etime" id="appointment_etime" class="form-control" onchange="onChangeEndTime()">
-                    </div>
-                    <p id="check_end_time" class="warning_msg"></p>
-                </div>
-
-                <br>
-                <br>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <label><h4>Description</h4></label>
-                    </div>
-                    <div class="col-md-4">
-                        <textarea type="text" name="description" id="description" class="form-control" onchange="onChangeDescription()"></textarea>
-                    </div>
-                    <p id="check_description" class="warning_msg"></p>
-                </div>
-
-                <br>
-                <br>
-                <br>
-
-
-                <div class="row">
-                    <div class="col-md-4 col-md-offset-4">
-                        <a class="btn btn-lg btn-default btn-block" onclick="makeAppointment()">Make Appointment</a>
-                    </div>
-                </div>
+            <div class="col-md-4">
+                <label><h4>Select a Date</h4></label>
             </div>
+            <div class="col-md-4">
+                    <input type="date" name="appointment_date" id="appointment_date" class="form-control" onchange="onChangeDate()">
+                    <input type="hidden" name="today" id="today" value="<?php echo date("Y-m-d");?>">
+            </div>
+            <p id="check_date" class="warning_msg"></p>
+        </div>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label><h4>Select a Start Time</h4></label>
+            </div>
+            <div class="col-md-4">
+                    <input type="time" name="appointment_stime" id="appointment_stime" class="form-control" onchange="onChangeStartTime()">
+            </div>
+            <p id="check_start_time" class="warning_msg"></p>
         </div>
 
+        <div class="row">
+            <div class="col-md-4">
+                <label><h4>Select a End Time</h4></label>
+            </div>
+            <div class="col-md-4">
+                <input type="time" name="appointment_etime" id="appointment_etime" class="form-control" onchange="onChangeEndTime()">
+            </div>
+            <p id="check_end_time" class="warning_msg"></p>
+        </div>
 
-        <hr>
+        <br>
+        <br>
 
+        <div class="row">
+            <div class="col-md-4">
+                <label><h4>Description</h4></label>
+            </div>
+            <div class="col-md-4">
+                <textarea type="text" name="description" id="description" class="form-control" onchange="onChangeDescription()"></textarea>
+            </div>
+            <p id="check_description" class="warning_msg"></p>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <a class="btn btn-primary btn-lg btn-block my-upload-button" onclick="makeAppointment()">Make Appointment</a>
+            </div>
+        </div>
     </div>
-    <!-- /.container -->
-
 </div>
+
 
 <script type="text/javascript">
 
@@ -218,5 +198,6 @@
             $('#msg_result').html("Please check all the fields!");
         }
     }
+
 
 </script>

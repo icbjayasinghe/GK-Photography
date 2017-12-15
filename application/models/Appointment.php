@@ -23,6 +23,25 @@ class Appointment extends CI_Model
     }
 
     /*
+     * get upcoming appointments for a particular customer
+     */
+    public function getUpcomingAppointments($cust_id){
+        $today = date("Y-m-d");
+        try{
+            $this->db->select('*');
+            $this->db->from('appointment');
+            $this->db->where('cust_id',$cust_id)->where("appointment_date >= '$today'");
+            $this->db->order_by('appointment_date')->order_by('start_time');
+            $result = $this->db->get();
+            return $result->result();
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
+
+
+    /*
      * get unavailable slots
      */
     public function getUnavailableSlots($date)
