@@ -28,7 +28,7 @@
                     <a href="<?php echo base_url();?>index.php/administrator/appointments" class="list-group-item ref">Appointments</a>
                     <a href="<?php echo base_url();?>index.php/administrator/manageCustomers" class="list-group-item ref">Manage Customers</a>
                     <a href="<?php echo base_url();?>index.php/administrator/manageGallery" class="list-group-item ref">Manage Gallery</a>
-                    <a href="portfolio-1-col.html" class="list-group-item">Manage Suggestions</a>
+                    <a href="<?php echo base_url();?>index.php/administrator/manageSuggestions" class="list-group-item ref">Manage Suggestions</a>
                     <a href="services.html" class="list-group-item">Services</a>
                     <a href="contact.html" class="list-group-item">Contact</a>
                     <a href="portfolio-2-col.html" class="list-group-item">2 Column Portfolio</a>

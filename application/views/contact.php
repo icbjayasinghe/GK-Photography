@@ -49,7 +49,22 @@
                 </div>
                   
                 <div class="controls btn-full">
-                    <button id="contact-submit" name="submit" value="Submit" type="submit" class="btn btn-primary">Send</button>
+                    <button id="contact-submit" name="submit" value="Submit" type="submit" class="btn btn-primary" onclick="myFunction()">Send</button>
+
+                    <p id="demo"></p>
+                    <script>
+                        function myFunction() {
+                            var txt;
+                            var r = confirm("Are you sure want to SEND your suggestion!");
+                            if (r == true) {
+                                txt = "You pressed OK!";
+                            } else {
+                                txt = "You pressed Cancel!";
+                            }
+                            document.getElementById("demo").innerHTML = txt;
+                        }
+                    </script>
+
                 </div>
             <!-- </form> -->
         <!-- </div> -->
