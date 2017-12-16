@@ -23,7 +23,7 @@
 
         <!--for checking validation errors-->
         <?php echo validation_errors(); ?>
-        <?php echo form_open('Joinus/Joinususer'); ?>
+        <?php echo form_open_multipart('Joinus/Joinususer'); ?>
 
         <div class="form-row">
             <div class="form-group col-md-12">
@@ -73,14 +73,23 @@
                 <textarea class="form-control" rows="5" id="works" name="works" maxlength="200"></textarea>
             </div>
             </div>
-        <div class="form-group col-md-12">
-            <label class="btn btn-default btn-file">
-                Attach your cv <input type="file" style="display: none;">
-            </label>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="inputEmail4">Your CV</label>
+                <?php echo form_upload('pdf')?>
+<!--                --><?php //echo form_submit('Save','submit', 'class="btn btn-primary"');?>
+            </div>
         </div>
+<!--        <div class="form-group col-md-12">-->
+
+<!--            <label class="btn btn-default btn-file col-md-2">-->
+<!--                Attach your cv --><?php //echo form_upload();?>
+<!--<!--                <input type="file" style="display: none;" name="multipleFile[]">-->
+<!--            </label>-->
+<!--        </div>-->
         </div>
 
-        <button type="submit" class="btn btn-primary col-md-12">Submit</button>
+        <button type="submit" class="btn btn-primary col-md-12" name="submit">Submit</button>
     <?php echo form_close(); ?>
     </div>
 </div>
