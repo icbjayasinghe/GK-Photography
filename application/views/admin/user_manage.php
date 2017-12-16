@@ -77,13 +77,46 @@
                 $('#change_password').val("");
                 $('#change_confirm_password').val("");
                 $('#message').html("");
-                $('#change_user_id').val(data.id);
+                $('#change_user_id').val(data.user_id);
                 $('#change_password_Modal').modal('show');
             }
         });
     }
 
-    // matching password
+    // change user password
+    function onclickChangePassword() {
+        var newPassword = document.getElementById("change_password").value;
+        var confirmNewPassword = document.getElementById("change_confirm_password").value;
+        if (newPassword.length<4){
+            $('#message').html('Please enter a password more than 4 characters in length').css('color', '#7f0000');
+            return;
+        }
+        if (newPassword != confirmNewPassword){
+            $('#insert_form')[0].reset();
+            $('#change_password_Modal').modal('hide');
+            $('#msg_Modal').modal('show');
+            $('#msg_result').html("<h4>New password mismatched</h4>");
+            return;
+        }
+
+        var user_id = document.getElementById("change_user_id").value;
+        var password = newPassword;
+
+        $.ajax({
+            url:'<?php echo site_url('users/changeUserPassword'); ?>',
+            type: "post",
+            data: {user_id:user_id,password:password},
+            cache: false,
+            success: function (data) {
+                $('#insert_form')[0].reset();
+                $('#change_password_Modal').modal('hide');
+                $('#msg_Modal').modal('show');
+                $('#msg_result').html(data);
+            }
+        });
+    }
+
+
     // matching password
     $('#change_confirm_password').on('keyup', function () {
         if($(this).val() == ' '){

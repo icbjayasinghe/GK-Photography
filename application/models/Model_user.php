@@ -117,4 +117,21 @@ class Model_user extends CI_Model{
             echo $e;
         }
     }
+
+    /*
+     * update the password of a user
+     */
+    public function updateUserPassword($user_id,$password){
+        $data = array(
+            'password' => $password
+        );
+        try{
+            $this->db->where('user_id',$user_id);
+            $result = $this->db->update('user',$data);
+            return $result;
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
 }

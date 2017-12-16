@@ -76,4 +76,20 @@ class Users extends CI_Controller
         echo json_encode($customer);
     }
 
+    /*
+    * change the password of a particular user
+    */
+    public function changeUserPassword(){
+        $user_id = $this->input->post('user_id');
+        $password = $this->input->post('password');
+        $hashed_password = sha1($password);
+        $this->load->model('model_user');
+        $result = $this->model_user->updateUserPassword($user_id,$hashed_password);
+        if ($result){
+            echo "<h4>Password changed successfully</h4>";
+        }
+        else{
+            echo "<h4>Failed to change the Password</h4>";
+        }
+    }
 }
