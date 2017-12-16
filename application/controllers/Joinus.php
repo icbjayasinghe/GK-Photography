@@ -7,6 +7,16 @@
  */
 
 class Joinus extends CI_Controller{
+    public function __construct(){
+        parent::__construct();
+        $this->load->helper('form');
+        $this->load->helper('directory');
+        $this->load->library('upload');
+
+
+    }
+
+
     public function Joinususer(){
         //form validation
         $this->form_validation->set_rules('name','Name','required');
@@ -18,11 +28,15 @@ class Joinus extends CI_Controller{
             $this->load->view('joinus');
         }
         else{
-            $this->load->model('Joinus_model');
-            $respond=$this->Joinus_model->join_model();
+//            if(is_uploaded_file($_FILES["pdf"]["tmp_name"])){
+//                move_uploaded_file($_FILES["pdf"]["tmp_name"],"./pdf/".$_FILES["pdf"]["tmp_name"]);
+                $this->load->model('Joinus_model');
+                $respond=$this->Joinus_model->join_model();
+            }
+
 
         }
 
-    }
+
 
 }

@@ -20,9 +20,15 @@ class Register extends CI_Controller{
         $this->form_validation->set_rules('cpassword', 'Confirm Password', 'required|matches[password]');
 
         $this->load->model('database_model'); // to invoke the generateId() method later
-
+        $flag=$this->input->post('flag',TRUE);
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('register');
+            if($flag=1){
+                 redirect('Administrator/registerCustomer1');
+            }
+            else{
+                $this->load->view('register');
+            }
+
         }
         else {
 //            $newId = $this->database_model->generateId('cust_id','customer','CUS');

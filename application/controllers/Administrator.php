@@ -49,5 +49,11 @@ class Administrator extends CI_Controller
         $result['images'] = $this->gallery_model->getImagesMyWork();
         $this->load->view('admin/gallery_manage',$result);
     }
+
+    public function registerCustomer(){
+        $this->load->view('admin/admin_registerUser');
+
+    }
+
 }
 
