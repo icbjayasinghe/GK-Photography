@@ -19,16 +19,22 @@
 
             <h2><small>
                 <span>
-                    <input id="date_picker" type="date" name="appointment_date" onchange="getAppointmentDetails('')" value="<?php echo date("Y-m-d");?>"></small>
-                    <div class="request-icon" onclick="getAppointmentDetails('*')">
+                    <div class="col-md-4">
+                        <input id="date_picker" type="date" name="appointment_date" onchange="getAppointmentDetails('')" value="<?php echo date("Y-m-d");?>"></small>
+                    </div>
+                    <div class="request-icon col-md-2" onclick="getAppointmentDetails('*')">
                         <a class="btn view-all">View All   <i class="fa fa-table" aria-hidden="true"></i></a>
                     </div>
+                    <div class="col-md-6" style="margin-top: 0.5%">
+                        <input type="text" class="form-control paragraph-font" placeholder="Search other details ..." id="search_text_appointment">
+                    </div>
+
                 </span></h2>
 
             </h2>
 
             <div class="row ">
-                <div class="col-md-12 result-table" id="appointment_table_results">
+                <div class="col-md-12 result-table top-buffer" id="appointment_table_results">
                     <table class="table table-hover col-md-12">
                         <thead>
                         <tr>
@@ -121,20 +127,39 @@
         $('#customer_Modal').modal('show');
     }
 
+    // load suitable results on keyup
+    $(document).ready(function(){
+        $('#search_text_appointment').keyup(function () {
+            var date = document.getElementById('date_picker').value;
+            var txt = $(this).val().trim();
+            $.ajax({
+                url:'<?php echo site_url('appointments/searchAppointmentDetails'); ?>',
+                method: "post",
+                data:{date:date,txt:txt},
+                cache: false,
+                success: function (data) {
+                    $('#appointment_table_results').html(data);
+                }
+            });
+        });
+    });
 
     // load appointment details when date picker is changed
     function getAppointmentDetails(value) {
+        var txt = document.getElementById('search_text_appointment').value;
         if (value == '*'){
-            var date = '*';
+            var date = '';
+            txt= "";
             $('#date_picker').val("");
+            $('#search_text_appointment').val("");
         }
         else{
             var date = document.getElementById("date_picker").value;
         }
         $.ajax({
-            url:'<?php echo site_url('appointments/viewAppointments'); ?>',
+            url:'<?php echo site_url('appointments/searchAppointmentDetails'); ?>',
             method: "post",
-            data: {date:date},
+            data: {date:date,txt:txt},
             success: function( data ) {
                 $('#appointment_table_results').html(data);
             }

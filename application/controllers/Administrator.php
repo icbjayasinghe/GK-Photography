@@ -17,7 +17,7 @@ class Administrator extends CI_Controller
     {
         $date = date("Y-m-d");
         $this->load->model('appointment');
-        $result['appointments'] = $this->appointment->getAppointments($date);
+        $result['appointments'] = $this->appointment->searchAppointments($date,"");
         $this->load->view('admin/appointments',$result);
     }
 

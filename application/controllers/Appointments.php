@@ -31,13 +31,15 @@ class Appointments extends CI_Controller
 
     }
 
+
     /*
-     * view appointments
+     * search appointments
      */
-    public function viewAppointments(){
+    public function searchAppointmentDetails(){
         $this->load->model('appointment');
         $date = $this->input->post('date');
-        $appointmentRequests = $this->appointment->getAppointments($date);
+        $txt = $this->input->post('txt');
+        $appointmentRequests = $this->appointment->searchAppointments($date,$txt);
         $appointmentList = "<table class=\"table table-hover col-md-12\">
                 <thead>
                 <tr>
