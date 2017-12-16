@@ -79,6 +79,7 @@ class Model_user extends CI_Model{
             if ($search_text==""){
                 $this->db->select('*');
                 $this->db->from('user');
+                $this->db->where('is_deleted',0);
                 $result = $this->db->get();
             }
             else if ($field=='all'){
@@ -86,12 +87,14 @@ class Model_user extends CI_Model{
                 $this->db->select('*');
                 $this->db->from('user');
                 $this->db->or_like($array);
+                $this->db->where('is_deleted',0);
                 $result = $this->db->get();
             }
             else{
                 $this->db->select('*');
                 $this->db->from('user');
                 $this->db->where("$field LIKE '%$search_text%'");
+                $this->db->where('is_deleted',0);
                 $result = $this->db->get();
             }
 
@@ -127,6 +130,23 @@ class Model_user extends CI_Model{
         );
         try{
             $this->db->where('user_id',$user_id);
+            $result = $this->db->update('user',$data);
+            return $result;
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
+
+    /*
+     * update the delete status of a user
+     */
+    public function updateUserDeleteStatus($record_id,$status){
+        $data = array(
+            'is_deleted' => $status
+        );
+        try{
+            $this->db->where('user_id',$record_id);
             $result = $this->db->update('user',$data);
             return $result;
         }

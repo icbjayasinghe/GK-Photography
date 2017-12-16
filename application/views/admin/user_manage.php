@@ -116,6 +116,16 @@
         });
     }
 
+    // load modal to delete user data
+    $(document).ready(function (){
+        $(document).on('click','.delete_user',function(){
+            var id = $(this).attr("id");
+            var table = 'user';
+            $('#table_name').val(table);
+            $('#record_id').val(id);
+            $('#delete_Modal').modal('show');
+        });
+    });
 
     // matching password
     $('#change_confirm_password').on('keyup', function () {
@@ -126,12 +136,38 @@
             $('#message').html('Password Match').css('color', '#32cb00');
         }
         else {
-            $('#message').html('Password does not match. Please Re-Enter!').css('color', '#7f0000');
+            $('#message').html('Password does not match. Please Re-Enter!').css('color', '#c62828');
 
         }
     });
 
+    // when delete button is pressed in the modal
+    function deleteRecord(){
+        $('#delete_Modal').modal('hide');
+        var record_id = document.getElementById('record_id').value;
+        var table_name = document.getElementById('table_name').value;
+        $.ajax({
+            url:'<?php echo site_url('users/deleteUser'); ?>', //the page containing php script
+            type: "post", //request type
+            data: {record_id : record_id},
+            cache: false,
+            success:function(result){
+                $('#msg_Modal').modal('show');
+                $('#msg_result').html(result);
+            }
+        });
+    }
+
+    // when cancel button is pressed in the modal
+    function notDeleteRecord() {
+        $('#delete_Modal').modal('hide');
+    }
+
     $(document).ready(function(){
         $('#user_table_results').load("<?php echo base_url();?>index.php/users/searchUserDetails/all/");
+    });
+
+    $('#msg_Modal').on('hidden.bs.modal', function () {
+        $('#content').load("<?php echo base_url();?>index.php/administrator/manageUsers");
     });
 </script>

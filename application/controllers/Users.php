@@ -13,6 +13,7 @@ class Users extends CI_Controller
         $this->load->view('message_modal');
         $this->load->view('customer_details_modal');
         $this->load->view('admin/edit_gallery_modal');
+        $this->load->view('admin/delete_modal');
         $this->load->view('admin/change_password_modal');
         $this->load->view('edit_customer_details');
         $this->load->view('admin/admin_footer');
@@ -49,6 +50,7 @@ class Users extends CI_Controller
                         <th>Last Login</th>
                         <th>Type</th>
                         <th>Change Password</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>";
@@ -60,6 +62,12 @@ class Users extends CI_Controller
             $customerList.= "<td>{$row->last_login}</td>";
             $customerList.= "<td>{$row->type}</td>";
             $customerList.= "<td><a role='button' class=\"btn-success btn btn-sm btn-block\" onclick=\"loadChangePassword(this.id)\" id={$row->user_id}><b><span class=\"glyphicon glyphicon-edit\"></span> Change Password</b></a></td>";
+            if ($row->type=='Administrator'){
+                $customerList.= "<td><a role='button' class=\"btn-danger btn btn-sm btn-block delete_user disabled\" id={$row->user_id}><b><span class=\"glyphicon glyphicon-edit\"></span> Delete</b></a></td>";
+            }
+            else{
+                $customerList.= "<td><a role='button' class=\"btn-danger btn btn-sm btn-block delete_user\" id={$row->user_id}><b><span class=\"glyphicon glyphicon-edit\"></span> Delete</b></a></td>";
+            }
             $customerList.= "</tr>";
         }
         $customerList .="</tbody></table>";
@@ -90,6 +98,23 @@ class Users extends CI_Controller
         }
         else{
             echo "<h4>Failed to change the Password</h4>";
+        }
+    }
+
+    /*
+    * function to delete a particular user
+    */
+    public function deleteUser(){
+        $record_id = $this->input->post('record_id');
+        $this->load->model('model_user');
+        $this->load->model('customer_model');
+        $result_user = $this->model_user->updateUserDeleteStatus($record_id,1);
+        $result_customer = $this->customer_model->updateCustomerDeleteStatus($record_id,1);
+        if ($result_user AND $result_customer){
+            echo "<h4>User deleted successfully</h4>";
+        }
+        else{
+            echo "<h4>Failed to delete the User</h4>";
         }
     }
 }
