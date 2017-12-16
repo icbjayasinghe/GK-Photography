@@ -65,11 +65,11 @@
 }
 
 .my-upload-button{
-    background-color: #05342c;
-    border: solid;
+    background-color: #00363a;
     border-color: white;
 }
 
 .my-upload-button:hover{
-    background-color: #0f4a85;
+    border-color:white ;
+    background-color: #052f25;
 }

@@ -7,6 +7,7 @@
  */
 
 class Model_user extends CI_Model{
+
     public function insertUser(){
         $this->load->model(Database_model);
         $cus_id = $this->Database_model->generateId('cust_id','customer','CUS');

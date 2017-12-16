@@ -1,7 +1,7 @@
 
-<input type="hidden" name="this_cust_id" id="this_cust_id" value="<?php echo $this->session->userdata('$id');?>">
+<input type="hidden" name="this_cust_id" id="this_cust_id" value="<?php echo $cust_id;?>">
 
-<h2>Make an Appointment</h2>
+<h2>Make an Appointment - <small><?php echo $cust_id;?></small></h2>
 <br>
 <!-- Content Row -->
 <div class="row">
@@ -177,7 +177,7 @@
                 method: "post",
                 data: {date:date,stime:stime,etime:etime,description:description,cust_id:cust_id},
                 success: function( data ) {
-                    if (data=="<h4>Appointment Request Successful</h4>"){
+                    if (data=="<h4>Appointment Request Successful</h4><br>"){
                         $('#appointment_date').val("");
                         $('#appointment_stime').val("");
                         $('#appointment_etime').val("");

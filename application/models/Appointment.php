@@ -23,6 +23,51 @@ class Appointment extends CI_Model
     }
 
     /*
+     * get upcoming appointments for a particular customer
+     */
+    public function getUpcomingAppointments($cust_id){
+        $today = date("Y-m-d");
+        try{
+            $this->db->select('*');
+            $this->db->from('appointment');
+            $this->db->where('cust_id',$cust_id)->where("appointment_date >= '$today'");
+            $this->db->order_by('appointment_date')->order_by('start_time');
+            $result = $this->db->get();
+            return $result->result();
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
+
+    /*
+     * get previous appointments for a particular customer
+     */
+    public function getAppointmentHistory($cust_id){
+        $today = date("Y-m-d");
+        try{
+            $this->db->select('*');
+            $this->db->from('appointment');
+            $this->db->where('cust_id',$cust_id)->where("appointment_date < '$today'")->where('status','accepted');
+            $this->db->order_by('appointment_date',"DESC")->order_by('start_time');
+            $this->db->limit(20);
+            $result = $this->db->get();
+            return $result->result();
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
+
+
+    public function countAppointments($cust_id){
+        $today = date("Y-m-d");
+        $this->db->where('status','accepted')->where('cust_id',$cust_id)->where("appointment_date >= '$today'" );
+        $this->db->from("appointment");
+        return $this->db->count_all_results();
+    }
+
+    /*
      * get unavailable slots
      */
     public function getUnavailableSlots($date)
@@ -103,7 +148,7 @@ class Appointment extends CI_Model
     /*
      * book an appointment
      */
-    public function bookSlot($appId,$date,$startTime,$endTime,$description,$custId){
+    public function addAppointment($appId,$date,$startTime,$endTime,$description,$custId){
         $data = array(
             'appointment_id' => $appId,
             'appointment_date' => $date,
@@ -120,10 +165,11 @@ class Appointment extends CI_Model
         }
     }
 
+
     /*
      * get latest appointment request count
      */
-    function fetchAppointmentRequestCount(){
+    public function fetchAppointmentRequestCount(){
         try {
             $this->db->where('status','pending');
             $this->db->from("appointment");
@@ -134,6 +180,7 @@ class Appointment extends CI_Model
             echo $e;
         }
     }
+
 
 }
 

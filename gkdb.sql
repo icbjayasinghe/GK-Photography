@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2017 at 06:34 AM
+-- Generation Time: Dec 15, 2017 at 06:13 PM
 -- Server version: 5.7.9
 -- PHP Version: 5.6.16
 
@@ -61,7 +61,12 @@ INSERT INTO `appointment` (`appointment_id`, `appointment_date`, `start_time`, `
 ('APP0000015', '2017-12-13', '1400', '1500', 'Convocation', 'CUS0000006', 'accepted'),
 ('APP0000016', '2017-12-14', '0100', '0200', 'Birthday', 'CUS0000006', 'pending'),
 ('APP0000017', '2017-12-13', '0100', '0200', 'kajg', 'CUS0000006', 'pending'),
-('APP0000018', '2017-12-15', '0100', '0200', 'ajhl\n', 'CUS0000006', 'pending');
+('APP0000018', '2017-12-15', '0100', '0200', 'ajhl\n', 'CUS0000006', 'pending'),
+('APP0000019', '2017-12-15', '1300', '1400', 'Wedding', 'CUS0000001', 'pending'),
+('APP0000020', '2017-12-16', '1800', '1915', 'Birthday', 'CUS0000001', 'pending'),
+('APP0000021', '2017-12-16', '1100', '1200', 'Wedding', 'CUS0000001', 'accepted'),
+('APP0000022', '2017-12-15', '0300', '0400', 'Graduation', 'CUS0000001', 'pending'),
+('APP0000023', '2017-12-17', '1400', '1500', 'cgm', 'CUS0000006', 'rejected');
 
 -- --------------------------------------------------------
 
@@ -181,6 +186,32 @@ INSERT INTO `gallery` (`image_id`, `path`, `date_added`) VALUES
 (27, '5a336c2a4202f8.50730522.jpg', '2017-12-15 06:31:06.000000'),
 (28, '5a336c2fda10f2.52598786.jpg', '2017-12-15 06:31:11.000000'),
 (29, '5a336c3510a8c4.27327959.jpg', '2017-12-15 06:31:17.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `joinus_tbl`
+--
+
+DROP TABLE IF EXISTS `joinus_tbl`;
+CREATE TABLE IF NOT EXISTS `joinus_tbl` (
+  `joinus_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `phone` varchar(12) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `skill` varchar(50) DEFAULT NULL,
+  `works` varchar(255) DEFAULT NULL,
+  `cv_name` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`joinus_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `joinus_tbl`
+--
+
+INSERT INTO `joinus_tbl` (`joinus_id`, `name`, `email`, `phone`, `address`, `skill`, `works`, `cv_name`) VALUES
+(4, 'icbjayasinghe', 'i@gmail.com', '0770368954', 'no.119/4,jayamalapura', 'Photographing', 'afdsd', NULL);
 
 -- --------------------------------------------------------
 

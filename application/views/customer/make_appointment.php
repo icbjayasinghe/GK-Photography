@@ -177,7 +177,7 @@
                 method: "post",
                 data: {date:date,stime:stime,etime:etime,description:description,cust_id:cust_id},
                 success: function( data ) {
-                    if (data=="<h4>Appointment Request Successful</h4>"){
+                    if (data=="<h4>Appointment Request Successful</h4><br>"){
                         $('#appointment_date').val("");
                         $('#appointment_stime').val("");
                         $('#appointment_etime').val("");

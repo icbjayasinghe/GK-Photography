@@ -22,7 +22,7 @@ class Login extends CI_Controller{
             $result= $this->Model_user->LoginUser();
             if($result!=FALSE){
                 $user_data = array(
-                    '$id'=>$result->user_id,//wasura use this- call like----> like $this->session->set_userdata($id)
+                    '$id'=>$result->user_id,
                     '$f_name'=>$result->first_name,
                     '$l_name'=>$result->last_name,
                     '$type'=>$result->type,
@@ -31,7 +31,7 @@ class Login extends CI_Controller{
                 $this->session->set_userdata($user_data);
 //                $this->session->set_flashdata('welcomemsg','Hi ....');
                 if($this->session->userdata('$type')=='Customer'){
-                    redirect('Appointments/makeAppointment');
+                    redirect('Users/customerHome');
                     $this->session->set_flashdata('welcome','Welcome back');
                 }
                 elseif($this->session->userdata('$type')=='Administrator'){

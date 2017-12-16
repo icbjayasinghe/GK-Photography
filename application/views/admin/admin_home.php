@@ -23,26 +23,13 @@
         <div class="row">
             <!-- Sidebar Column -->
             <div class="col-lg-3 mb-4">
-                <div class="list-group">
+                <div id="side-bar-list" class="list-group my-sidebar-item">
                     <a href="." onclick="reloadAdminHome()" class="list-group-item ref">Home</a>
-                    <a href="<?php echo base_url();?>index.php/administrator/appointments" class="list-group-item ref">Appointments</a>
+                    <a href="<?php echo base_url();?>index.php/administrator/appointments" id="admin_appointment" class="list-group-item ref">Appointments</a>
                     <a href="<?php echo base_url();?>index.php/administrator/manageCustomers" class="list-group-item ref">Manage Customers</a>
                     <a href="<?php echo base_url();?>index.php/administrator/manageGallery" class="list-group-item ref">Manage Gallery</a>
                     <a href="<?php echo base_url();?>index.php/administrator/makeAppointment" class="list-group-item">Make appointment</a>
                     <a href="portfolio-1-col.html" class="list-group-item">Manage Suggestions</a>
-                    <a href="services.html" class="list-group-item">Services</a>
-                    <a href="contact.html" class="list-group-item">Contact</a>
-                    <a href="portfolio-3-col.html" class="list-group-item">3 Column Portfolio</a>
-                    <a href="portfolio-4-col.html" class="list-group-item">4 Column Portfolio</a>
-                    <a href="portfolio-item.html" class="list-group-item">Single Portfolio Item</a>
-                    <a href="blog-home-1.html" class="list-group-item">Blog Home 1</a>
-                    <a href="blog-home-2.html" class="list-group-item">Blog Home 2</a>
-                    <a href="blog-post.html" class="list-group-item">Blog Post</a>
-                    <a href="full-width.html" class="list-group-item">Full Width Page</a>
-                    <a href="sidebar.html" class="list-group-item active">Sidebar Page</a>
-                    <a href="faq.html" class="list-group-item">FAQ</a>
-                    <a href="404.html" class="list-group-item">404</a>
-                    <a href="pricing.html" class="list-group-item">Pricing Table</a>
                 </div>
             </div>
             <!-- Content Column -->
@@ -52,7 +39,6 @@
                 <p>This is the Admin Panel</p>
             </div>
         </div>
-        <!-- /.row -->
 
     </div>
     <!-- /.container -->

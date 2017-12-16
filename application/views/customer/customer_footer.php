@@ -6,7 +6,6 @@
 <script src="<?php echo base_url(); ?>js/jquery.js"></script>
 <script src="<?php echo base_url(); ?>dist/js/jasny-bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
-
 <!--<script>
     $('.carousel').carousel({
         interval: 5000 //changes the speed
@@ -14,12 +13,6 @@
 </script>-->
 
 <script>
-    // activate appointments menu item on pahe load
-    $( document ).ready(function() {
-        $('#content').load("<?php echo base_url();?>index.php/administrator/appointments");
-        $('#admin_appointment').addClass('active');
-    });
-
     // load content dynamically to content div from sidebar
     $("a").filter(".ref").click(function(){
         var page = $(this).attr('href');
@@ -29,29 +22,6 @@
         return false;
     });
 
-    // load appointment request count
-    setInterval(function(){
-        $.ajax({
-            url:'<?php echo site_url('appointments/appointmentRequestCount'); ?>',
-            type: "POST",
-            data : "",
-            success: function(data)
-            {
-                $('#request_count').html(data+" NEW");
-                //alert(data);
-            }
-        });
-    },3000);
-
-    // load appointment requests view
-    function displayAppointmentRequests() {
-        $('#content').load("<?php echo base_url();?>index.php/appointments/appointmentRequests");
-    }
-
-    function reloadAdminHome() {
-        location.reload();
-    }
-
     $(document).ready(function(){
         $('#side-bar-list a').click(function(e) {
             e.preventDefault();
@@ -59,10 +29,28 @@
             $(this).toggleClass('active');
         });
     });
+
+    $( document ).ready(function() {
+        $('#content').load("<?php echo base_url();?>index.php/appointments/makeAppointmentCustomer");
+        $('#make_appointment').addClass('active');
+    });
+
+    // load new appointments count
+    setInterval(function(){
+        $.ajax({
+            url:'<?php echo site_url('appointments/countNewAppointments'); ?>',
+            type: "POST",
+            success: function(data)
+            {
+                if(data!=0){
+                    $('#appointment_count').html(data+" NEW");
+                }
+            }
+        });
+    },3000);
+
+
 </script>
 
-
 </body>
-
-
 </html>
