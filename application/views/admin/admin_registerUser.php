@@ -219,6 +219,8 @@
             check_email();
 
             if(fname_err==false && lname_err==false && email_err==false && phone_err==false && address_err==false) {
+                alert("Successfully registrer");
+                alert("asa");
                 return true;
             } else {
                 return false;
