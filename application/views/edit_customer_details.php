@@ -10,7 +10,18 @@
                 <h3 class="modal-title">Customer<small><!-- (<span id="edit_cust_id"></span>) --></small></h3>
             </div>
             <div class="modal-body">
-                <form method="post" id="insert_form">
+                <!--for checking validation errors-->
+                    <?php echo validation_errors(); ?>
+
+                <!--    use CI form helper for putting customer registration data to db -->
+                    <?php echo form_open('Customer_manage/updateCustomer'); ?>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-4 col-form-label clearfix">Customer Id</label>
+                        <div class="col-md-8">
+                            <input class="form-control" type="text" name="cust_id" id="edit_cust_id" maxlength="50" required="" disabled="">
+                        </div>
+                    </div>
+
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-4 col-form-label clearfix">First Name</label>
                         <div class="col-md-8">
@@ -43,11 +54,14 @@
                     <div class="form-group row">
                         <label for="example-email-input" class="col-md-4 col-form-label">Email/Username</label>
                         <div class="col-md-8">
-                            <input class="form-control" type="cust_email"  id="edit_cust_email" name="add_emp_email"  maxlength="50" required="">
-                        </div>
-                        
+                            <input class="form-control" type="cust_email"  id="edit_cust_email" name="cust_email"  maxlength="50" required="">
+                        </div>  
                     </div>
-                </form>
+
+                    <div class="form-group row">
+                        <button type="submit" class="btn btn-danger">Update</button>
+                    </div>
+                <?php echo form_close();?>
             </div>
         </div>
     </div>
