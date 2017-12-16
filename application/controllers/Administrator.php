@@ -29,6 +29,11 @@ class Administrator extends CI_Controller
         $this->load->view('admin/customer_manage',$result);
     }
 
+    public function manageUsers()
+    {
+        $this->load->view('admin/user_manage');
+    }
+
     public function manageGallery()
     {
 

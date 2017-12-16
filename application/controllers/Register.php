@@ -26,20 +26,37 @@ class Register extends CI_Controller{
         }
         else {
 //            $newId = $this->database_model->generateId('cust_id','customer','CUS');
+            //email model
+            $custemail=$this->input->post('email');
+            $fname=$this->input->post('fname');
+            $lname=$this->input->post('lname');
 
-//          load Model_user for inserting user data to db
-            $this->load->model('Model_user');
-            $response = $this->Model_user->insertUser();
+            /* send email confirmation */
+            $this->load->library('email');
+            $this->load->model('email_model');
+            $result_email = $this->email_model->sendRegistrationConfirmationMail($custemail,$fname,$lname);
 
-//            last step of registration
-            if($response){
-                $this->session->set_flashdata('msg','Registered successfully... Please login');
-                redirect('Welcome/login');
+            if ($result_email){
+                // load Model_user for inserting user data to db
+                $this->load->model('Model_user');
+                $response = $this->Model_user->insertUser();
+
+                //  last step of registration
+                if($response){
+                    $this->session->set_flashdata('msg','Registered successfully... Confirmation Mail has been sent...');
+                    redirect('Welcome/login');
+                }
+                else{
+                    $this->session->set_flashdata('msg','Something wrong....');
+
+                }
             }
             else{
-                $this->session->set_flashdata('msg','Something wrong....');
-
+                $this->session->set_flashdata('msg','Something wrong... Please check mail address...');
+                redirect('Welcome/login');
             }
+
+
         }
 
     }

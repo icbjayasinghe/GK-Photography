@@ -33,8 +33,10 @@ class Customer_manage extends CI_Controller
         $customerList .="</tbody></table>";
         echo $customerList;
     }
-   
 
+    /*
+     * search customer details
+     */
     public function searchCustomerDetailsBook(){
         $field = $this->input->post('filter');
         $search_text = $this->input->post('txt');
@@ -61,7 +63,7 @@ class Customer_manage extends CI_Controller
             $customerList.= "<td>{$row->last_name}</td>";
             $customerList.= "<td>{$row->cust_email}</td>";
             $customerList.= "<td>{$row->cust_phone}</td>";
-            $customerList.= "<td><a role='button' class=\"customer_check btn-info btn-sm\" onclick=\"onClickBook(this.id)\" id={$row->cust_id}><b><span class=\"glyphicon glyphicon-edit\"></span> Book Now</b></a></td>";
+            $customerList.= "<td><a role='button' class=\"customer_check btn btn-info btn-sm\" onclick=\"onClickBook(this.id)\" id={$row->cust_id}><b><span class=\"glyphicon glyphicon-edit\"></span> Book Now</b></a></td>";
             $customerList.= "</tr>";
         }
         $customerList .="</tbody></table>";

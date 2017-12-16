@@ -68,9 +68,53 @@ class Model_user extends CI_Model{
             else{
                 return FALSE;
             }
-
-
     }
 
 
+    /*
+     * search user details
+     */
+    public function searchUser($field,$search_text){
+        try{
+            if ($search_text==""){
+                $this->db->select('*');
+                $this->db->from('user');
+                $result = $this->db->get();
+            }
+            else if ($field=='all'){
+                $array = array('first_name'=>$search_text,'last_name'=>$search_text,'type'=>$search_text,'last_login'=>$search_text,'email'=>$search_text);
+                $this->db->select('*');
+                $this->db->from('user');
+                $this->db->or_like($array);
+                $result = $this->db->get();
+            }
+            else{
+                $this->db->select('*');
+                $this->db->from('user');
+                $this->db->where("$field LIKE '%$search_text%'");
+                $result = $this->db->get();
+            }
+
+            return $result->result();
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
+
+    /*
+     * get user details for a particular user id
+     */
+    public function fetchUser($user_id){
+        try{
+            $this->db->select('*');
+            $this->db->from('user');
+            $this->db->where('user_id',$user_id);
+            $result = $this->db->get();
+            return $result->row();
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
 }
