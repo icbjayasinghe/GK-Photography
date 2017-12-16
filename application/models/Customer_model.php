@@ -65,7 +65,24 @@ class Customer_model extends CI_Model
             echo $e;
         }
     }
-   
+
+
+    /*
+    * update the delete status of a customer
+    */
+    public function updateCustomerDeleteStatus($record_id,$status){
+        $data = array(
+            'is_deleted' => $status
+        );
+        try{
+            $this->db->where('cust_id',$record_id);
+            $result = $this->db->update('customer',$data);
+            return $result;
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
 
 }
 

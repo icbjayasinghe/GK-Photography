@@ -26,10 +26,10 @@
                 <div id="side-bar-list" class="list-group my-sidebar-item">
                     <a href="." onclick="reloadAdminHome()" class="list-group-item ref">Home</a>
                     <a href="<?php echo base_url();?>index.php/administrator/appointments" id="admin_appointment" class="list-group-item ref">Appointments</a>
+                    <a href="<?php echo base_url();?>index.php/administrator/manageUsers" class="list-group-item ref">Manage Users</a>
                     <a href="<?php echo base_url();?>index.php/administrator/manageCustomers" class="list-group-item ref">Manage Customers</a>
                     <a href="<?php echo base_url();?>index.php/administrator/manageGallery" class="list-group-item ref">Manage Gallery</a>
-                    <a href="<?php echo base_url();?>index.php/administrator/registerCustomer" class="list-group-item ref">Register Customer</a>
-                    <a href="portfolio-1-col.html" class="list-group-item">Manage Suggestions</a>
+                    <a href="<?php echo base_url();?>index.php/administrator/manageSuggestions" class="list-group-item ref">Manage Suggestions</a>
                 </div>
             </div>
             <!-- Content Column -->

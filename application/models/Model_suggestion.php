@@ -6,6 +6,7 @@
  * Time: 1:00 AM
  */
 class Model_suggestion extends CI_Model{
+
 	public function insertSuggestions(){
 
 		$this->load->model('database_model');
@@ -13,9 +14,10 @@ class Model_suggestion extends CI_Model{
 
 		$data=array(
             'suggestion_id' =>$sug_id,
+            'date'=>date("Y-m-d"),
             'name' => $this->input->post('name',TRUE),
             'email' => $this->input->post('email',TRUE),
-            'idea' => sha1($this->input->post('message',TRUE)));
+            'idea' => $this->input->post('message',TRUE));
 
         try{//Transfering data to gkdb
             $this->db->insert('suggestions',$data);
@@ -25,13 +27,25 @@ class Model_suggestion extends CI_Model{
         }
 	}
 
+    public function getSuggestions($date){
+        try{
+            if ($date == "*"){
+                $this->db->select('*');
+                $this->db->from('suggestions');
+                $result = $this->db->get();
+                return $result->result();
+            }
+            else{
+                $this->db->select('*');
+                $this->db->from('suggestions');
+                $this->db->where('suggestions.date', $date);
+                $result = $this->db->get();
+                return $result->result();
+            }
+        }
+        catch (Exception $e){
+            echo $e;
+        }      
+    }
 
-	// function insertSuggestions($data){
-	// 	try{
- //            $result=$this->db->insert('suggestions',$data);
- //        }
- //        catch (Exception $e){
- //            echo $e;
- //        }
-	// }
 }

@@ -68,9 +68,90 @@ class Model_user extends CI_Model{
             else{
                 return FALSE;
             }
-
-
     }
 
 
+    /*
+     * search user details
+     */
+    public function searchUser($field,$search_text){
+        try{
+            if ($search_text==""){
+                $this->db->select('*');
+                $this->db->from('user');
+                $this->db->where('is_deleted',0);
+                $result = $this->db->get();
+            }
+            else if ($field=='all'){
+                $array = array('first_name'=>$search_text,'last_name'=>$search_text,'type'=>$search_text,'last_login'=>$search_text,'email'=>$search_text);
+                $this->db->select('*');
+                $this->db->from('user');
+                $this->db->or_like($array);
+                $this->db->where('is_deleted',0);
+                $result = $this->db->get();
+            }
+            else{
+                $this->db->select('*');
+                $this->db->from('user');
+                $this->db->where("$field LIKE '%$search_text%'");
+                $this->db->where('is_deleted',0);
+                $result = $this->db->get();
+            }
+
+            return $result->result();
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
+
+    /*
+     * get user details for a particular user id
+     */
+    public function fetchUser($user_id){
+        try{
+            $this->db->select('*');
+            $this->db->from('user');
+            $this->db->where('user_id',$user_id);
+            $result = $this->db->get();
+            return $result->row();
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
+
+    /*
+     * update the password of a user
+     */
+    public function updateUserPassword($user_id,$password){
+        $data = array(
+            'password' => $password
+        );
+        try{
+            $this->db->where('user_id',$user_id);
+            $result = $this->db->update('user',$data);
+            return $result;
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
+
+    /*
+     * update the delete status of a user
+     */
+    public function updateUserDeleteStatus($record_id,$status){
+        $data = array(
+            'is_deleted' => $status
+        );
+        try{
+            $this->db->where('user_id',$record_id);
+            $result = $this->db->update('user',$data);
+            return $result;
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
 }
