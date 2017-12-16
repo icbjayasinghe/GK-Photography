@@ -37,16 +37,10 @@ class Administrator extends CI_Controller
         $this->load->view('admin/gallery_manage',$result);
     }
 
-    public function makeAppointment(){
-        //$this->load->view('header');
-        //$this->load->view('admin/admin_home');
-        $this->load->view('admin/admin_makeAppointment');
-        //$this->load->view('admin/admin_footer');
-        //$this->load->view('header');
+    public function registerCustomer(){
+        $this->load->view('admin/admin_registerUser');
 
-        //$this->load->view('admin/admin_footer');
-        $this->load->model('Admin_model');
-        $this->Admin_model->makeAppointment();
     }
+
 }
 
