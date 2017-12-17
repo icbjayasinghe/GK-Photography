@@ -9,7 +9,7 @@
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">Admin Home
+        <h1 class="mt-4 mb-3 title-bar">Admin Home
             <small><?php echo $this->session->userdata('$f_name')." " .$this->session->userdata('$l_name');?></small>
             <div class="request-icon">
                 <span role="button" class="badge badge-pill badge-info" id="request_count" onclick="displayAppointmentRequests()"></span>
