@@ -50,6 +50,28 @@ class Customer_model extends CI_Model
         }
     }
 
+    public function updateCustomer(){
+        $cust_id=$this->input->post('cust_id',TRUE);
+        $data=array(
+//            second TRUE parameter for xss_filtering
+            'first_name' => $this->input->post('first_name',TRUE),
+            'last_name' => $this->input->post('last_name',TRUE),
+            'cust_phone' => $this->input->post('cust_phone',TRUE),
+            'cust_address' => $this->input->post('cust_address',TRUE),
+            'cust_email' => $this->input->post('cust_email',TRUE)
+        );
+
+        try{
+            //        save data to db
+            $this->db->where('cust_id',$cust_id);
+            return $this->db->update('customer',$data);
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+
+    }
+
     /*
      * fetch customer email
      */

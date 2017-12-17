@@ -18,7 +18,7 @@
 
 
         <!--for checking validation errors-->
-        <?php echo validation_errors(); ?>
+<!--        --><?php //echo validation_errors(); ?>
 
         <!--    use CI form helper for putting customer registration data to db -->
         <?php echo form_open('Register/RegisterUser', 'id="registerUser"'); ?>
@@ -84,34 +84,7 @@
 
     </div>
 </div>
-<script>
-    function submitRegister(value) {
-        //alert("asd0");
-        var fname=document.getElementById('fname').value;
-        var lname=document.getElementById('lname').value;
-        var email=document.getElementById('email').value;
-        var phone=document.getElementById('phone').value;
-        var address=document.getElementById('address').value;
-        var password=document.getElementById('password').value;
-        var cpassword=document.getElementById('cpassword').value;
-        var flag=document.getElementById('flag').value;
 
-        //alert(fname);
-        //$.ajax({
-        //    url:'<?php //echo site_url('Register/RegisterUser'); ?>//',
-        //    method: "post",
-        //    data: {fname:fname,lname:lname,email:email,phone:phone,address:address,password:password,cpassword:cpassword,flag:flag},
-        //    success: function( data ) {
-        //        //alert(data);
-        //
-        //        //$('#content').html(data);
-        //       // $('#appointment_table_results').html(data);
-        //    }
-        //});
-    }
-
-
-</script>
 
 <script>
     $(function () {
@@ -219,8 +192,6 @@
             check_email();
 
             if(fname_err==false && lname_err==false && email_err==false && phone_err==false && address_err==false) {
-                alert("Successfully registrer");
-                alert("asa");
                 return true;
             } else {
                 return false;

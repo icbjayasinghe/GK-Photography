@@ -22,16 +22,14 @@ class Register extends CI_Controller{
         $this->load->model('database_model'); // to invoke the generateId() method later
         $flag=$this->input->post('flag',TRUE);
         if ($this->form_validation->run() == FALSE) {
-            if($flag=1){
-                 redirect('Administrator/registerCustomer1');
-            }
-            else{
+
                 $this->load->view('register');
-            }
+
 
         }
         else {
 //            $newId = $this->database_model->generateId('cust_id','customer','CUS');
+            $flag=$this->input->post('flag');
             //email model
             $custemail=$this->input->post('email');
             $fname=$this->input->post('fname');
@@ -49,8 +47,14 @@ class Register extends CI_Controller{
 
                 //  last step of registration
                 if($response){
-                    $this->session->set_flashdata('msg','Registered successfully... Confirmation Mail has been sent...');
-                    redirect('Welcome/login');
+                    if($flag==1){
+                        echo ("asda");
+                    }
+                    else{
+                        $this->session->set_flashdata('msg','Registered successfully... Confirmation Mail has been sent...');
+                        redirect('Welcome/login');
+                    }
+
                 }
                 else{
                     $this->session->set_flashdata('msg','Something wrong....');
@@ -58,8 +62,15 @@ class Register extends CI_Controller{
                 }
             }
             else{
-                $this->session->set_flashdata('msg','Something wrong... Please check mail address...');
-                redirect('Welcome/login');
+                if ($flag==1){
+                    echo ("2nd");
+                }
+                else{
+                    $this->session->set_flashdata('msg','Something wrong... Please check mail address...');
+                    redirect('Welcome/login');
+
+                }
+
             }
 
 

@@ -55,5 +55,11 @@ class Administrator extends CI_Controller
 
     }
 
+    public function employeeRequest(){
+        $this->load->model('Employee_request_model');
+        $result['request']=$this->Employee_request_model->employeeModel();
+        $this->load->view('admin/employee_request',$result);
+    }
+
 }
 

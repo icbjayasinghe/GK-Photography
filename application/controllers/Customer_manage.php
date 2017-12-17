@@ -70,6 +70,30 @@ class Customer_manage extends CI_Controller
         echo $customerList;
     }
 
+    public function updateCustomer(){
+
+        //validation rules for update form
+        $this->form_validation->set_rules('first_name', 'First Name', 'required');
+        $this->form_validation->set_rules('last_name','Last Name','required');
+        $this->form_validation->set_rules('cust_email', 'Email', 'required|valid_email|is_unique[user.email]');
+        $this->form_validation->set_rules('cust_phone', 'Phone number', 'required|min_length[10]|max_length[10]');
+        $this->form_validation->set_rules('cust_address','required');
+
+        
+
+        if($this->form_validation->run()==false){ 
+            $this->load->view('edit_customer_details');
+        }else{
+            $this->load->model('customer_model');
+            $response=$this->customer_model->updateCustomer();
+
+            if($response){
+                $this->session->set_flashdata('msg','Successfully updated');
+            }else{
+                $this->session->set_flashdata('msg','something wrong');            }
+        }
+    }
+
 }
 
 ?>
