@@ -1,22 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Isuru Jayasinghe
- * Date: 12/14/2017
- * Time: 11:30 AM
- */
-?>
-<!-- Bootstrap core CSS -->
 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href="<?php echo base_url(); ?>dist/css/jasny-bootstrap.min.css" rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-<link href="<?php echo base_url(); ?>css/bootstrap.min.css" rel="stylesheet">
-<!-- Custom styles for this template -->
-<link href="<?php echo base_url(); ?>css/navmenu-reveal.css" rel="stylesheet">
-<link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
-<link href="<?php echo base_url(); ?>css/homestyle.css" rel="stylesheet">
-<div id="myCarousel" class="canvas carousel slide background-theme" data-ride="carousel">
     <div class="container col-md-6 my-signup">
         <h2><b>Join Us</b></h2>
         <hr>

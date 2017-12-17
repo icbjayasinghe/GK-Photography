@@ -1,10 +1,10 @@
 <link href="<?php echo base_url(); ?>css/admin-home.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>css/upload-image.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>css/navbar-style.css" rel="stylesheet">
 
+<?php if(!($this->session->userdata('loggedin'))){
+                        redirect('Welcome/login'); }?>
 
-<div class="canvas col-md-12 background-theme">
-
-    <br><br>
     <!-- Page Content -->
     <div class="container">
 

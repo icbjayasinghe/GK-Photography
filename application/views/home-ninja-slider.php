@@ -1,7 +1,4 @@
 
-
-
-<div id="myCarousel" class="canvas carousel slide" data-ride="carousel">
     <!--start-->
     <div id="ninja-slider">
         <div class="slider-inner">

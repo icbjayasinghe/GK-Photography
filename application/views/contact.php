@@ -1,5 +1,5 @@
 
-    <div class="canvas contact-page">
+    <div class="contact-page">
       <div class="contact-bg col-md-8 col-sm-12">
         <img src="<?php echo base_url();?>img/dolon.jpg" alt="" width="100%">
       </div> 

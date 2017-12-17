@@ -86,7 +86,6 @@
     });
 
 
-
     // load modal to change password
     function loadChangePassword(id) {
         $.ajax({
