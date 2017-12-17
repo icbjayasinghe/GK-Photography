@@ -115,7 +115,7 @@ class Appointment extends CI_Model
             echo $e;
         }
     }
-    
+
     /*
     * search all appointments
     */
