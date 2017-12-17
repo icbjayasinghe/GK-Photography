@@ -33,4 +33,15 @@ class Employee_request_model extends CI_Model{
 
     }
 
+    public function delete_request($email){
+        try{
+            $this->db->where('email', $email);
+            $this->db->delete('joinus_tbl');
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+
+    }
+
 }
