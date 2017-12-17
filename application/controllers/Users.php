@@ -117,4 +117,40 @@ class Users extends CI_Controller
             echo "<h4>Failed to delete the User</h4>";
         }
     }
+
+    // search customer details
+    public function searchCustomerDetails(){
+        $field = $this->input->post('filter');
+        $search_text = $this->input->post('txt');
+
+        $this->load->model('customer_model');
+        $customer=$this->customer_model->searchCustomer($field,$search_text);
+        $customerList = "<table class=\"table table-hover col-md-12 top-buffer\">
+
+                <thead>
+                <tr>
+                    <th>Customer ID</th>
+                    <th>First Name</th>
+                    <th>last Name</th>
+                    <th>email</th>
+                    <th>phone no</th>
+                    <th>Edit</th>
+                </tr>
+                </thead>
+                <tbody>";
+        foreach ($customer as $row){
+            $customerDetails = [$row->cust_id,$row->first_name,$row->last_name,$row->cust_phone,$row->cust_address,$row->cust_email,$row->date_joined];
+            $rowString = implode(",", $customerDetails);
+            $customerList.= "<tr>";
+            $customerList.= "<td>{$row->cust_id}</td>";
+            $customerList.= "<td>{$row->first_name}</td>";
+            $customerList.= "<td>{$row->last_name}</td>";
+            $customerList.= "<td>{$row->cust_email}</td>";
+            $customerList.= "<td>{$row->cust_phone}</td>";
+            $customerList.= "<td><a class=\"customer_check btn-success btn-sm\" onclick=\"edit_customer('$rowString')\" id={$row->cust_id}><b><span class=\"glyphicon glyphicon-edit\"></span> Edit</b></a></td>";
+            $customerList.= "</tr>";
+        }
+        $customerList .="</tbody></table>";
+        echo $customerList;
+    }
 }

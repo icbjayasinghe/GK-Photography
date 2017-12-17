@@ -1,51 +1,62 @@
-
-<h2>Manage Customers<span>
-        <small>
-            <input id="search" type="text" name="search_customer" onchange="getCustomerDetails('')" value="search">
-        </small>
-    <div class="request-icon" onclick="getCustomerDetails()">
-                <!-- <a class="btn view-all">View All<i class="fa fa-table" aria-hidden="true"></i></a> -->
-            </div>
-    </span></h2>
-<br>
+<h2>Manage Customers</h2>
 
 <div class="row">
-    <div class="row ">
-        <div class="col-md-12 result-table" id="table_results">
-            <table class="table table-hover col-md-12">
-                <thead>
-                <tr>
-                    <th>Customer ID</th>
-                    <th>First Name</th>
-                    <th>last Name</th>
-                    <th>email</th>
-                    <th>phone no</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $customerList = "";
-                    foreach ($customer as $row){
-                            $customerDetals = [$row->cust_id,$row->first_name,$row->last_name,$row->cust_phone,$row->cust_address,$row->cust_email,$row->date_joined];
-                            $rowString = implode(",", $customerDetals);
-                            $customerList.= "<tr>";
-                            $customerList.= "<td>{$row->cust_id}</td>";
-                            $customerList.= "<td>{$row->first_name}</td>";
-                            $customerList.= "<td>{$row->last_name}h</td>";
-                            $customerList.= "<td>{$row->cust_email}h</td>";
-                            $customerList.= "<td>{$row->cust_phone}</td>";
-                            $customerList.= "<td><a class=\"customer_check btn-success btn-sm\" onclick=\"edit_customer('$rowString')\" id={$row->cust_id}><b><span class=\"glyphicon glyphicon-edit\"></span> Edit</b></a></td>";
-                            $customerList.= "</tr>";
-                    }
-                    echo $customerList;
-                    ?>
-                </tbody>
-            </table>
+    <div class="col-md-12">
+        <div class="input-group my-search-panel top-buffer">
+            <div class="input-group-btn search-panel">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span id="search_concept">Filter by</span> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" id="filter_select">
+                    <li><a href="#user_id" value="cust_id">ID</a></li>
+                    <li><a href="#first_name" value="first_name">First Name</a></li>
+                    <li><a href="#last_name" value="last_name">Last Name</a></li>
+                    <li><a href="#cust_email" value="cust_email">Email</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#all" value="all">Anything</a></li>
+                </ul>
+            </div>
+            <input type="hidden" name="search_param" value="all" id="search_param">
+            <input type="text" class="form-control" name="x" placeholder="Search customer here..." id="search_text">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 result-table" id="customer_table_results">
+
         </div>
     </div>
 </div>
 
 <script>
+    // to change the filter when clicked
+    $(document).ready(function(e){
+        $('.search-panel .dropdown-menu').find('a').click(function(e) {
+            e.preventDefault();
+            var param = $(this).attr("href").replace("#","");
+            var concept = $(this).text();
+            $('.search-panel span#search_concept').text(concept);
+            $('.input-group #search_param').val(param);
+        });
+    });
+
+    // load suitable results on keyup
+    $(document).ready(function(){
+        $('#search_text').keyup(function (){
+            var filter = document.getElementById("search_param").value;
+            var txt = $(this).val().trim();
+            $.ajax({
+                url: '<?php echo site_url('users/searchCustomerDetails'); ?>',
+                method: "post",
+                data:{filter:filter,txt:txt},
+                cache: false,
+                success: function (data) {
+                    $('#customer_table_results').html(data);
+                }
+            });
+        });
+    });
+
     function getCustomerDetails() {
         $.ajax({
             url:'<?php echo site_url('customer_manage/viewCustomers'); ?>',
@@ -81,4 +92,8 @@
         $('#cust_email').val(customerDetails[5]);
         $('#customer_Modal').modal('show');
     }
+
+    $(document).ready(function(){
+        $('#customer_table_results').load("<?php echo base_url();?>index.php/users/searchCustomerDetails/all/");
+    });
 </script>
