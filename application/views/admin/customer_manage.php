@@ -31,8 +31,6 @@
 <script>
     // to change the filter when clicked
     $(document).ready(function(e){
-        $('#customer_table_results').load("<?php echo base_url();?>index.php/customer_manage/searchCustomerDetails/all/");
-
         $('.search-panel .dropdown-menu').find('a').click(function(e) {
             e.preventDefault();
             var param = $(this).attr("href").replace("#","");
@@ -48,7 +46,7 @@
             var filter = document.getElementById("search_param").value;
             var txt = $(this).val().trim();
             $.ajax({
-                url: '<?php echo site_url('customer_manage/searchCustomerDetails'); ?>',
+                url: '<?php echo site_url('users/searchCustomerDetails'); ?>',
                 method: "post",
                 data:{filter:filter,txt:txt},
                 cache: false,
@@ -82,28 +80,6 @@
         $('#edit_customer_Modal').modal('show');
     }
 
-    // when update button is pressed in the modal
-    function onclickUpdateCustomer(){
-        var edit_cust_id = document.getElementById("edit_cust_id").value;
-        var edit_first_name = document.getElementById("edit_first_name").value;
-        var edit_last_name = document.getElementById("edit_last_name").value;
-        var edit_cust_phone = document.getElementById("edit_cust_phone").value;
-        var edit_cust_address = document.getElementById("edit_cust_address").value;
-        var edit_cust_email = document.getElementById("edit_cust_email").value;
-
-        $.ajax({
-            url:'<?php echo site_url('customer_manage/updateCustomer'); ?>', //the page containing php script
-            type: "post", //request type
-            data: {edit_cust_id : edit_cust_id,edit_first_name : edit_first_name,edit_last_name : edit_last_name,edit_cust_phone : edit_cust_phone,edit_cust_address : edit_cust_address,edit_cust_email : edit_cust_email},
-            cache: false,
-            success:function(result){
-                $('#edit_customer_Modal').modal('hide');
-                $('#msg_Modal').modal('show');
-                $('#msg_result').html(result);
-            }
-        });
-    }
-
     // load modal to view customer details
     function loadCustomerModal(customerDetails){
         customerDetails = customerDetails.split(",");
@@ -118,6 +94,6 @@
     }
 
     $(document).ready(function(){
-        $('#customer_table_results').load("<?php echo base_url();?>index.php/customer_manage/searchCustomerDetails/all/");
+        $('#customer_table_results').load("<?php echo base_url();?>index.php/users/searchCustomerDetails/all/");
     });
 </script>

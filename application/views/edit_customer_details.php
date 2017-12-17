@@ -14,7 +14,7 @@
                     <?php echo validation_errors(); ?>
 
                 <!--    use CI form helper for putting customer registration data to db -->
-                    <form>
+                    <?php echo form_open('Customer_manage/updateCustomer'); ?>
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-4 col-form-label clearfix">Customer Id</label>
                         <div class="col-md-8">
@@ -58,11 +58,10 @@
                         </div>  
                     </div>
 
-                    <div class="col-md-offset-10">
-                        <!-- <input type="hidden" name="cust_id" id="cust_id" /> -->
-                        <input type="button" onclick="onclickUpdateCustomer()" name="update" id="update" value="Update" class="btn btn-success my-lg-button" />
+                    <div class="form-group row">
+                        <button type="submit" class="btn btn-danger">Update</button>
                     </div>
-                </form>
+                <?php echo form_close();?>
             </div>
         </div>
     </div>
