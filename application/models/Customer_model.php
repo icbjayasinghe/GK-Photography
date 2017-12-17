@@ -50,15 +50,14 @@ class Customer_model extends CI_Model
         }
     }
 
-    public function updateCustomer(){
-        $cust_id=$this->input->post('cust_id',TRUE);
+    public function updateCustomer($cust_id,$first_name,$last_name,$cust_phone,$cust_address,$cust_email){  
         $data=array(
 //            second TRUE parameter for xss_filtering
-            'first_name' => $this->input->post('first_name',TRUE),
-            'last_name' => $this->input->post('last_name',TRUE),
-            'cust_phone' => $this->input->post('cust_phone',TRUE),
-            'cust_address' => $this->input->post('cust_address',TRUE),
-            'cust_email' => $this->input->post('cust_email',TRUE)
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'cust_phone' => $cust_phone,
+            'cust_address' => $cust_address,
+            'cust_email' => $cust_email
         );
 
         try{
