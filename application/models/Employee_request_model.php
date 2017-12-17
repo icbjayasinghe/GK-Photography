@@ -19,5 +19,18 @@ class Employee_request_model extends CI_Model{
             echo $e;
         }
     }
+    public function join_view($email){
+        try{
+            $this->db->select('*');
+            $this->db->from('joinus_tbl');
+            $this->db->where('email', $email);
+            $result = $this->db->get();
+            return $result->row();
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+
+    }
 
 }

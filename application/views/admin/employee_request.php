@@ -5,14 +5,7 @@
  * Date: 12/16/2017
  * Time: 11:11 PM
  */?>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href="<?php echo base_url(); ?>dist/css/jasny-bootstrap.min.css" rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-<link href="<?php echo base_url(); ?>css/bootstrap.min.css" rel="stylesheet">
-<!-- Custom styles for this template -->
-<link href="<?php echo base_url(); ?>css/navmenu-reveal.css" rel="stylesheet">
-<link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
-<link href="<?php echo base_url(); ?>css/homestyle.css" rel="stylesheet">
+
 <h2>Employee Requests</h2>
 <br>
 
@@ -77,45 +70,34 @@
     </div>
 </div>
 <!--employee request modal-->
-<div id="mymodal" class="modal fade text-center">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                </button>
-            </div>
-            <div class="modal-body">
-                asdsad
-            </div>
-            <div class="modal-footer">
-                <!--                                        <button type="button" class="close" data-dismiss="modal">&times;</button>-->
 
-            </div>
 
-        </div>
-    </div>
-
-</div>
-<script src="<?php echo base_url(); ?>js/jquery.js"></script>
-<script src="<?php echo base_url(); ?>dist/js/jasny-bootstrap.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
 <script>
     function viewbtn(eliment) {
         //alert(eliment.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML);
-        // $.ajax({
-        //     type:"post",
-        //     data:({email:eliment.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML}),
-        //     url:"",
-        //     success:function (data) {
-        //
-        //         // document.getElementById('message1').innerHTML=" deleted successfully";
-        //         // $('#modal-success').modal('show');
-        //
-        //     }
-        //
-        //
-        // });
+        $.ajax({
+            type:"post",
+            data:({email1:eliment.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML}),
+            url:'<?php echo site_url('Administrator/Viewjoinus'); ?>',
+            dataType: "json",
+            cache: false,
+            success:function (data) {
+                $('#name_modal').val(data.name);
+                $('#email_modal').val(data.email);
+                $('#phone').val(data.phone);
+                $('#address').val(data.address);
+                $('#skill').val(data.skill);
+                $('#works').val(data.works);
+
+                //$('#name').val(data.name);
+
+                // document.getElementById('message1').innerHTML=" deleted successfully";
+                // $('#modal-success').modal('show');
+
+            }
+
+
+        });
         //eliment.parentElement.parentElement.remove();
 
     }

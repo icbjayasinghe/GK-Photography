@@ -29,4 +29,6 @@ class Joinus_model extends CI_Model{
         }
     }
 
+
+
 }
