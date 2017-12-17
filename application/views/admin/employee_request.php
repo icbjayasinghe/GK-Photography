@@ -6,7 +6,7 @@
  * Time: 11:11 PM
  */?>
 
-<h2>Employee Requests</h2>
+<h2>Join Requests</h2>
 <br>
 
 <div class="row">
