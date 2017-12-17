@@ -70,7 +70,13 @@
     <div class="navbar navbar-default my-navbar"  style="margin: auto; max-height: 120%" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <a target="_blank" href="#" class="navbar-brand">GK - Photography</a>
+                <?php if (($this->session->userdata('loggedin')) AND ($this->session->userdata('$type'))=='Administrator'): ?>
+                <a href="<?php echo base_url('index.php/users/adminHome')?>" class="navbar-brand">GK - Photography   <span class="glyphicon glyphicon-home"></span> </a>
+                <?php elseif (($this->session->userdata('loggedin')) AND ($this->session->userdata('$type'))=='Customer'): ?>
+                <a href="<?php echo base_url('index.php/users/customerHome')?>" class="navbar-brand">GK - Photography   <span class="glyphicon glyphicon-home"></span></a>
+                <?php else: ?>
+                    <a href="#" class="navbar-brand">GK - Photography</a>
+                <?php endif; ?>
             </div>
             <div class="collapse navbar-collapse">
 

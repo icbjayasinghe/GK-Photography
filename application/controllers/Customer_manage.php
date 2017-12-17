@@ -33,7 +33,7 @@ class Customer_manage extends CI_Controller
             $customerList.= "<td>{$row->last_name}</td>";
             $customerList.= "<td>{$row->cust_email}</td>";
             $customerList.= "<td>{$row->cust_phone}</td>";
-            $customerList.= "<td><a class=\"customer_check btn-success btn-sm\" onclick=\"edit_customer('$rowString')\" id={$row->cust_id}><b><span class=\"glyphicon glyphicon-edit\"></span> Edit</b></a></td>";
+            $customerList.= "<td><a class=\"customer_check btn btn-success btn-sm\" onclick=\"edit_customer('$rowString')\" id={$row->cust_id}><b><span class=\"glyphicon glyphicon-edit\"></span> Edit</b></a></td>";
             $customerList.= "</tr>";
         }
         $customerList .="</tbody></table>";
@@ -52,10 +52,10 @@ class Customer_manage extends CI_Controller
 
         $result_customer = $this->customer_model->updateCustomer($cust_id,$first_name,$last_name,$cust_phone,$cust_address,$cust_email);
         if ($result_customer){
-            echo "<h4>customer updated successfully</h4>";
+            echo "<h4>Customer Updated Successfully</h4>";
         }
         else{
-            echo "<h4>Failed to update the customer</h4>";
+            echo "<h4>Failed to update the Customer</h4>";
         }
     }
     /*

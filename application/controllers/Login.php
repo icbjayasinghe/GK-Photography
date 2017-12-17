@@ -7,6 +7,7 @@
  */
 
 class Login extends CI_Controller{
+
     public function LoginUser(){
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[4]|max_length[30]');
