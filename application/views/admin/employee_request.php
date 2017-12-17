@@ -31,7 +31,7 @@
                             <td><?php echo $row->skill;  ?></td>
                             <td><?php echo $row->email; ?></td>
                             <td><?php echo $row->phone; ?></td>
-                            <td><button class="btn btn-success" >View</button><button class="btn btn-danger delete"> Delete </button></td>
+                            <td><button class="btn btn-success" onclick="viewbtn(this)" >View</button><button class="btn btn-danger delete" > Delete </button></td>
 
 
 
@@ -67,6 +67,22 @@
     </div>
 </div>
 <script>
-    
+    function viewbtn(eliment) {
+        alert(eliment.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML);
+        // $.ajax({
+        //     type:"post",
+        //     data:({email:eliment.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML}),
+        //     url:"",
+        //     success:function (data) {
+        //
+        //         // document.getElementById('message1').innerHTML=" deleted successfully";
+        //         // $('#modal-success').modal('show');
+        //
+        //     }
+        //
+        //
+        // });
+        //eliment.parentElement.parentElement.remove();
 
+    }
 </script>
