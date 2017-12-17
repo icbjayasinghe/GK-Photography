@@ -25,6 +25,7 @@ class Login extends CI_Controller{
                     '$id'=>$result->user_id,
                     '$f_name'=>$result->first_name,
                     '$l_name'=>$result->last_name,
+                    '$email'=>$result->email,
                     '$type'=>$result->type,
                     'loggedin'=>TRUE
                 );

@@ -17,7 +17,7 @@ class Administrator extends CI_Controller
     {
         $date = date("Y-m-d");
         $this->load->model('appointment');
-        $result['appointments'] = $this->appointment->getAppointments($date);
+        $result['appointments'] = $this->appointment->searchAppointments($date,"");
         $this->load->view('admin/appointments',$result);
     }
 
@@ -32,9 +32,10 @@ class Administrator extends CI_Controller
     public function manageCustomers()
     {
         
-        $this->load->model('customer_model');
-        $result['customer'] = $this->customer_model->getCustomers();
-        $this->load->view('admin/customer_manage',$result);
+        // $this->load->model('customer_model');
+        // $result['customer'] = $this->customer_model->getCustomers();
+        // $this->load->view('admin/customer_manage',$result);
+        $this->load->view('admin/customer_manage');
     }
 
     public function manageUsers()

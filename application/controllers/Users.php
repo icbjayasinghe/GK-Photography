@@ -64,10 +64,10 @@ class Users extends CI_Controller
             $customerList.= "<td>{$row->type}</td>";
             $customerList.= "<td><a role='button' class=\"btn-success btn btn-sm btn-block\" onclick=\"loadChangePassword(this.id)\" id={$row->user_id}><b><span class=\"glyphicon glyphicon-edit\"></span> Change Password</b></a></td>";
             if ($row->type=='Administrator'){
-                $customerList.= "<td><a role='button' class=\"btn-danger btn btn-sm btn-block delete_user disabled\" id={$row->user_id}><b><span class=\"glyphicon glyphicon-edit\"></span> Delete</b></a></td>";
+                $customerList.= "<td><a role='button' class=\"btn-danger btn btn-sm btn-block delete_user disabled\" id={$row->user_id}><b><span class=\"glyphicon glyphicon-remove\"></span> Delete</b></a></td>";
             }
             else{
-                $customerList.= "<td><a role='button' class=\"btn-danger btn btn-sm btn-block delete_user\" id={$row->user_id}><b><span class=\"glyphicon glyphicon-edit\"></span> Delete</b></a></td>";
+                $customerList.= "<td><a role='button' class=\"btn-danger btn btn-sm btn-block delete_user\" id={$row->user_id}><b><span class=\"glyphicon glyphicon-remove\"></span> Delete</b></a></td>";
             }
             $customerList.= "</tr>";
         }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2017 at 06:13 PM
+-- Generation Time: Dec 17, 2017 at 07:20 AM
 -- Server version: 5.7.9
 -- PHP Version: 5.6.16
 
@@ -60,7 +60,7 @@ INSERT INTO `appointment` (`appointment_id`, `appointment_date`, `start_time`, `
 ('APP0000014', '2017-12-14', '1500', '1600', 'Convocation', 'CUS0000006', 'rejected'),
 ('APP0000015', '2017-12-13', '1400', '1500', 'Convocation', 'CUS0000006', 'accepted'),
 ('APP0000016', '2017-12-14', '0100', '0200', 'Birthday', 'CUS0000006', 'pending'),
-('APP0000017', '2017-12-13', '0100', '0200', 'kajg', 'CUS0000006', 'pending'),
+('APP0000017', '2017-12-13', '0100', '0200', 'kajg', 'CUS0000006', 'accepted'),
 ('APP0000018', '2017-12-15', '0100', '0200', 'ajhl\n', 'CUS0000006', 'pending'),
 ('APP0000019', '2017-12-15', '1300', '1400', 'Wedding', 'CUS0000001', 'pending'),
 ('APP0000020', '2017-12-16', '1800', '1915', 'Birthday', 'CUS0000001', 'pending'),
@@ -102,6 +102,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `cust_email` varchar(30) NOT NULL,
   `date_joined` date NOT NULL,
   `password` varchar(40) NOT NULL,
+  `is_deleted` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`cust_id`),
   UNIQUE KEY ` cust_phone_UNIQUE` (`cust_phone`),
   UNIQUE KEY `cust_email_UNIQUE` (`cust_email`)
@@ -111,13 +112,13 @@ CREATE TABLE IF NOT EXISTS `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`cust_id`, `first_name`, `last_name`, `cust_phone`, `cust_address`, `cust_email`, `date_joined`, `password`) VALUES
-('CUS0000001', 'Isuru', 'Jayasinghe', '0714859658', 'Kandy', 'isuru@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-('CUS0000002', 'Lachini', 'Roshika', '0714898565', 'Colombo', 'lachini@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-('CUS0000003', 'Nesarasa', 'Angathan', '0714589657', 'Jaffna', 'anga@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-('CUS0000004', 'Peter', 'Pan', '0771589654', 'Ratnapura', 'peter@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-('CUS0000005', 'Harry ', 'Potter', '0772080786', 'abc', 'harry@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-('CUS0000006', 'Ama', 'Gamage', '0775748965', 'Moratuwa', 'wasurawattearachchi@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+INSERT INTO `customer` (`cust_id`, `first_name`, `last_name`, `cust_phone`, `cust_address`, `cust_email`, `date_joined`, `password`, `is_deleted`) VALUES
+('CUS0000001', 'Isuru', 'Jayasinghe', '0714859658', 'Kandy', 'isuru@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 1),
+('CUS0000002', 'Lachini', 'Roshika', '0714898565', 'Colombo', 'lachini@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 0),
+('CUS0000003', 'Nesarasa', 'Angathan', '0714589657', 'Jaffna', 'anga@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 0),
+('CUS0000004', 'Peter', 'Pan', '0771589654', 'Ratnapura', 'peter@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 0),
+('CUS0000005', 'Harry ', 'Potter', '0772080786', 'abc', 'harry@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 0),
+('CUS0000006', 'Ama', 'Gamage', '0775748965', 'Moratuwa', 'wasurawattearachchi@gmail.com', '0000-00-00', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 0);
 
 -- --------------------------------------------------------
 
@@ -170,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `gallery` (
   `path` varchar(100) NOT NULL,
   `date_added` datetime(6) NOT NULL,
   PRIMARY KEY (`image_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `gallery`
@@ -178,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `gallery` (
 
 INSERT INTO `gallery` (`image_id`, `path`, `date_added`) VALUES
 (22, '5a336ac551c5a0.07322139.jpg', '2017-12-15 06:32:45.000000'),
-(21, '5a336ab560f7c5.02080782.jpg', '2017-12-15 06:24:53.000000'),
+(21, '5a336ab560f7c5.02080782.jpg', '2017-12-16 05:28:23.000000'),
 (23, '5a336c0ada1793.35243293.jpg', '2017-12-15 06:32:08.000000'),
 (24, '5a336c11c11414.16782102.jpg', '2017-12-15 06:32:27.000000'),
 (25, '5a336c18f19774.75733904.jpg', '2017-12-15 06:32:14.000000'),

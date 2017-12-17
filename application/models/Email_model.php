@@ -52,6 +52,30 @@ class Email_model extends CI_Model
 
         return $result;
     }
+
+    /*
+     * send registration confirmation mail
+     */
+    public function sendAppointmentCancellationMail($appointment_date,$start_time,$end_time,$description,$cust_email){
+
+        $message_body="Appointment Date : ".$appointment_date."<br>
+            Appointment Time: ".$start_time."h to ".$end_time."h<br>
+            Description : ".$description."<br>";
+
+            $subject = 'Appointment Cancellation';
+            $message = '<h1>Sorry, your appointment is cancelled.</h1>';
+
+
+        $result = $this->email
+            ->from('gkphotography00@gmail.com')
+            ->reply_to('gkphotography00@gmail.com')    // Optional, an account where a human being reads.
+            ->to($cust_email)
+            ->subject($subject)
+            ->message($message."".$message_body)
+            ->send();
+
+        return $result;
+    }
 }
 
 ?>

@@ -1,0 +1,55 @@
+.navbar-login
+{
+    width: 305px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navbar-login-session
+{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.icon-size
+{
+    font-size: 87px;
+}
+
+.my-navbar{
+    background: linear-gradient(#004d40,#00695c);
+
+}
+
+.my-navbar .navbar-brand{
+   color: white;
+}
+
+.my-navbar .navbar-brand:hover{
+    color: white;
+    border: solid;
+    border-width: thin;
+    border-color: white;
+}
+
+.my-navbar .username span,strong{
+    color: white;
+}
+
+
+.my-navbar .username:hover{
+    color: white;
+    border: solid;
+    border-width: thin;
+    border-color: white;
+}
+.my-navbar .username .focus{
+    color: black;
+}
+
+.dropdown-menu {
+    border-color: silver;
+}
+
+.navbar-nav > li > a {padding-bottom:10px !important;}

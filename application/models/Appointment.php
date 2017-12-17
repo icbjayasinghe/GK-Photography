@@ -117,11 +117,11 @@ class Appointment extends CI_Model
     }
 
     /*
-     * get all appointments or for a particular date
-     */
-    public function getAppointments($date){
+    * search all appointments
+    */
+    public function searchAppointments($date,$search_text){
         try{
-            if ($date == "*"){
+            if ($date == "" AND $search_text==""){
                 $this->db->select('*');
                 $this->db->from('appointment');
                 $this->db->join('customer', 'customer.cust_id = appointment.cust_id');
@@ -129,7 +129,14 @@ class Appointment extends CI_Model
                 $result = $this->db->get();
                 return $result->result();
             }
-            else{
+            elseif ($date=="" AND $search_text!=""){
+                $result = $this->db->query("SELECT * FROM appointment,customer WHERE appointment.cust_id=customer.cust_id AND appointment.status='accepted' AND (customer.first_name LIKE '%"
+                    .$search_text."%' OR customer.last_name LIKE '%".$search_text."%' OR appointment.appointment_date LIKE '%"
+                    .$search_text."%' OR appointment.start_time LIKE '%".$search_text."%' OR appointment.end_time LIKE '%"
+                    .$search_text."%' OR appointment.description LIKE '%".$search_text."%')");
+                return $result->result();
+            }
+            elseif ($date!="" AND $search_text==""){
                 $this->db->select('*');
                 $this->db->from('appointment');
                 $this->db->join('customer', 'customer.cust_id = appointment.cust_id');
@@ -138,12 +145,17 @@ class Appointment extends CI_Model
                 $result = $this->db->get();
                 return $result->result();
             }
+            elseif ($date!="" AND $search_text!=""){
+                $result = $this->db->query("SELECT * FROM appointment,customer WHERE (customer.first_name LIKE '%"
+                    .$search_text."%' OR customer.last_name LIKE '%".$search_text."%' OR appointment.start_time LIKE '%".$search_text."%' OR appointment.end_time LIKE '%"
+                    .$search_text."%' OR appointment.description LIKE '%".$search_text."%') AND appointment.cust_id=customer.cust_id AND appointment.status='accepted' AND appointment.appointment_date='$date'");
+                return $result->result();
+            }
         }
         catch (Exception $e){
             echo $e;
         }
     }
-
 
     /*
      * book an appointment
@@ -181,6 +193,19 @@ class Appointment extends CI_Model
         }
     }
 
+    /*
+     * delete a particular appointment
+     */
+    public function deleteAppointment($appointment_id){
+        try{
+            $this->db->where('appointment_id', $appointment_id);
+            $result = $this->db->delete('appointment');
+            return $result;
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
 
 }
 

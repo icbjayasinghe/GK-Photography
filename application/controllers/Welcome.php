@@ -36,6 +36,7 @@ class Welcome extends CI_Controller {
     {
         $this->load->model('gallery_model');
         $result['images'] = $this->gallery_model->getImagesMyWork();
+        $this->load->view('header');
         $this->load->view('gallery',$result);
     }
 
@@ -43,6 +44,7 @@ class Welcome extends CI_Controller {
     {
         $this->load->model('gallery_model');
         $result['images'] = $this->gallery_model->getImagesMyWork();
+        $this->load->view('header');
         $this->load->view('my_work',$result);
     }
 

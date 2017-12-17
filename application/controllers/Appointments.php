@@ -31,13 +31,15 @@ class Appointments extends CI_Controller
 
     }
 
+
     /*
-     * view appointments
+     * search appointments
      */
-    public function viewAppointments(){
+    public function searchAppointmentDetails(){
         $this->load->model('appointment');
         $date = $this->input->post('date');
-        $appointmentRequests = $this->appointment->getAppointments($date);
+        $txt = $this->input->post('txt');
+        $appointmentRequests = $this->appointment->searchAppointments($date,$txt);
         $appointmentList = "<table class=\"table table-hover col-md-12\">
                 <thead>
                 <tr>
@@ -47,6 +49,8 @@ class Appointments extends CI_Controller
                     <th>End Time</th>
                     <th>Description</th>
                     <th>Customer Name</th>
+                    <th>Print</th>
+                    <th>Cancel</th>
                 </tr>
                 </thead>
                 <tbody>";
@@ -60,7 +64,13 @@ class Appointments extends CI_Controller
             $appointmentList.= "<td>{$row->end_time}h</td>";
             $appointmentList.= "<td>{$row->description}</td>";
             $appointmentList.= "<td><a class=\"customer_check\" onclick=\"loadCustomerModal('$rowString')\" id={$row->cust_id}><b>{$row->first_name} {$row->last_name}</b></a></td>";
-            //$appointmentList.= "<td><a class=\"btn btn-success btn-sm\" onclick=\"statusChange('accepted',this.id)\" name=\"accept\" value=\"Accept\" id=\"{$row->appointment_id}\"><span class=\"glyphicon glyphicon-edit\"></span>  Accept</a></td>";
+            $appointmentList.= "<td><a class=\"btn btn-info btn-sm\" onclick=\"printReceipt(this.id)\" name=\"print\" value=\"Print\" id=\"{$row->appointment_id}\"><span class=\"glyphicon glyphicon-print\"></span>  Print Receipt</a></td>";
+            if ($row->appointment_date >= date('Y-m-d')){
+                $appointmentList.= "<td><a role='button' class=\"btn-danger btn btn-sm btn-block cancel_appointment\" id={$row->appointment_id}><b><span class=\"glyphicon glyphicon-remove\"></span> Cancel</b></a></td>";
+            }
+            else{
+                $appointmentList.= "<td><a role='button' class=\"btn-danger btn btn-sm btn-block cancel_appointment disabled\" id={$row->appointment_id}><b><span class=\"glyphicon glyphicon-remove\"></span> Cancel</b></a></td>";
+            }
             //$appointmentList.= "<td><a class=\"btn btn-danger btn-sm\" onclick=\"statusChange('rejected',this.id)\" name=\"reject\" value=\"Reject\" id=\"{$row->appointment_id}\"><span class=\"glyphicon glyphicon-edit\"></span>  Reject</a></td>";
             $appointmentList.= "</tr>";
         }
@@ -258,22 +268,43 @@ class Appointments extends CI_Controller
         echo $result;
     }
 
-    public function test(){
-        $appDate = $this->input->post('date');
-        $this->load->model('database_model'); // to invoke the generateId() method later
+    /*
+   * function to cancel an appointment
+   */
+    public function cancelAppointment(){
+        $record_id = $this->input->post('record_id');
         $this->load->model('appointment');
-        $result = $this->appointment->getUnavailableSlots($appDate);
-        foreach ($result->result() as $row)
-        {
-            echo $row->start_time;
-            echo "<br>";
-            echo $row->end_time;
-            echo "<br>";
-            echo "<br>";
 
+        // retrieve details of the appointment in order to send the cancellation mail later
+        $appointment = $this->appointment->getAppointmentData($record_id);
+        $appointment_date = $appointment['appointment_date'];
+        $start_time = $appointment['start_time'];
+        $end_time = $appointment['end_time'];
+        $description= $appointment['description'];
+        $cust_email = $appointment['cust_email'];
+
+        // delete the appointment from the database
+        $result = $this->appointment->deleteAppointment($record_id);
+
+        /* send email confirmation */
+        $this->load->library('email');
+        $this->load->model('email_model');
+        $result_email = $this->email_model->sendAppointmentCancellationMail($appointment_date,$start_time,$end_time,$description,$cust_email);
+
+        if ($result){
+            echo "<h4>Appointment cancelled successfully</h4>";
+        }
+        else{
+            echo "<h4>Failed to cancel the Appointment</h4>";
+        }
+
+        if ($result_email){
+            echo "Mail has been sent successfully";
+        }
+        else{
+            echo "Mail NOT Sent";
         }
     }
-
 
 }
 

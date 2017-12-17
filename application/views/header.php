@@ -21,6 +21,7 @@
     <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>css/homestyle.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>css/ninja-slider.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>css/navbar-style.css" rel="stylesheet">
     <!-- <link href="css/full-slider.css" rel="stylesheet"> -->
 
 
@@ -65,42 +66,68 @@
     <div class="copyright-text">©Copyright <a href="https://themewagon.com/"> GK Photography</a> 2017 </div>
 </div>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class= "collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-            <ul class="nav navbar-nav navbar-right my-primary-menu">
-                <li id="contact_menu" class="link-1">
+<div class="canvas col-md-12 background-theme">
+    <div class="navbar navbar-default my-navbar"  style="margin: auto; max-height: 120%" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a target="_blank" href="#" class="navbar-brand">GK - Photography</a>
+            </div>
+            <div class="collapse navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right username">
+                    <?php if (($this->session->userdata('loggedin'))): ?>
+                    <li class="dropdown username">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-user"></span>
+
+                            <strong><?php echo $this->session->userdata('$f_name')." ".$this->session->userdata('$l_name')?></strong>
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                        <ul class="dropdown-menu background-theme">
+                            <li>
+                                <div class="navbar-login">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p class="text-center">
+                                                <span class="glyphicon glyphicon-user icon-size"></span>
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <p class="text-left"><strong><?php echo $this->session->userdata('$f_name')." ".$this->session->userdata('$l_name')?></strong></p>
+                                            <p class="text-left small"><?php echo $this->session->userdata('$email')?></p>
+                                            <p class="text-left">
+                                                <a href="#" class="btn btn-primary btn-block btn-sm">Edit Profile</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <div class="navbar-login navbar-login-session">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <p>
+                                                <a href="<?php echo base_url('index.php/Login/LogoutUser')?>" class="btn btn-danger btn-block">Log Out</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <?php else: ?>
+                    <li class="dropdown">
+                        <a href="<?php echo base_url('index.php/Login/LoginUser')?>" class="dropdown-toggle username">
+                            <span class="glyphicon glyphicon-lock"></span>
+                            <strong>Log In</strong>
+                        </a>
+                    </li>
+                    <?php endif; ?>
+                </ul>
 
 
-                    <!--                    restrict url login-->
-                    <!--                    --><?php //if(!($this->session->userdata('loggedin'))){
-                    //                        redirect('Welcome/login');
-                    //                    }?>
 
-                    <?php
-                    $loginner = $this->session->userdata('$f_name');
-                    if($loginner != ""){
-                        ?><a class="my-login-letters" href="<?php echo base_url('index.php/Login/LogoutUser')?>">Logout</a>
-
-                        <?php
-
-                        if($this->session->flashdata('welcome')) {
-                            echo "<a><h3>" . $this->session->flashdata('welcome') . "</h3></a>";
-                        }
-//                        echo "<a><h4>" . $this->session->userdata('$f_name')." " .$this->session->userdata('$l_name')."</h4></a>";
-
-
-
-                    }else{
-                        ?><a class="my-login-letters" href="<?php echo base_url('index.php/Login/LoginUser')?>">Login</a>
-
-                        <?php
-
-                    }?>
-                </li>
+            </div>
         </div>
-        <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container -->
-</nav>
