@@ -13,52 +13,61 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
-            </div>
-            <div class="modal-body" id="request_details">
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label for="inputEmail4">Name</label>
-                        <input type="text" class="form-control" name="name_modal" id="name_modal" placeholder="Name" disabled>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label for="inputEmail4">Email</label>
-                        <input type="email" class="form-control" name="email_modal" id="email_modal" placeholder="Email" disabled>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label for="inputEmail4">Contact no.</label>
-                        <input type="number" class="form-control" name="phone" id="phone" placeholder="Contact no." disabled>
-                    </div>
-                </div>
-
-                <div class="form-group col-md-12">
-                    <label for="inputAddress2">Address</label>
-                    <input type="text" class="form-control" name="address" id="address" placeholder="Address" disabled>
-                </div>
-                <div class="form-group col-md-12">
-                    <label for="inputAddress2">Good at</label>
-                    <input type="text" class="form-control" name="skill" id="skill" placeholder="Good at" disabled>
-                </div>
-
-
-                    <div class="form-group col-md-12">
-                        <label for="comment">Short discription about your works:</label>
-                        <textarea class="form-control" rows="5" id="works" name="works" maxlength="200" disabled></textarea>
-                    </div>
-
-            </div>
-            <div class="modal-footer">
-
-
+                <h3 class="modal-title">View Join Requests</h3>
             </div>
 
+            <div class="modal-body">
+                <form method="post" id="insert_form">
+
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-4 col-form-label clearfix">Name</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="name_modal" id="name_modal" placeholder="Name" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="example-email-input" class="col-md-4 col-form-label clearfix">Email</label>
+                        <div class="col-md-8">
+                            <input type="email" class="form-control" name="email_modal" id="email_modal" placeholder="Email" disabled>
+                        </div>
+                    </div
+
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-4 col-form-label">Contact Number</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="phone" id="phone" placeholder="Contact no." disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-4 col-form-label">Address</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="address" id="address" placeholder="Address" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-4 col-form-label">Good at.</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="skill" id="skill" placeholder="Good at" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-4 col-form-label">Short discription about your work</label>
+                        <div class="col-md-8">
+                            <textarea class="form-control" rows="5" id="works" name="works" maxlength="200" disabled></textarea>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
         </div>
     </div>
-
 </div>
+
+
 
 <script>
 

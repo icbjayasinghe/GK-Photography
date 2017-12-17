@@ -8,6 +8,7 @@
                 </button>
                 <h3 class="modal-title">Change Password</h3>
             </div>
+
             <div class="modal-body">
                 <form method="post" id="insert_form">
                     <div class="form-group row">

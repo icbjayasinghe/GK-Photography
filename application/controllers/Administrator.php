@@ -61,6 +61,7 @@ class Administrator extends CI_Controller
         $result['request']=$this->Employee_request_model->employeeModel();
         $this->load->view('admin/employee_request',$result);
     }
+
     public function Viewjoinus(){
         $email=$this->input->post('email1');
 

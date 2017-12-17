@@ -66,7 +66,7 @@
                                 <div class="form-group">
                                     <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password">
                                     <a href="#" class="pull-xs-right">
-                                        <small>Forgot?</small>
+                                        <small><i>Forgot? Please contact GK-Photography</i></small>
                                     </a>
                                     <div class="clearfix"></div>
                                 </div>
