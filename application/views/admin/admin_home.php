@@ -30,6 +30,7 @@
                     <a href="<?php echo base_url();?>index.php/administrator/manageCustomers" class="list-group-item ref">Manage Customers</a>
                     <a href="<?php echo base_url();?>index.php/administrator/registerCustomer" class="list-group-item ref">Register Customer</a>
                     <a href="<?php echo base_url();?>index.php/administrator/manageGallery" class="list-group-item ref">Manage Gallery</a>
+                    <a href="<?php echo base_url();?>index.php/administrator/employeeRequest" class="list-group-item ref">Employee requests</a>
                     <a href="<?php echo base_url();?>index.php/administrator/manageSuggestions" class="list-group-item ref">Manage Suggestions</a>
                 </div>
             </div>
