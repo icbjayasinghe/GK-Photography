@@ -22,7 +22,7 @@
 
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
                 <?php
                 if($request->num_rows()>0){
                     foreach ($request->result() as $row){
@@ -32,7 +32,7 @@
                             <td><?php echo $row->skill;  ?></td>
                             <td><?php echo $row->email; ?></td>
                             <td><?php echo $row->phone; ?></td>
-                            <td><button class="btn btn-success" onclick="viewbtn(this)" data-toggle="modal" data-target="#mymodal">View</button><button class="btn btn-danger delete" > Delete </button></td>
+                            <td><button class="btn btn-success" onclick="viewbtn(this)" data-toggle="modal" data-target="#mymodal">View</button><button class="btn btn-danger delete" onclick="deletebtn(this)"> Delete </button></td>
 
 
 
@@ -46,21 +46,6 @@
                 else{
 
                 }
-
-                //$requestList = "";
-//                foreach ($request as $row){
-//                    //$customerDetals = [$row->cust_id,$row->first_name,$row->last_name,$row->cust_phone,$row->cust_address,$row->cust_email,$row->date_joined];
-//                    //$rowString = implode(",", $customerDetals);
-//                    $requestList.= "<tr>";
-//                    $requestList.= "<td>{$row->name}</td>";
-//                    $requestList.= "<td>{$row->skill}</td>";
-//                    //$$requesttList.= "<td>{$row->start_time}h</td>";
-//                    //$$requesttList.= "<td>{$row->end_time}h</td>";
-//                    //$$requesttList.= "<td>{$row->description}</td>";
-//                    //$$requesttList.= "<td><a class=\"customer_check\" onclick=\"loadCustomerModal('$rowString')\" id={$row->cust_id}><b>{$row->first_name} {$row->last_name}</b></a></td>";
-//                    $requestList.= "</tr>";
-//                }
-//                echo $requestList;
                 ?>
 
                 </tbody>
@@ -74,7 +59,6 @@
 
 <script>
     function viewbtn(eliment) {
-        //alert(eliment.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML);
         $.ajax({
             type:"post",
             data:({email1:eliment.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML}),
@@ -88,17 +72,29 @@
                 $('#address').val(data.address);
                 $('#skill').val(data.skill);
                 $('#works').val(data.works);
-
-                //$('#name').val(data.name);
-
-                // document.getElementById('message1').innerHTML=" deleted successfully";
-                // $('#modal-success').modal('show');
-
             }
 
 
         });
-        //eliment.parentElement.parentElement.remove();
+
+    }
+
+    function deletebtn(eliment) {
+        //alert("asda");
+        $.ajax({
+            type:"post",
+            data:({email:eliment.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML}),
+            url:'<?php echo site_url('Administrator/Deletejoinus'); ?>',
+            cache: false,
+            success:function (data) {
+                eliment.parentElement.parentElement.remove();
+
+
+            }
+
+        })
 
     }
 </script>
+
+
