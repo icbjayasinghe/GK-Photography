@@ -193,6 +193,19 @@ class Appointment extends CI_Model
         }
     }
 
+    /*
+     * delete a particular appointment
+     */
+    public function deleteAppointment($appointment_id){
+        try{
+            $this->db->where('appointment_id', $appointment_id);
+            $result = $this->db->delete('appointment');
+            return $result;
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
 
 }
 

@@ -32,8 +32,12 @@
 
 
 <script>
-    // to change the filter when clicked
+
     $(document).ready(function(e){
+
+        $('#user_table_results').load("<?php echo base_url();?>index.php/users/searchUserDetails/all/");
+
+        // to change the filter when clicked
         $('.search-panel .dropdown-menu').find('a').click(function(e) {
             e.preventDefault();
             var param = $(this).attr("href").replace("#","");
@@ -41,10 +45,8 @@
             $('.search-panel span#search_concept').text(concept);
             $('.input-group #search_param').val(param);
         });
-    });
 
-    // load suitable results on keyup
-    $(document).ready(function(){
+        // load suitable results on keyup
         $('#search_text').keyup(function (){
             var filter = document.getElementById("search_param").value;
             var txt = $(this).val().trim();
@@ -58,7 +60,31 @@
                 }
             });
         });
+
+        // load modal to delete user data
+        $(document).on('click','.delete_user',function(){
+            var id = $(this).attr("id");
+            var table = 'user';
+            $('#table_name').val(table);
+            $('#record_id').val(id);
+            $('#delete_Modal').modal('show');
+        });
+
+        // matching password
+        $('#change_confirm_password').on('keyup', function () {
+            if($(this).val() == ' '){
+                $('#message').html("");
+            }
+            if ($(this).val() == $('#change_password').val()) {
+                $('#message').html('Password Match').css('color', '#32cb00');
+            }
+            else {
+                $('#message').html('Password does not match. Please Re-Enter!').css('color', '#c62828');
+
+            }
+        });
     });
+
 
 
     // load modal to change password
@@ -116,30 +142,7 @@
         });
     }
 
-    // load modal to delete user data
-    $(document).ready(function (){
-        $(document).on('click','.delete_user',function(){
-            var id = $(this).attr("id");
-            var table = 'user';
-            $('#table_name').val(table);
-            $('#record_id').val(id);
-            $('#delete_Modal').modal('show');
-        });
-    });
 
-    // matching password
-    $('#change_confirm_password').on('keyup', function () {
-        if($(this).val() == ' '){
-            $('#message').html("");
-        }
-        if ($(this).val() == $('#change_password').val()) {
-            $('#message').html('Password Match').css('color', '#32cb00');
-        }
-        else {
-            $('#message').html('Password does not match. Please Re-Enter!').css('color', '#c62828');
-
-        }
-    });
 
     // when delete button is pressed in the modal
     function deleteRecord(){
@@ -162,10 +165,6 @@
     function notDeleteRecord() {
         $('#delete_Modal').modal('hide');
     }
-
-    $(document).ready(function(){
-        $('#user_table_results').load("<?php echo base_url();?>index.php/users/searchUserDetails/all/");
-    });
 
     $('#msg_Modal').on('hidden.bs.modal', function () {
         $('#content').load("<?php echo base_url();?>index.php/administrator/manageUsers");

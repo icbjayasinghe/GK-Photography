@@ -67,8 +67,11 @@
             success: function( data ) {
                 $('#msg_Modal').modal('show');
                 $('#msg_result').html(data);
-                $('#content').load("<?php echo base_url();?>index.php/appointments/appointmentRequests");
             }
         });
     }
+
+    $('#msg_Modal').on('hidden.bs.modal', function () {
+        $('#content').load("<?php echo base_url();?>index.php/administrator/appointments");
+    });
 </script>

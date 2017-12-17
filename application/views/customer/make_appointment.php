@@ -199,5 +199,25 @@
         }
     }
 
+    // enable calender - cannot book for today
+    function enableCalenderCustomer() {
+        var tmrrw = new Date();
+        var dd = tmrrw.getDate()+1;
+        var mm = tmrrw.getMonth()+1; //January is 0!
+        var yyyy = tmrrw.getFullYear();
+        if(dd<10){
+            dd='0'+dd
+        }
+        if(mm<10){
+            mm='0'+mm
+        }
 
+        tmrrw = yyyy+'-'+mm+'-'+dd;
+        document.getElementById("appointment_date").value="";
+        document.getElementById("appointment_date").setAttribute("min", tmrrw);
+    }
+
+    $(document).ready(function (){
+        enableCalenderCustomer();
+    });
 </script>

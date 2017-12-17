@@ -199,5 +199,31 @@
         }
     }
 
+    $('#msg_Modal').on('hidden.bs.modal', function () {
+        $('#content').load("<?php echo base_url();?>index.php/administrator/appointments");
+    });
+
+    // enable calender - can book kor today
+    function enableCalenderAdmin() {
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd
+        }
+        if(mm<10){
+            mm='0'+mm
+        }
+
+        today = yyyy+'-'+mm+'-'+dd;
+        document.getElementById("appointment_date").value="";
+        document.getElementById("appointment_date").setAttribute("min", today);
+    }
+
+
+    $(document).ready(function (){
+        enableCalenderAdmin();
+    });
 
 </script>
