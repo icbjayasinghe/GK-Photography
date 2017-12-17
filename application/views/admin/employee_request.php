@@ -5,6 +5,14 @@
  * Date: 12/16/2017
  * Time: 11:11 PM
  */?>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href="<?php echo base_url(); ?>dist/css/jasny-bootstrap.min.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href="<?php echo base_url(); ?>css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="<?php echo base_url(); ?>css/navmenu-reveal.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>css/homestyle.css" rel="stylesheet">
 <h2>Employee Requests</h2>
 <br>
 
@@ -31,11 +39,12 @@
                             <td><?php echo $row->skill;  ?></td>
                             <td><?php echo $row->email; ?></td>
                             <td><?php echo $row->phone; ?></td>
-                            <td><button class="btn btn-success" onclick="viewbtn(this)" >View</button><button class="btn btn-danger delete" > Delete </button></td>
+                            <td><button class="btn btn-success" onclick="viewbtn(this)" data-toggle="modal" data-target="#mymodal">View</button><button class="btn btn-danger delete" > Delete </button></td>
 
 
 
                         </tr>
+
 
                         <?php
                     }
@@ -63,12 +72,37 @@
 
                 </tbody>
             </table>
+
         </div>
     </div>
 </div>
+<!--employee request modal-->
+<div id="mymodal" class="modal fade text-center">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                asdsad
+            </div>
+            <div class="modal-footer">
+                <!--                                        <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<script src="<?php echo base_url(); ?>js/jquery.js"></script>
+<script src="<?php echo base_url(); ?>dist/js/jasny-bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
 <script>
     function viewbtn(eliment) {
-        alert(eliment.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML);
+        //alert(eliment.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML);
         // $.ajax({
         //     type:"post",
         //     data:({email:eliment.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML}),
