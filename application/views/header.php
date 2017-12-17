@@ -57,7 +57,7 @@
     <a class="navmenu-brand" href="#"><img src="<?php echo base_url();?>img/logo-original.png" width="160"></a>
     <div class="social">
         <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.facebook.com/gkphotographies/"><i class="fa fa-facebook"></i></a>
         <a href="#"><i class="fa fa-instagram"></i></a>
         <a href="#"><i class="fa fa-pinterest-p"></i></a>
         <a href="#"><i class="fa fa-google-plus"></i></a>
@@ -70,7 +70,13 @@
     <div class="navbar navbar-default my-navbar"  style="margin: auto; max-height: 120%" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <a target="_blank" href="#" class="navbar-brand">GK - Photography</a>
+                <?php if (($this->session->userdata('loggedin')) AND ($this->session->userdata('$type'))=='Administrator'): ?>
+                <a href="<?php echo base_url('index.php/users/adminHome')?>" class="navbar-brand">GK - Photography   <span class="glyphicon glyphicon-home"></span> </a>
+                <?php elseif (($this->session->userdata('loggedin')) AND ($this->session->userdata('$type'))=='Customer'): ?>
+                <a href="<?php echo base_url('index.php/users/customerHome')?>" class="navbar-brand">GK - Photography   <span class="glyphicon glyphicon-home"></span></a>
+                <?php else: ?>
+                    <a href="#" class="navbar-brand">GK - Photography</a>
+                <?php endif; ?>
             </div>
             <div class="collapse navbar-collapse">
 
@@ -89,7 +95,7 @@
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <p class="text-center">
-                                                <span class="glyphicon glyphicon-user icon-size"></span>
+                                                <img src="<?php echo base_url()?>img/logo-original.png" class="avatar profile-image"  alt="avatar">
                                             </p>
                                         </div>
                                         <div class="col-lg-8">

@@ -2,59 +2,10 @@
 <link href="<?php echo base_url(); ?>css/upload-image.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>css/navbar-style.css" rel="stylesheet">
 
-<div class="canvas col-md-12 background-theme">
-    <div class="navbar navbar-default my-navbar" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <a target="_blank" href="#" class="navbar-brand">GK - Photography</a>
-            </div>
-            <div class="collapse navbar-collapse">
+<?php if(!($this->session->userdata('loggedin'))){
+    redirect('Welcome/login'); }?>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown username">
-                        <a href="#" class="dropdown-toggle username" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-user"></span>
-                            <strong><?php echo $this->session->userdata('$f_name')." ".$this->session->userdata('$l_name')?></strong>
-                            <span class="glyphicon glyphicon-chevron-down"></span>
-                        </a>
-                        <ul class="dropdown-menu background-theme">
-                            <li>
-                                <div class="navbar-login">
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <p class="text-center">
-                                                <span class="glyphicon glyphicon-user icon-size"></span>
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <p class="text-left"><strong><?php echo $this->session->userdata('$f_name')." ".$this->session->userdata('$l_name')?></strong></p>
-                                            <p class="text-left small"><?php echo $this->session->userdata('$email')?></p>
-                                            <p class="text-left">
-                                                <a href="#" class="btn btn-primary btn-block btn-sm">Edit Profile</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <div class="navbar-login navbar-login-session">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <p>
-                                                <a href="<?php echo base_url('index.php/Login/LogoutUser')?>" class="btn btn-danger btn-block">Log Out</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Page Content -->
+
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->

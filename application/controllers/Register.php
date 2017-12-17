@@ -23,7 +23,9 @@ class Register extends CI_Controller{
         $flag=$this->input->post('flag',TRUE);
         if ($this->form_validation->run() == FALSE) {
 
-                $this->load->view('register');
+            $this->load->view('login_header');
+            $this->load->view('login-form');
+            $this->load->view('footer');
 
 
         }
@@ -42,8 +44,8 @@ class Register extends CI_Controller{
 
             if ($result_email){
                 // load Model_user for inserting user data to db
-                $this->load->model('Model_user');
-                $response = $this->Model_user->insertUser();
+                $this->load->model('model_user');
+                $response = $this->model_user->insertUser();
 
                 //  last step of registration
                 if($response){

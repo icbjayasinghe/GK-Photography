@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2017 at 07:20 AM
+-- Generation Time: Dec 17, 2017 at 04:03 PM
 -- Server version: 5.7.9
 -- PHP Version: 5.6.16
 
@@ -63,10 +63,11 @@ INSERT INTO `appointment` (`appointment_id`, `appointment_date`, `start_time`, `
 ('APP0000017', '2017-12-13', '0100', '0200', 'kajg', 'CUS0000006', 'accepted'),
 ('APP0000018', '2017-12-15', '0100', '0200', 'ajhl\n', 'CUS0000006', 'pending'),
 ('APP0000019', '2017-12-15', '1300', '1400', 'Wedding', 'CUS0000001', 'pending'),
-('APP0000020', '2017-12-16', '1800', '1915', 'Birthday', 'CUS0000001', 'pending'),
+('APP0000020', '2017-12-16', '1800', '1915', 'Birthday', 'CUS0000001', 'rejected'),
 ('APP0000021', '2017-12-16', '1100', '1200', 'Wedding', 'CUS0000001', 'accepted'),
-('APP0000022', '2017-12-15', '0300', '0400', 'Graduation', 'CUS0000001', 'pending'),
-('APP0000023', '2017-12-17', '1400', '1500', 'cgm', 'CUS0000006', 'rejected');
+('APP0000022', '2017-12-15', '0300', '0400', 'Graduation', 'CUS0000001', 'rejected'),
+('APP0000023', '2017-12-17', '1400', '1500', 'cgm', 'CUS0000006', 'rejected'),
+('APP0000025', '2017-12-17', '1600', '1700', 'Farewell Party', 'CUS0000006', 'rejected');
 
 -- --------------------------------------------------------
 
@@ -171,22 +172,22 @@ CREATE TABLE IF NOT EXISTS `gallery` (
   `path` varchar(100) NOT NULL,
   `date_added` datetime(6) NOT NULL,
   PRIMARY KEY (`image_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `gallery`
 --
 
 INSERT INTO `gallery` (`image_id`, `path`, `date_added`) VALUES
-(22, '5a336ac551c5a0.07322139.jpg', '2017-12-15 06:32:45.000000'),
-(21, '5a336ab560f7c5.02080782.jpg', '2017-12-16 05:28:23.000000'),
-(23, '5a336c0ada1793.35243293.jpg', '2017-12-15 06:32:08.000000'),
-(24, '5a336c11c11414.16782102.jpg', '2017-12-15 06:32:27.000000'),
-(25, '5a336c18f19774.75733904.jpg', '2017-12-15 06:32:14.000000'),
-(26, '5a336c253f1867.41969909.jpg', '2017-12-15 06:31:01.000000'),
-(27, '5a336c2a4202f8.50730522.jpg', '2017-12-15 06:31:06.000000'),
-(28, '5a336c2fda10f2.52598786.jpg', '2017-12-15 06:31:11.000000'),
-(29, '5a336c3510a8c4.27327959.jpg', '2017-12-15 06:31:17.000000');
+(41, '5a369121f12632.93804339.jpg', '2017-12-17 15:45:37.000000'),
+(38, '5a3690ea75a143.15729713.jpg', '2017-12-17 15:44:42.000000'),
+(39, '5a3690f6882055.46880736.jpg', '2017-12-17 15:44:54.000000'),
+(40, '5a36910ac50136.83077389.jpg', '2017-12-17 15:45:14.000000'),
+(33, '5a3690c94c9a45.22645941.jpg', '2017-12-17 15:44:09.000000'),
+(34, '5a3690cfe32676.06124685.jpg', '2017-12-17 15:44:15.000000'),
+(35, '5a3690d48ccc67.93700495.jpg', '2017-12-17 15:44:20.000000'),
+(36, '5a3690dba2ca06.96243696.jpg', '2017-12-17 15:44:27.000000'),
+(37, '5a3690e2272bb9.32216725.jpg', '2017-12-17 15:44:34.000000');
 
 -- --------------------------------------------------------
 
@@ -267,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `type` varchar(15) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`

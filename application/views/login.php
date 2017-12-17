@@ -22,7 +22,7 @@
 
 </ul>
 
-<!--    session for just registered customer-->
+    <!--   session for just registered customer-->
     <?php if ($this->session->flashdata('msg')){
         echo "<h3>".$this->session->flashdata('msg')."</h3>";
     }

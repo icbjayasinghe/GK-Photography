@@ -44,16 +44,16 @@
 
     <ul class="nav navmenu-nav">
         <li><a href="<?php echo base_url();?>index.php/welcome/index">Home</a></li>
-        <!-- <li><a href="<?php echo base_url();?>index.php/welcome/works">Works</a></li> -->
         <li><a href="<?php echo base_url();?>index.php/welcome/gallery">Gallery</a></li>
         <li><a href="<?php echo base_url();?>index.php/welcome/mywork">My Work</a></li>
-        <!-- <li><a href="<?php echo base_url();?>index.php/welcome/blog">Blog</a></li> -->
+        <li><a href="<?php echo base_url();?>index.php/welcome/joinus">Join us</a></li>
         <li><a href="<?php echo base_url();?>index.php/welcome/contact">Contact</a></li>
+
     </ul>
     <a class="navmenu-brand" href="#"><img src="<?php echo base_url();?>img/logo-original.png" width="160"></a>
     <div class="social">
         <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.facebook.com/gkphotographies/"><i class="fa fa-facebook"></i></a>
         <a href="#"><i class="fa fa-instagram"></i></a>
         <a href="#"><i class="fa fa-pinterest-p"></i></a>
         <a href="#"><i class="fa fa-google-plus"></i></a>

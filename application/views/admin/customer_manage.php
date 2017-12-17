@@ -120,4 +120,8 @@
     $(document).ready(function(){
         $('#customer_table_results').load("<?php echo base_url();?>index.php/customer_manage/searchCustomerDetails/all/");
     });
+
+    $('#msg_Modal').on('hidden.bs.modal', function () {
+        $('#content').load("<?php echo base_url();?>index.php/administrator/manageCustomers");
+    });
 </script>
