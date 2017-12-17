@@ -207,7 +207,7 @@
 
     // print the receipt
     function printReceipt(appointment_id){
-        alert(appointment_id);
+        window.open('<?php echo site_url('pdf_controller/generateAppointmentReceipt/'); ?>'+appointment_id,'_blank');
 
     }
 

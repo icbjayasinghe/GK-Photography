@@ -38,6 +38,13 @@ $pdf->SetFont('dejavusans', '', 12, '', true);
 // Add a page
 $pdf->AddPage();
 
+$first_name = $appointment['first_name'];
+$last_name = $appointment['last_name'];
+$appointment_id = $appointment['appointment_id'];
+$appointment_date = $appointment['appointment_date'];
+$start_time = $appointment['start_time'];
+$end_time = $appointment['end_time'];
+$description = $appointment['description'];
 
 $html = <<<EOD
 <br>
@@ -48,27 +55,27 @@ $html = <<<EOD
 <tr>
 <td style="width: 80px"></td>
 <td style="width: 246.5px; text-align: right;"><strong>Customer Name: </strong></td>
-<td style="width: 246.5px;">Isuru Jayasinghe</td>
+<td style="width: 246.5px;">$first_name $last_name</td>
 </tr>
 <tr>
 <td style="width: 80px"></td>
 <td style="width: 246.5px; text-align: right;"><strong>Appointment ID: </strong></td>
-<td style="width: 246.5px;">APP000005</td>
+<td style="width: 246.5px;">$appointment_id</td>
 </tr>
 <tr>
 <td style="width: 80px"></td>
 <td style="width: 246.5px; text-align: right;"><strong>Appointment Date: </strong></td>
-<td style="width: 246.5px;">2017-12-05</td>
+<td style="width: 246.5px;">$appointment_date</td>
 </tr>
 <tr>
 <td style="width: 80px"></td>
 <td style="width: 246.5px; text-align: right;"><strong>Appointment Time: </strong></td>
-<td style="width: 246.5px;">0800h to 1300h</td>
+<td style="width: 246.5px;">{$start_time}h to {$end_time}h</td>
 </tr>
 <tr>
 <td style="width: 80px"></td>
 <td style="width: 246.5px; text-align: right;"><strong>Description: </strong></td>
-<td style="width: 246.5px;">Wedding</td>
+<td style="width: 246.5px;">$description</td>
 </tr>
 </tbody>
 </table>
@@ -84,5 +91,5 @@ $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
 // ---------------------------------------------------------
 
 // Close and output PDF document
-$pdf->Output('example_001.pdf', 'I');
+$pdf->Output('Appointment Receipt.pdf', 'I');
 
