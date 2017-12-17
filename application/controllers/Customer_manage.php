@@ -79,7 +79,6 @@ class Customer_manage extends CI_Controller
         $this->form_validation->set_rules('cust_phone', 'Phone number', 'required|min_length[10]|max_length[10]');
         $this->form_validation->set_rules('cust_address','required');
 
-        
 
         if($this->form_validation->run()==false){ 
             $this->load->view('edit_customer_details');

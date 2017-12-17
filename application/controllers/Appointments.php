@@ -49,6 +49,7 @@ class Appointments extends CI_Controller
                     <th>End Time</th>
                     <th>Description</th>
                     <th>Customer Name</th>
+                    <th>Print</th>
                 </tr>
                 </thead>
                 <tbody>";
@@ -62,7 +63,7 @@ class Appointments extends CI_Controller
             $appointmentList.= "<td>{$row->end_time}h</td>";
             $appointmentList.= "<td>{$row->description}</td>";
             $appointmentList.= "<td><a class=\"customer_check\" onclick=\"loadCustomerModal('$rowString')\" id={$row->cust_id}><b>{$row->first_name} {$row->last_name}</b></a></td>";
-            //$appointmentList.= "<td><a class=\"btn btn-success btn-sm\" onclick=\"statusChange('accepted',this.id)\" name=\"accept\" value=\"Accept\" id=\"{$row->appointment_id}\"><span class=\"glyphicon glyphicon-edit\"></span>  Accept</a></td>";
+            $appointmentList.= "<td><a class=\"btn btn-info btn-sm\" onclick=\"printReceipt(this.id)\" name=\"print\" value=\"Print\" id=\"{$row->appointment_id}\"><span class=\"glyphicon glyphicon-print\"></span>  Print Receipt</a></td>";
             //$appointmentList.= "<td><a class=\"btn btn-danger btn-sm\" onclick=\"statusChange('rejected',this.id)\" name=\"reject\" value=\"Reject\" id=\"{$row->appointment_id}\"><span class=\"glyphicon glyphicon-edit\"></span>  Reject</a></td>";
             $appointmentList.= "</tr>";
         }

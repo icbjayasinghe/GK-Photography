@@ -205,6 +205,13 @@
         });
     });
 
+    // print the receipt
+    function printReceipt(appointment_id){
+        alert(appointment_id);
+
+    }
+
+
     // load booking page for admin
     function onClickBook(cust_id) {
         $('#content').load("<?php echo base_url();?>index.php/appointments/makeAppointmentAdmin/"+cust_id);
