@@ -61,7 +61,7 @@
 
                             <form id="login-form">
                                 <div class="form-group">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email" required>
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email" required><span id="email_error"></span>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password">
@@ -117,6 +117,7 @@
                                     <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password" name="cpassword" required>
                                 </div>
                                 <button type="submit" class="btn btn-azure">Register</button>
+                                <input type="hidden" name="flag" value=0 id="flag">
                             </form>
                             <?php echo form_close();?>
                         </div>
@@ -147,5 +148,14 @@
     <script type="text/javascript" src="../js/login.js"></script>
 </div>
 </body>
+
+    <script>
+        $(function () {
+            $("#email_error").hide();
+
+
+
+        })
+    </script>
 
 </html>

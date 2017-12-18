@@ -54,19 +54,7 @@
         </div>
 
 
-        <div class="form-group col-md-2">
-                <label for="inputEmail4">Your CV</label>
-                <?php echo form_upload('pdf')?>
-            <?php //echo form_submit('Save','submit', 'class="btn btn-primary"');?>
-        </div>
 
-<!--        <div class="form-group col-md-12">-->
-
-<!--            <label class="btn btn-default btn-file col-md-2">-->
-<!--                Attach your cv --><?php //echo form_upload();?>
-<!--<!--                <input type="file" style="display: none;" name="multipleFile[]">-->
-<!--            </label>-->
-<!--        </div>-->
         <div class="form-group col-md-12">
             <button type="submit" class="btn btn-primary btn-lg col-md-12 my-upload-button" name="submit">Submit</button>
         </div>
