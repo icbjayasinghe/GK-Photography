@@ -52,6 +52,30 @@
         location.reload();
     }
 
+    function loadAdminProfile() {
+        var id=document.getElementById('adminEdit').value;
+        alert(id);
+        $.ajax({
+            url:'<?php echo site_url('users/getUserDetails'); ?>',
+            method: "post",
+            data: {user_id:id},
+            dataType: "json",
+            cache: false,
+            success:function (data) {
+                // $('#change_first_name').val(data.first_name);
+                // $('#change_last_name').val(data.last_name);
+                // $('#change_email').val(data.email);
+                // $('#change_type').val(data.type);
+                // $('#change_password').val("");
+                // $('#change_confirm_password').val("");
+                // $('#message').html("");
+                // $('#change_user_id').val(data.user_id);
+                // $('#change_password_Modal').modal('show');
+                alert(data);
+            }
+        });
+    }    
+
     $(document).ready(function(){
         $('#side-bar-list a').click(function(e) {
             e.preventDefault();
