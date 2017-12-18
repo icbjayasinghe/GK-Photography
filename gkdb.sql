@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2017 at 04:03 PM
+-- Generation Time: Dec 18, 2017 at 08:25 AM
 -- Server version: 5.7.9
 -- PHP Version: 5.6.16
 
@@ -206,14 +206,19 @@ CREATE TABLE IF NOT EXISTS `joinus_tbl` (
   `works` varchar(255) DEFAULT NULL,
   `cv_name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`joinus_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `joinus_tbl`
 --
 
 INSERT INTO `joinus_tbl` (`joinus_id`, `name`, `email`, `phone`, `address`, `skill`, `works`, `cv_name`) VALUES
-(4, 'icbjayasinghe', 'i@gmail.com', '0770368954', 'no.119/4,jayamalapura', 'Photographing', 'afdsd', NULL);
+(5, 'Thilakshika Udyani', 'thilakshika@gmail.com', '0774456456', 'Panadura', 'Photographing', 'Video Editiing Expertise.. ', NULL),
+(6, 'Isuru Jayasinghe ', 'icbjayasinghe@gmial.com', '0772080786', 'no.119/4th lane', 'Videographing', 'Good photographer', NULL),
+(7, 'Isuru Jayasinghe ', 'icbjayasinghe@gmial.com', '0774456456', 'Moratuwa', 'Videographing', 'good photographer', NULL),
+(8, 'Isuru Jayasinghe ', 'isur@gmail.com', '0774456456', 'Colombo', 'Videographing', 'good videographer', NULL),
+(9, 'Isuru Jayasinghe ', 'uru@gmail.com', '0774456456', 'Mt. Lavania', 'Videographing', 'video', NULL),
+(10, 'Thilakshika Udyani', 'thilakshikasff@gmail.com', '0774456456', 'Kandy', 'Photographing', '5 year experiance', NULL);
 
 -- --------------------------------------------------------
 
@@ -224,7 +229,7 @@ INSERT INTO `joinus_tbl` (`joinus_id`, `name`, `email`, `phone`, `address`, `ski
 DROP TABLE IF EXISTS `suggestions`;
 CREATE TABLE IF NOT EXISTS `suggestions` (
   `suggestion_id` varchar(100) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `idea` text NOT NULL,
@@ -236,18 +241,7 @@ CREATE TABLE IF NOT EXISTS `suggestions` (
 --
 
 INSERT INTO `suggestions` (`suggestion_id`, `date`, `name`, `email`, `idea`) VALUES
-('SUG0000001', '0000-00-00 00:00:00', 'Lachini Roshika', 'lachini@gmail.com', '22d4253681406c4a1347d76f39d16c2cd724fa43'),
-('SUG0000002', '0000-00-00 00:00:00', 'Wasura', 'wasuradananjith@gmail.com', '67ea91920a7269540acc4387735dc9547d6640d1'),
-('SUG0000003', '0000-00-00 00:00:00', 'Wasura', 'wasuradananjith@gmail.com', 'e2fe15a61dec29ad3b10c60022b62666c16fe94f'),
-('SUG0000004', '0000-00-00 00:00:00', 'isuru', 'ieee-2b6ca904e@csacademy.com', '017844fe24b64f539cf588342d131eb10b43b8cb'),
-('SUG0000005', '0000-00-00 00:00:00', 'isuru', 'ieee-2b6ca904e@csacademy.com', '4b9698a153932731b91f4377fbc07e561ae34b0b'),
-('SUG0000006', '0000-00-00 00:00:00', 'isuru', 'isuru@gmail.com', '27f42d65cdb13f9d4ef63d34bfb8b34536c46395'),
-('SUG0000007', '0000-00-00 00:00:00', 'Lachini Roshika', 'lachiniroshika@gmail.com', '53d72904d27cd2f158c420e5fd75a457b97cffbe'),
-('SUG0000008', '0000-00-00 00:00:00', 'Isuru  Jayasinghe', 'icbjayasinghe@gmail.com', '957526a112201239a60560bcf4bf05f18e79eb60'),
-('SUG0000009', '0000-00-00 00:00:00', 'venuka Ashan', 'n.venuahan@gmail.com', 'c03859978e097b4f0787d4ee57d8c1e2c7ae364e'),
-('SUG0000010', '0000-00-00 00:00:00', 'isuru', 'icbjayasinghe@gmail.com', 'cac83cc2ac3984fb363f680adf23b70a8f156855'),
-('SUG0000011', '0000-00-00 00:00:00', 'angathan', 'anga@gmail.com', '5859427af242904a94ac9fda4f420cf2ea0b9e1e'),
-('SUG0000012', '0000-00-00 00:00:00', 'ljsddfad', 'lachini@gmail.com', '931772f6a9cd7ce7d700a9d452a3642e880c711c');
+('SUG0000001', '2017-12-18', 'Isuru Jayasinghe ', 'isuru@gmail.com', 'Great Work!');
 
 -- --------------------------------------------------------
 
@@ -275,13 +269,13 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `user_id`, `first_name`, `last_name`, `email`, `password`, `last_login`, `is_deleted`, `type`) VALUES
-(1, 'ADM0000001', 'Wasura', 'Wattearachchi', 'wasuradananjith@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '2017-09-09 20:04:30', 0, 'Administrator'),
+(1, 'ADM0000001', 'Wasura', 'Wattearachchi', 'wasuradananjith@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '2017-12-18 06:51:51', 0, 'Administrator'),
 (28, 'CUS0000001', 'Isuru', 'Jayasinghe', 'isuru@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, 0, 'Customer'),
 (29, 'CUS0000002', 'Lachini', 'Roshika', 'lachini@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, 0, 'Customer'),
 (30, 'CUS0000003', 'Nesarasa', 'Angathan', 'anga@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, 0, 'Customer'),
 (31, 'CUS0000004', 'Peter', 'Pan', 'peter@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, 0, 'Customer'),
 (32, 'CUS0000005', 'Harry ', 'Potter', 'harry@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, 0, 'Customer'),
-(33, 'CUS0000006', 'Ama', 'Gamage', 'wasurawattearachchi@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, 0, 'Customer');
+(33, 'CUS0000006', 'Ama', 'Gamage', 'wasurawattearachchi@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '2017-12-18 06:49:43', 0, 'Customer');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
