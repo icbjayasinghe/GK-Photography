@@ -1,6 +1,9 @@
 
     <div class="container col-md-6 my-signup">
         <h2><b>Join Us</b></h2>
+        <?php if($this->session->flashdata('msg')){
+            echo("<h3>".$this->session->flashdata('msg')."</h3>");
+        } ?>
         <hr>
 
         <!--for checking validation errors-->

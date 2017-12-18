@@ -25,13 +25,26 @@ class Joinus extends CI_Controller{
         $this->form_validation->set_rules('address','Address','required');
         $this->form_validation->set_rules('works','Your skill','required');
         if ($this->form_validation->run() == FALSE) {
+            $this->load->view('header');
             $this->load->view('joinus');
+            $this->load->view('footer');
+            $this->session->set_flashdata('msg','Send successfully !');
         }
         else{
 //            if(is_uploaded_file($_FILES["pdf"]["tmp_name"])){
 //                move_uploaded_file($_FILES["pdf"]["tmp_name"],"./pdf/".$_FILES["pdf"]["tmp_name"]);
+
                 $this->load->model('Joinus_model');
                 $respond=$this->Joinus_model->join_model();
+                if($respond){
+                    $this->session->set_flashdata('msg','Send successfully !');
+                    redirect('Welcome/joinus');
+                }
+                else{
+                    $this->session->set_flashdata('msg','Something wrong !');
+                    redirect('Welcome/joinus');
+                }
+
             //echo json_encode(array("data2"=>$data2));
 
 
