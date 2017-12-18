@@ -30,10 +30,8 @@
             <label for="inputAddress2">Address</label>
             <input type="text" class="form-control" name="address" id="inputAddress2" placeholder="Address">
         </div>
-        <div class="form-row">
 
-            <div class="form-row">
-                <div class="form-group col-md-12>
+        <div class="form-group col-md-12">
                 <label for="inputEmail4">Good at</label>
                 <div class="checkbox">
 
@@ -47,21 +45,21 @@
 
                     <label><input type="checkbox" value="Other" name="good_at">Other</label>
 
+                </div>
+        </div>
 
-                </div>
-                </div>
-            <div class="form-group col-md-12">
-                <label for="comment">Short discription about your works:</label>
-                <textarea class="form-control" rows="5" id="works" name="works" maxlength="200"></textarea>
-            </div>
-            </div>
-        <div class="form-row">
-            <div class="form-group col-md-2">
+        <div class="form-group col-md-12">
+            <label for="comment">Short discription about your work:</label>
+            <textarea class="form-control" rows="5" id="works" name="works" maxlength="200"></textarea>
+        </div>
+
+
+        <div class="form-group col-md-2">
                 <label for="inputEmail4">Your CV</label>
                 <?php echo form_upload('pdf')?>
-<!--                --><?php //echo form_submit('Save','submit', 'class="btn btn-primary"');?>
-            </div>
+            <?php //echo form_submit('Save','submit', 'class="btn btn-primary"');?>
         </div>
+
 <!--        <div class="form-group col-md-12">-->
 
 <!--            <label class="btn btn-default btn-file col-md-2">-->
@@ -69,9 +67,13 @@
 <!--<!--                <input type="file" style="display: none;" name="multipleFile[]">-->
 <!--            </label>-->
 <!--        </div>-->
+        <div class="form-group col-md-12">
+            <button type="submit" class="btn btn-primary btn-lg col-md-12 my-upload-button" name="submit">Submit</button>
         </div>
 
-        <button type="submit" class="btn btn-primary col-md-12" name="submit">Submit</button>
+        </div>
+
+
     <?php echo form_close(); ?>
     </div>
-</div>
+

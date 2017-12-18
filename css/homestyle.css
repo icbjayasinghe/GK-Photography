@@ -75,11 +75,9 @@ table{
 	font-size: large;
 }
 .my-signup {
-	position: absolute;
 	z-index: 15;
-	top:25%;
 	left: 35%;
-	margin: -100px 0 0 -150px;
+	margin: 0 0 0 -150px;
 }
 
 .my-login-letters{
@@ -98,4 +96,14 @@ table{
 
 .title-bar{
 	color: white;
+}
+
+.my-upload-button{
+	background-color: #00363a;
+	border-color: white;
+}
+
+.my-upload-button:hover{
+	border-color:white ;
+	background-color: #052f25;
 }

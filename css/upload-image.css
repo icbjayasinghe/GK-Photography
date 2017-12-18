@@ -64,12 +64,3 @@
     font-size:25px;
 }
 
-.my-upload-button{
-    background-color: #00363a;
-    border-color: white;
-}
-
-.my-upload-button:hover{
-    border-color:white ;
-    background-color: #052f25;
-}
