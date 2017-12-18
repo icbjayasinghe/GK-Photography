@@ -4,24 +4,24 @@
         <div class="slider-inner">
             <ul>
                 <li>
-                    <a class="ns-img" href="<?php echo base_url();?>img/home1.jpg"></a>
-                    <div class="caption">RESPONSIVE</div>
-                </li>
-                <li>
                     <a class="ns-img" href="<?php echo base_url();?>img/home2.jpg"></a>
-                    <div class="caption">TOUCH·ENABLED</div>
+                    <div class="caption">Gallery by Kumaran</div>
                 </li>
                 <li>
                     <a class="ns-img" href="<?php echo base_url();?>img/home3.jpg"></a>
-                    <div class="caption">VIDEO·AUDIO</div>
+                    <div class="caption"> Life through Lens</div>
                 </li>
                 <li>
-                    <a class="ns-img" href="img/4.jpg"></a>
-                    <div class="caption">NON·JQUERY</div>
+                    <a class="ns-img" href="<?php echo base_url();?>img/home6.jpg"></a>
+                    <div class="caption">Beauty we cannot Reach</div>
                 </li>
                 <li>
-                    <a class="ns-img" href="img/5.jpg"></a>
-                    <div class="caption">MOBILE·FRIENDLY</div>
+                    <a class="ns-img" href="<?php echo base_url();?>img/home4.jpg"></a>
+                    <div class="caption">Endless Journey</div>
+                </li>
+                <li>
+                    <a class="ns-img" href="<?php echo base_url();?>img/home5.jpg"></a>
+                    <div class="caption">Everywhere . Everyone</div>
                 </li>
             </ul>
             <div class="navsWrapper">

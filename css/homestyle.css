@@ -80,6 +80,10 @@ table{
 	margin: 0 0 0 -150px;
 }
 
+.my-signup label{
+	color: white;
+}
+
 .my-login-letters{
 	font-size: large;
 	font-weight: bold;

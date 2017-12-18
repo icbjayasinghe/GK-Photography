@@ -98,11 +98,20 @@
                                                 <img src="<?php echo base_url()?>img/logo-original.png" class="avatar profile-image"  alt="avatar">
                                             </p>
                                         </div>
+                                        <input id="user_edit" type="hidden" value="<?php echo $this->session->userdata('$id'); ?>">
                                         <div class="col-lg-8">
                                             <p class="text-left"><strong><?php echo $this->session->userdata('$f_name')." ".$this->session->userdata('$l_name')?></strong></p>
                                             <p class="text-left small"><?php echo $this->session->userdata('$email')?></p>
                                             <p class="text-left">
-                                                <a href="#" class="btn btn-primary btn-block btn-sm">Edit Profile</a>
+                                                <?php if (($this->session->userdata('loggedin')) AND ($this->session->userdata('$type'))=='Administrator'): ?>
+                                                <a href="#" class="btn btn-primary btn-block btn-sm" onclick="loadAdminProfile()">Edit Profile</a>
+                                                <?php elseif (($this->session->userdata('loggedin')) AND ($this->session->userdata('$type'))=='Customer'): ?>
+                                                <a href="#" id="adminEdit" class="btn btn-primary btn-block btn-sm" value="<?php echo $this->session->userdata('$type'); ?>">Edit Profile</a>
+                                                <a href="#" id="customer_password" class="btn btn-primary btn-block btn-sm" value="<?php echo $this->session->userdata('$type'); ?>">Change Password</a>
+                                                <?php else: ?>
+                                                    <a href="#" class="btn btn-primary btn-block btn-sm">Edit Profile</a>
+                                                <?php endif; ?>
+                                                
                                             </p>
                                         </div>
                                     </div>
@@ -137,3 +146,7 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        
+    </script>

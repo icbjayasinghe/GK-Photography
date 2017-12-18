@@ -55,13 +55,23 @@ class Ctrl_suggestion extends CI_Controller{
             $suggestionList.= "<td>{$row->name}h</td>";
             $suggestionList.= "<td>{$row->email}h</td>";
             $suggestionList.= "<td>{$row->idea}</td>";
-            $suggestionList.= "<td><a class=\"suggestion_check\" onclick=\"loadSuggestionModal('$rowString')\" id={$row->suggestion_id}></a></td>";
-            $suggestionList.= "</tr>";
-            //$appointmentList.= "<td><a class=\"btn btn-success btn-sm\" onclick=\"statusChange('accepted',this.id)\" name=\"accept\" value=\"Accept\" id=\"{$row->appointment_id}\"><span class=\"glyphicon glyphicon-edit\"></span>  Accept</a></td>";
-            //$appointmentList.= "<td><a class=\"btn btn-danger btn-sm\" onclick=\"statusChange('rejected',this.id)\" name=\"reject\" value=\"Reject\" id=\"{$row->appointment_id}\"><span class=\"glyphicon glyphicon-edit\"></span>  Reject</a></td>";
-            
+            $suggestionList.= "<td><a class=\"suggestion_check btn btn-primary btn-sm\" onclick=\"loadSuggestionModal('$rowString')\" id={$row->suggestion_id}><b><span class=\"glyphicon glyphicon-eye-open\"></span> View</b></a></td>";
+            $suggestionList.= "</tr>";    
         }
+
         $suggestionList .="</tbody></table>";
         echo $suggestionList;
+    }
+
+    public function deleteSuggestions(){
+        $id = $this->input->post('id');
+        $this->load->model('model_suggestion');
+       $result =$this->model_suggestion->deleteSuggestion($id);
+       if($result){
+            echo "<h4>Successfully Deleted!</h4>";
+       }
+       else{
+        echo "<h4>Fail to Delete!</h4>"; 
+       }
     }
 }

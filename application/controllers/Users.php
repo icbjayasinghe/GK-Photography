@@ -15,6 +15,8 @@ class Users extends CI_Controller
         $this->load->view('admin/edit_gallery_modal');
         $this->load->view('admin/delete_modal');
         $this->load->view('admin/change_password_modal');
+        $this->load->view('admin/modal_suggestion');
+        $this->load->view('admin/edit_user_modal');
         $this->load->view('edit_customer_details');
         $this->load->view('admin/joinRequest_modal');
         $this->load->view('admin/admin_footer');

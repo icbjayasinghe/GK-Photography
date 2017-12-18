@@ -17,6 +17,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Idea</th>
+                    <th>View Suggestion</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,11 +29,11 @@
                         $suggestionList.= "<tr>";
                         $suggestionList.= "<td>{$row->suggestion_id}</td>";
                         $suggestionList.= "<td>{$row->date}</td>";
-                        $suggestionList.= "<td>{$row->name}h</td>";
+                        $suggestionList.= "<td>{$row->name}</td>";
                         $suggestionList.= "<td>{$row->email}h</td>";
                         $suggestionList.= "<td>{$row->idea}</td>";
-                        $suggestionList.= "<td><a class=\"suggestion_check\" onclick=\"loadSuggestionModal('$rowString')\" id={$row->suggestion_id}></a></td>";
-                        $suggestionList.= "<td><a class=\"suggestion_check btn btn-danger btn-sm\" onclick=\"delete_suggestion('$rowString')\" id={$row->suggestion_id}><b><span class=\"glyphicon glyphicon-edit\"></span> Delete</b></a></td>";
+                        $suggestionList.= "<td><a class=\"suggestion_check btn btn-primary btn-sm\" onclick=\"loadSuggestionModal('$rowString')\" id={$row->suggestion_id}><b><span class=\"glyphicon glyphicon-eye-open\"></span> View</b></a></td>";
+                        
                         $suggestionList.= "</tr>";
                     }
                     echo $suggestionList;
@@ -45,19 +46,7 @@
 
 <script type="text/javascript">
 
-    // load modal to view suggestion details
-    function loadSuggestionModal(suggestionDetails){
-        suggestionDetails = suggestionDetails.split(",");
-        $('#suggestion_id').html(suggestionDetails[0]);
-        $('#date').val(suggestionDetails[1]);
-        $('#name').val(suggestionDetails[2]);
-        $('#email').val(suggestionDetails[3]);
-        $('#idea').val(suggestionDetails[4]);
-        $('#suggestion_Modal').modal('show');
-    }
-
-
-    // load appointment details when date picker is changed
+	// load suggestion details when date picker is changed
     function getSuggestionDetails(value) {
         if (value == '*'){
             var date = '*';
@@ -75,4 +64,46 @@
             }
         });
     }
+
+    // load modal to view suggestion details
+    function loadSuggestionModal(suggestionDetails){
+        suggestionDetails = suggestionDetails.split(",");
+        $('#modal_suggestion_id').val(suggestionDetails[0]);
+        $('#date').val(suggestionDetails[1]);
+        $('#name').val(suggestionDetails[2]);
+        $('#email').val(suggestionDetails[3]);
+        $('#idea').val(suggestionDetails[4]);
+        $('#modal_suggestion').modal('show');
+    }
+
+    function deleteSuggestionDetails(value) {
+        
+        var id = document.getElementById("modal_suggestion_id").value;
+        $.ajax({
+            url:'<?php echo site_url('ctrl_suggestion/deleteSuggestions'); ?>',
+            method: "post",
+            data: {id:id},
+            success: function( data ) {
+            	$('#modal_suggestion').modal('hide');
+                $('#msg_Modal').modal('show');
+                $('#msg_result').html(data);
+            }
+        });
+    }
+
+    // load modal to delete customer details
+    function delete_suggestion(customerDetails){
+        customerDetails = suggestionDetails.split(",");
+        // alert(customerDetails);
+       	$('#suggestion_id').html(suggestionDetails[0]);
+        $('#date').val(suggestionDetails[1]);
+        $('#name').val(suggestionDetails[2]);
+        $('#email').val(suggestionDetails[3]);
+        $('#idea').val(suggestionDetails[4]);
+        $('#delete_modal_suggestion').modal('show');
+    }
+
+     $('#msg_Modal').on('hidden.bs.modal', function () {
+        $('#content').load("<?php echo base_url();?>index.php/administrator/manageSuggestions");
+    });
 </script>
