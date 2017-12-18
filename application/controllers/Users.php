@@ -28,6 +28,7 @@ class Users extends CI_Controller
     {
         $this->load->view('header');
         $this->load->view('customer/customer_home');
+        $this->load->view('customer/cust_edit_cust_details');
         $this->load->view('message_modal');
         $this->load->view('customer/customer_footer');
     }

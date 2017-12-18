@@ -72,6 +72,43 @@ class Customer_model extends CI_Model
     }
 
     /*
+     * get user details for a particular user id for customer edit by customer
+     */
+    public function fetchCustomer($cust_id){
+        try{
+            $this->db->select('*');
+            $this->db->from('customer');
+            $this->db->where('cust_id',$cust_id);
+            $result = $this->db->get();
+            return $result->row();
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+    }
+
+    public function updateCustProfile($edit_user_id,$edit_first_name,$edit_last_name,$edit_phone,$edit_address){  
+        $data=array(
+//            second TRUE parameter for xss_filtering
+            'first_name' => $edit_first_name,
+            'last_name' => $edit_last_name,
+            'cust_phone' => $edit_phone,
+            'cust_address' => $edit_address
+
+        );
+
+        try{
+            //        save data to db
+            $this->db->where('cust_id',$edit_user_id);
+            return $this->db->update('customer',$data);
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+
+    }
+
+    /*
      * fetch customer email
      */
     public function getEmail($cust_id){

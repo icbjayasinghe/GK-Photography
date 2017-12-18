@@ -49,6 +49,47 @@
         });
     },3000);
 
+    function loadCustProfile() {
+        var id=document.getElementById('user_edit').value;
+        $.ajax({
+            url:'<?php echo site_url('customer_manage/getCustomerDetails'); ?>',
+            method: "post",
+            data: {user_id:id},
+            dataType: "json",
+            cache: false,
+            success:function (data) {
+                 $('#edit_first_name').val(data.first_name);
+                 $('#edit_last_name').val(data.last_name);
+                 $('#edit_email').val(data.cust_email);
+                 $('#edit_phone').val(data.cust_phone);
+                 $('#edit_address').val(data.cust_address);
+                 $('#message').html("");
+                 $('#edit_user_id').val(data.cust_id);
+                 $('#cust_edit_cust_modal').modal('show');
+            }
+        });
+    }
+
+    function onclickUpdateCustProfile(){
+        var edit_user_id = document.getElementById("edit_user_id").value;
+        var edit_first_name = document.getElementById("edit_first_name").value;
+        var edit_last_name = document.getElementById("edit_last_name").value;
+        var edit_phone = document.getElementById("edit_phone").value;
+        var edit_address = document.getElementById("edit_address").value;
+
+
+        $.ajax({
+            url:'<?php echo site_url('customer_manage/updateCustProfile'); ?>', //the page containing php script
+            type: "post", //request type
+            data: {edit_user_id : edit_user_id,edit_first_name : edit_first_name,edit_last_name : edit_last_name,edit_phone : edit_phone,edit_address : edit_address},
+            cache: false,
+            success:function(result){
+                $('#cust_edit_cust_modal').modal('hide');
+                $('#msg_Modal').modal('show');
+                $('#msg_result').html(result);
+            }
+        });
+    }
 
 </script>
 
