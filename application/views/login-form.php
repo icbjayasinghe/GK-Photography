@@ -149,13 +149,13 @@
 </div>
 </body>
 
-    <script>
-        $(function () {
-            $("#email_error").hide();
-
-
-
-        })
-    </script>
+<!--    <script>-->
+<!--        $(function () {-->
+<!--            $("#email_error").hide();-->
+<!---->
+<!---->
+<!---->
+<!--        })-->
+<!--    </script>-->
 
 </html>
