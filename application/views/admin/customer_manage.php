@@ -72,10 +72,10 @@
     // load modal to edit customer details
     function edit_customer(customerDetails){
         customerDetails = customerDetails.split(",");
-        // alert(customerDetails);
+        alert(customerDetails);
         $('#edit_cust_id').val(customerDetails[0]);
-        $('#edit_first_name').val(customerDetails[1]);
-        $('#edit_last_name').val(customerDetails[2]);
+        $('#customer_edit_first_name').val(customerDetails[1]);
+        $('#customer_edit_last_name').val(customerDetails[2]);
         $('#edit_cust_phone').val(customerDetails[3]);
         $('#edit_cust_address').val(customerDetails[4]);
         $('#edit_cust_email').val(customerDetails[5]);
@@ -85,8 +85,8 @@
     // when update button is pressed in the modal
     function onclickUpdateCustomer(){
         var edit_cust_id = document.getElementById("edit_cust_id").value;
-        var edit_first_name = document.getElementById("edit_first_name").value;
-        var edit_last_name = document.getElementById("edit_last_name").value;
+        var edit_first_name = document.getElementById("customer_edit_first_name").value;
+        var edit_last_name = document.getElementById("customer_edit_last_name").value;
         var edit_cust_phone = document.getElementById("edit_cust_phone").value;
         var edit_cust_address = document.getElementById("edit_cust_address").value;
         var edit_cust_email = document.getElementById("edit_cust_email").value;

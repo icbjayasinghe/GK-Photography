@@ -25,14 +25,14 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-4 col-form-label clearfix">First Name</label>
                         <div class="col-md-8">
-                            <input class="form-control" type="text" name="first_name" id="edit_first_name" maxlength="50" required="">
+                            <input class="form-control" type="text" name="edit_first_name" id="customer_edit_first_name" maxlength="50" required="">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-4 col-form-label clearfix">Last Name</label>
                         <div class="col-md-8">
-                            <input class="form-control" type="text" name="last_name" id="edit_last_name" maxlength="50" required="">
+                            <input class="form-control" type="text" name="edit_last_name" id="customer_edit_last_name" maxlength="50" required="">
                         </div>
                     </div>
 
