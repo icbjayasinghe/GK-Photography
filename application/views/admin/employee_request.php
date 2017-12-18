@@ -19,6 +19,8 @@
                     <th>Skill</th>
                     <th>Email</th>
                     <th>Phone</th>
+                    <th>View</th>
+                    <th>Delete</th>
 
                 </tr>
                 </thead>
@@ -32,7 +34,8 @@
                             <td><?php echo $row->skill;  ?></td>
                             <td><?php echo $row->email; ?></td>
                             <td><?php echo $row->phone; ?></td>
-                            <td><button class="btn btn-success" onclick="viewbtn(this)" data-toggle="modal" data-target="#mymodal">View</button><button class="btn btn-danger delete" onclick="deletebtn(this)"> Delete </button></td>
+                            <td><button class="btn btn-info btn-sm" onclick="viewbtn(this)" data-toggle="modal" data-target="#mymodal"><span class="glyphicon glyphicon-eye-open"></span> View</button></td>
+                            <td><button class="btn btn-danger btn-sm delete" onclick="deletebtn(this)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
 
 
 
