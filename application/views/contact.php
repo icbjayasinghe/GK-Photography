@@ -57,7 +57,7 @@
                     <script>
                         function myFunction() {
                             var txt;
-                            var r = confirm("Are you sure want to SEND your suggestion!");
+                            var r = confirm("Your suggestion has been SENT Successfully!");
                             if (r == true) {
                                 txt = "You pressed OK!";
                             } else {
@@ -66,8 +66,8 @@
                             document.getElementById("demo").innerHTML = txt;
                         }
                     </script>
+
                 </div>
-          </div>
             <!-- </form> -->
         <!-- </div> -->
         <?php echo form_close(); ?>

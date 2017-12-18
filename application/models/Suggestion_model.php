@@ -19,7 +19,15 @@ class Suggestion_model extends CI_Model
         }
     }
 
-
+    public function deleteSuggestion($id){
+        try{
+            $this->db->select('*');
+            $this->db->from('suggestions');
+        }
+        catch(Exception $e){
+            echo $e;
+        }
+    }
    
 
 }
