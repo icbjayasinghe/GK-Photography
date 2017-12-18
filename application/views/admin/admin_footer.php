@@ -70,6 +70,24 @@
                  $('#edit_user_modal').modal('show');
             }
         });
+    }
+
+    function onclickUpdateAdminProfile(){
+        var edit_user_id = document.getElementById("edit_user_id").value;
+        var edit_first_name = document.getElementById("edit_first_name").value;
+        var edit_last_name = document.getElementById("edit_last_name").value;
+
+        $.ajax({
+            url:'<?php echo site_url('administrator/updateAdminProfile'); ?>', //the page containing php script
+            type: "post", //request type
+            data: {edit_user_id : edit_user_id,edit_first_name : edit_first_name,edit_last_name : edit_last_name},
+            cache: false,
+            success:function(result){
+                $('#edit_user_modal').modal('hide');
+                $('#msg_Modal').modal('show');
+                $('#msg_result').html(result);
+            }
+        });
     }    
 
     $(document).ready(function(){

@@ -58,6 +58,35 @@ class Customer_manage extends CI_Controller
             echo "<h4>Failed to update the Customer</h4>";
         }
     }
+
+    /*
+     * get customer details them self
+     */
+    public function getCustomerDetails(){
+        $user_id = $this->input->post('user_id');
+        $this->load->model('customer_model');
+        $customer=$this->customer_model->fetchCustomer($user_id);
+        echo json_encode($customer);
+    }
+
+    public function updateCustProfile(){
+        $edit_user_id = $this->input->post('edit_user_id');
+        $edit_first_name = $this->input->post('edit_first_name');
+        $edit_last_name = $this->input->post('edit_last_name');
+        $edit_phone = $this->input->post('edit_phone');
+        $edit_address = $this->input->post('edit_address');
+
+        $this->load->model('customer_model');
+
+        $result_customer = $this->customer_model->updateCustProfile($edit_user_id,$edit_first_name,$edit_last_name,$edit_phone,$edit_address);
+        if ($result_customer){
+            echo "<h4>Profile Updated Successfully</h4>";
+        }
+        else{
+            echo "<h4>Failed to update the profile</h4>";
+        }
+    }
+
     /*
      * search customer details
      */

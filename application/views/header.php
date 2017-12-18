@@ -105,9 +105,11 @@
                                             <p class="text-left">
                                                 <?php if (($this->session->userdata('loggedin')) AND ($this->session->userdata('$type'))=='Administrator'): ?>
                                                 <a href="#" class="btn btn-primary btn-block btn-sm" onclick="loadAdminProfile()">Edit Profile</a>
+
                                                 <?php elseif (($this->session->userdata('loggedin')) AND ($this->session->userdata('$type'))=='Customer'): ?>
-                                                <a href="#" id="adminEdit" class="btn btn-primary btn-block btn-sm" value="<?php echo $this->session->userdata('$type'); ?>">Edit Profile</a>
+                                                <a href="#" class="btn btn-primary btn-block btn-sm" onclick="loadCustProfile()">Edit Profile</a>
                                                 <a href="#" id="customer_password" class="btn btn-primary btn-block btn-sm" value="<?php echo $this->session->userdata('$type'); ?>">Change Password</a>
+
                                                 <?php else: ?>
                                                     <a href="#" class="btn btn-primary btn-block btn-sm">Edit Profile</a>
                                                 <?php endif; ?>
