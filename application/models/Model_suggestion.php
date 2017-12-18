@@ -48,4 +48,15 @@ class Model_suggestion extends CI_Model{
         }      
     }
 
+     public function deleteSuggestion($id){
+        try{
+            $this->db->where('suggestion_id',$id);
+            $result=$this->db->delete('suggestions');
+            return $result;
+        }
+        catch(Exception $e){
+            echo $e;
+        }
+    }
+
 }

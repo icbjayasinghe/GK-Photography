@@ -49,13 +49,15 @@
                 </div>
                   
                 <div class="controls btn-full">
-                    <button id="contact-submit" name="submit" value="Submit" type="submit" class="btn btn-primary" onclick="myFunction()">Send</button>
+                    <button id="contact-submit" name="submit" value="Submit" type="submit" class="btn btn-primary" onclick="alert("Your messsage has been sent Successfully!")">Send</button>
 
-                    <p id="demo"></p>
-                    <script>
+                    <!--<p id="demo"></p>-->                 
+
+                </div>
+               <!-- <script>
                         function myFunction() {
                             var txt;
-                            var r = confirm("Are you sure want to SEND your suggestion!");
+                            var r = confirm("Your suggestion has been SENT Successfully!");
                             if (r == true) {
                                 txt = "You pressed OK!";
                             } else {
@@ -64,10 +66,8 @@
                             document.getElementById("demo").innerHTML = txt;
                         }
                     </script>
-
-                </div>
-            <!-- </form> -->
-        <!-- </div> -->
+             </form> 
+         </div> -->
         <?php echo form_close(); ?>
       </div>
     </div>
