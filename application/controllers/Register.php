@@ -31,6 +31,7 @@ class Register extends CI_Controller{
         }
         else {
 //            $newId = $this->database_model->generateId('cust_id','customer','CUS');
+
             $flag=$this->input->post('flag');
             //email model
             $custemail=$this->input->post('email');

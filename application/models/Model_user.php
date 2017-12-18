@@ -52,6 +52,7 @@ class Model_user extends CI_Model{
     }
 
     public function LoginUser(){
+            $this->load->helper('date');
             $email = $this->input->post('email');
             $password = sha1($this->input->post('password'));
 
@@ -62,6 +63,9 @@ class Model_user extends CI_Model{
 
 
             if($respond->num_rows()==1){
+                $this->db->set('last_login',mdate("%Y-%m-%d %H:%i:%s"));
+                $this->db->where('email', $email);
+                $this->db->update('user');
                 return $respond->row(0);
 
             }
