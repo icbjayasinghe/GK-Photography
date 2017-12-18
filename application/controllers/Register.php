@@ -51,7 +51,8 @@ class Register extends CI_Controller{
                 //  last step of registration
                 if($response){
                     if($flag==1){
-                        echo ("asda");
+                        $this->session->set_flashdata('msg','Registered successfully... Confirmation Mail has been sent...');
+                        redirect('Administrator/adminHome');
                     }
                     else{
                         $this->session->set_flashdata('msg','Registered successfully... Confirmation Mail has been sent...');
