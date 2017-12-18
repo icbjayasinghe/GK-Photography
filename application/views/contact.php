@@ -55,7 +55,7 @@
 
                     <p id="demo"></p>
                     <script>
-                        function myFunction() {
+                       /* function myFunction() {
                             var txt;
                             var r = confirm("Your suggestion has been SENT Successfully!");
                             if (r == true) {
@@ -64,7 +64,7 @@
                                 txt = "You pressed Cancel!";
                             }
                             document.getElementById("demo").innerHTML = txt;
-                        }
+                        }*/
                     </script>
 
                 </div>
