@@ -53,8 +53,7 @@
     }
 
     function loadAdminProfile() {
-        var id=document.getElementById('adminEdit').value;
-        alert(id);
+        var id=document.getElementById('user_edit').value;
         $.ajax({
             url:'<?php echo site_url('users/getUserDetails'); ?>',
             method: "post",
@@ -62,16 +61,13 @@
             dataType: "json",
             cache: false,
             success:function (data) {
-                // $('#change_first_name').val(data.first_name);
-                // $('#change_last_name').val(data.last_name);
-                // $('#change_email').val(data.email);
-                // $('#change_type').val(data.type);
-                // $('#change_password').val("");
-                // $('#change_confirm_password').val("");
-                // $('#message').html("");
-                // $('#change_user_id').val(data.user_id);
-                // $('#change_password_Modal').modal('show');
-                alert(data);
+                 $('#edit_first_name').val(data.first_name);
+                 $('#edit_last_name').val(data.last_name);
+                 $('#edit_email').val(data.email);
+                 $('#edit_type').val(data.type);
+                 $('#message').html("");
+                 $('#edit_user_id').val(data.user_id);
+                 $('#edit_user_modal').modal('show');
             }
         });
     }    
