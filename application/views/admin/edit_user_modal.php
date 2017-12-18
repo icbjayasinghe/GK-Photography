@@ -48,7 +48,7 @@
 
                     <div class="col-md-offset-10">
                         <input type="hidden" name="edit_user_id" id="edit_user_id" />
-                        <input type="button" onclick="onclickChangePassword()" name="add" id="add" value="Update" class="btn btn-success my-lg-button" />
+                        <input type="button" onclick="onclickUpdateAdminProfile ()" name="add" id="add" value="Update" class="btn btn-success my-lg-button" />
                     </div>
                 </form>
             </div>

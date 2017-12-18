@@ -73,8 +73,22 @@ class Administrator extends CI_Controller
         $email=$this->input->post('email');
         $this->load->model('Employee_request_model');
         $this->Employee_request_model->delete_request($email);
+    }
 
+    public function updateAdminProfile(){
+        $edit_user_id = $this->input->post('edit_user_id');
+        $edit_first_name = $this->input->post('edit_first_name');
+        $edit_last_name = $this->input->post('edit_last_name');
 
+        $this->load->model('admin_model');
+
+        $result_customer = $this->admin_model->updateAdminProfile($edit_user_id,$edit_first_name,$edit_last_name);
+        if ($result_customer){
+            echo "<h4>Profile Updated Successfully</h4>";
+        }
+        else{
+            echo "<h4>Failed to update the profile</h4>";
+        }
     }
 
 }

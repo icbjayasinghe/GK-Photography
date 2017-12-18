@@ -11,4 +11,22 @@ class Admin_model extends CI_Model{
         echo ("aaa");
     }
 
+    public function updateAdminProfile($edit_user_id,$edit_first_name,$edit_last_name){  
+        $data=array(
+//            second TRUE parameter for xss_filtering
+            'first_name' => $edit_first_name,
+            'last_name' => $edit_last_name,
+        );
+
+        try{
+            //        save data to db
+            $this->db->where('user_id',$edit_user_id);
+            return $this->db->update('user',$data);
+        }
+        catch (Exception $e){
+            echo $e;
+        }
+
+    }
+
 }
